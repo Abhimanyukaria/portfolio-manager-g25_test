@@ -14,7 +14,9 @@
     "mongodb": "^6.10.0",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "stocks.js": "^0.0.19",
+    "yahoo-finance2": "^2.13.2"
   },
   "devDependencies": {
     "eslint": "^8",
