@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/ui/card"
 import { Button } from "@/app/components/ui/button"
+import { Tabs, TabsList, TabsTrigger } from "@/app/components/ui/tabs";
 
 function MoreVerticalIcon(props) {
     return (
@@ -54,7 +55,20 @@ const DashboardJs = () => {
             </div>
         </div>
         
+        <Tabs defaultValue="dashboard" className="mb-8">
+            <TabsList>
+                <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
+                <TabsTrigger value="overview">Overview</TabsTrigger>
+                <TabsTrigger value="performance">Performance</TabsTrigger>
+                <TabsTrigger value="analysis">Analysis</TabsTrigger>
+                <TabsTrigger value="tax-report">Tax Report</TabsTrigger>
+                <TabsTrigger value="transactions">Transactions</TabsTrigger>
+                <TabsTrigger value="alerts">Alerts</TabsTrigger>
+            </TabsList>
+        </Tabs> 
+
         
+
         </div>
             
         )
