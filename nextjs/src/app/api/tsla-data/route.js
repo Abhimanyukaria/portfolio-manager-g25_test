@@ -17,7 +17,7 @@ export async function GET(req, res) {
     //   amount: 10,
     // });
 
-    const result = await yahooFinance.historical('AAPL', { period1: '2020-01-01', period2: '2021-01-01' });
+    const result = await yahooFinance.chart('AAPL', { period1: '2020-01-01', period2: '2021-01-08' });
 
 
     console.log('data from api',result);
