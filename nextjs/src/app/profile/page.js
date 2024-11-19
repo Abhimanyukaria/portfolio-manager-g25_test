@@ -2,6 +2,7 @@
 // import { Layout, Breadcrumb, Card } from 'antd';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import LogoutButton from '../components/LogoutButton';
+import { HeaderJs } from '../components/header';
 
 
 
@@ -27,6 +28,7 @@ export default function Profile() {
 
         
         <div>
+            <HeaderJs/>
             <div >
         <div class="flex flex-col justify-center items-center h-[100vh] text-black bg-slate-300">
             <div class="relative flex flex-col items-center rounded-[20px] w-[400px] mx-auto p-4 bg-white bg-clip-border shadow-3xl shadow-shadow-500 drk:!bg-navy-800 drk:text-white drk:!shadow-none">

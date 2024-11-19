@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+// import { Button } from "@/components/ui/button"
+// import { Input } from "@/components/ui/input"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,9 +10,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+} from "./ui/dropdown-menu"
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { ChartBarIcon, MagnifyingGlassIcon, UserCircleIcon } from '@heroicons/react/24/outline'
+import { Button } from './ui/button'
+import { Input } from './ui/input'
 
 export function HeaderJs() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
