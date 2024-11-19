@@ -104,6 +104,58 @@ const StockInfo = () => {
               </div>
             </CardContent>
           </Card>
+          <Card className="mb-6">
+            <CardHeader>
+              <CardTitle>Stock Range</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <p className="font-semibold mb-2">Today's Range</p>
+                  <div className="relative pt-1">
+                    <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
+                      <div
+                        style={{ width: '60%' }}
+                        className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span>₹2,551.30</span>
+                      <span>₹2,647.65</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">52 Week Range</p>
+                  <div className="relative pt-1">
+                    <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
+                      <div
+                        style={{ width: '80%' }}
+                        className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span>₹1,824.05</span>
+                      <span>₹3,596.00</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">Liquidity</p>
+                  <div className="relative pt-1">
+                    <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
+                      <div
+                        style={{ width: '90%' }}
+                        className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
+                    </div>
+                    <div className="flex justify-between text-xs">
+                      <span>Low</span>
+                      <span>Moderate</span>
+                      <span>High</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>)
     )
 }
