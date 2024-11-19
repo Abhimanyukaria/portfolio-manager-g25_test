@@ -67,7 +67,26 @@ const DashboardJs = () => {
             </TabsList>
         </Tabs> 
 
-        
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+        <Card className="col-span-2">
+          <CardHeader>
+            <CardTitle>Performance</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="h-[300px]">
+              <svg viewBox="0 0 100 100" className="h-full w-full">
+                <path
+                  d="M0,80 Q20,70 40,75 T80,60 T100,40"
+                  fill="none"
+                  stroke="#4f46e5"
+                  strokeWidth="2" />
+              </svg>
+            </div>
+          </CardContent>
+        </Card>
+
+        </div>
 
         </div>
             
