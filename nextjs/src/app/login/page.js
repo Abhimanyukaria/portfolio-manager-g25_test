@@ -55,7 +55,7 @@ return(
         }}
       >
         <Typography.Title level={3}>
-          Login now to start using Injury Index <span className='text-xs text-green-600 '>by Lief</span>
+          Login now to start using Investalyse <span className='text-xs text-green-600 '>by Lief</span>
         </Typography.Title>
         <Button type="primary" href="/api/auth/login" target="_blank">
           <span className='text-xl font-bold'> Join </span>
