@@ -3,8 +3,8 @@
 import React from 'react'
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { StarIcon } from 'lucide-react';
-
 
 const StockInfo = () => {
     return (
@@ -62,6 +62,44 @@ const StockInfo = () => {
                     <p className="text-sm font-semibold">Momentum Score</p>
                     <p className="text-lg font-bold text-red-500">2/10</p>
                   </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="mb-6">
+            <CardHeader>
+              <CardTitle>Angel One Ltd. Share Price</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex justify-between mb-4">
+                <div>
+                  <span className="font-semibold">High:</span> ₹3875.7
+                  <span className="font-semibold ml-4">Low:</span> ₹1840.25
+                  <span className="font-semibold ml-4">Return:</span>
+                  <span className="text-green-500"> +42.00%</span>
+                </div>
+                <div>
+                  <Button variant="outline" className="mr-2">Price</Button>
+                  <Button variant="outline" className="mr-2">P/E Ratio</Button>
+                  <Button variant="outline">P/B Ratio</Button>
+                </div>
+              </div>
+              <div className="h-64 bg-gray-100 flex items-center justify-center">
+                <p className="text-gray-500">Stock price chart placeholder</p>
+              </div>
+              <div className="flex justify-between mt-4">
+                <div>
+                  <Button variant="outline" size="sm">NSE</Button>
+                  <Button variant="outline" size="sm" className="ml-2">BSE</Button>
+                </div>
+                <div>
+                  <Button variant="outline" size="sm">1D</Button>
+                  <Button variant="outline" size="sm" className="ml-2">1M</Button>
+                  <Button variant="outline" size="sm" className="ml-2">3M</Button>
+                  <Button variant="outline" size="sm" className="ml-2">1Y</Button>
+                  <Button variant="outline" size="sm" className="ml-2">3Y</Button>
+                  <Button variant="outline" size="sm" className="ml-2">All</Button>
+                  <Button variant="outline" size="sm" className="ml-2">Custom</Button>
                 </div>
               </div>
             </CardContent>
