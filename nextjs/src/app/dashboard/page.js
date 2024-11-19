@@ -114,6 +114,36 @@ const DashboardJs = () => {
             </CardContent>
         </Card>
 
+        <Card>
+            <CardHeader>
+                <CardTitle>Transactions</CardTitle>
+            </CardHeader>
+            <CardContent>
+            <div className="h-[200px]">
+                <svg viewBox="0 0 100 100" className="h-full w-full">
+                    <rect x="10" y="20" width="10" height="60" fill="#4f46e5" />
+                    <rect x="30" y="30" width="10" height="50" fill="#4f46e5" />
+                    <rect x="50" y="40" width="10" height="40" fill="#4f46e5" />
+                    <rect x="70" y="50" width="10" height="30" fill="#4f46e5" />
+                </svg>
+            </div>
+            </CardContent>
+        </Card>
+
+        <Card>
+            <CardHeader>
+                <CardTitle>Estimated Tax</CardTitle>
+            </CardHeader>
+            <CardContent>
+            <div className="h-[200px]">
+                <svg viewBox="0 0 100 100" className="h-full w-full">
+                    <rect x="10" y="40" width="80" height="20" fill="#4f46e5" />
+                    <rect x="10" y="70" width="40" height="20" fill="#10b981" />
+                </svg>
+            </div>
+            </CardContent>
+        </Card>
+
         </div>
 
         </div>
