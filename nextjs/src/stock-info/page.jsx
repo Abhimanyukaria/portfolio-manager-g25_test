@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { Button } from "@/components/ui/button"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const StockInfo = () => {
     return (
@@ -21,6 +22,16 @@ const StockInfo = () => {
                 <Button variant="outline">Share</Button>
               </div>
             </div>
+            <Tabs defaultValue="overview" className="mb-6">
+              <TabsList>
+                <TabsTrigger value="overview">Overview</TabsTrigger>
+                <TabsTrigger value="key-ratios">Key Ratios</TabsTrigger>
+                <TabsTrigger value="peer-comparison">Peer Comparison</TabsTrigger>
+                <TabsTrigger value="financials">Financials</TabsTrigger>
+                <TabsTrigger value="shareholdings">Shareholdings</TabsTrigger>
+                <TabsTrigger value="news">News</TabsTrigger>
+             </TabsList>
+           </Tabs>
         </div>)
     )
 }
