@@ -70,20 +70,48 @@ const DashboardJs = () => {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
         <Card className="col-span-2">
-          <CardHeader>
-            <CardTitle>Performance</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="h-[300px]">
-              <svg viewBox="0 0 100 100" className="h-full w-full">
-                <path
-                  d="M0,80 Q20,70 40,75 T80,60 T100,40"
-                  fill="none"
-                  stroke="#4f46e5"
-                  strokeWidth="2" />
-              </svg>
-            </div>
-          </CardContent>
+            <CardHeader>
+                <CardTitle>Performance</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <div className="h-[300px]">
+                    <svg viewBox="0 0 100 100" className="h-full w-full">
+                    <path
+                        d="M0,80 Q20,70 40,75 T80,60 T100,40"
+                        fill="none"
+                        stroke="#4f46e5"
+                        strokeWidth="2" />
+                    </svg>
+                </div>
+            </CardContent>
+        </Card>
+
+        <Card>
+            <CardHeader>
+                <CardTitle>Allocation</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <div className="flex justify-center">
+                    <svg width="200" height="200" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="#4f46e5" />
+                        <circle cx="50" cy="50" r="30" fill="#ffffff" />
+                        <text
+                        x="50"
+                        y="50"
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fill="#4f46e5"
+                        fontSize="10">
+                        95.6%
+                        </text>
+                    </svg>
+                </div>
+                <div className="mt-4 flex justify-between text-sm">
+                    <div>Equity 95.6%</div>
+                    <div>Debt 0.47%</div>
+                    <div>Others 0.93%</div>
+                </div>
+            </CardContent>
         </Card>
 
         </div>
