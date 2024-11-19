@@ -3,6 +3,8 @@
 import React from 'react'
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { StarIcon } from 'lucide-react';
+
 
 const StockInfo = () => {
     return (
@@ -32,6 +34,38 @@ const StockInfo = () => {
                 <TabsTrigger value="news">News</TabsTrigger>
              </TabsList>
            </Tabs>
+          <Card className="mb-6">
+            <CardHeader>
+              <CardTitle>Value Research Rating</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="flex justify-between items-center">
+                <div className="flex">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <StarIcon key={star} className="h-6 w-6 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <div className="grid grid-cols-4 gap-4">
+                  <div>
+                    <p className="text-sm font-semibold">Quality Score</p>
+                    <p className="text-lg font-bold text-green-500">8/10</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold">Growth Score</p>
+                    <p className="text-lg font-bold text-yellow-500">6/10</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold">Valuation Score</p>
+                    <p className="text-lg font-bold text-yellow-500">6/10</p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold">Momentum Score</p>
+                    <p className="text-lg font-bold text-red-500">2/10</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>)
     )
 }
