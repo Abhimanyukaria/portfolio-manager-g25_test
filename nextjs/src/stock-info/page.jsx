@@ -156,7 +156,49 @@ const StockInfo = () => {
               </div>
             </CardContent>
           </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Fundamentals</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-sm text-gray-500">Market Cap</p>
+                  <p className="font-semibold">₹23,506 Cr</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">P/E Ratio</p>
+                  <p className="font-semibold">19.63</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">P/B Ratio</p>
+                  <p className="font-semibold">4.95</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Industry P/E</p>
+                  <p className="font-semibold">19.48</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">ROE</p>
+                  <p className="font-semibold">42.38 %</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">ROCE</p>
+                  <p className="font-semibold">-</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Div. Yield</p>
+                  <p className="font-semibold">1.34 %</p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Book Value</p>
+                  <p className="font-semibold">526.96</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>)
     )
 }
+
 export default StockInfo
