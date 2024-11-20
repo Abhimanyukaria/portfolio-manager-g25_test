@@ -53,8 +53,12 @@ folder_name = "stock_data"
 n = 3
 def index(request):
     return HttpResponse("Your are index page")
-def prediction(request,symbol):
-    return HttpResponse(f"{predictions_dict[symbol]}")
+from django.http import JsonResponse
+
+def prediction(request, symbol):
+    prediction_value = predictions_dict.get(symbol, "Symbol not found")
+    return JsonResponse({"symbol": symbol, "prediction": prediction_value})
+
 import pandas as pd
 from django.http import JsonResponse
 
