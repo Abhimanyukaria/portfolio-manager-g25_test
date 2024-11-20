@@ -15,7 +15,7 @@ export default function Hero() {
                 <ArrowRight className="h-5 w-5 text-gray-400" />
               </span>
             </a>
-            </div>
+          </div>
           <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             Smart Portfolio Management for Modern Investors
           </h1>
@@ -28,9 +28,7 @@ export default function Hero() {
               className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               aria-label="Get started with Investalyze"
             >
-
-            </a>
-            Get started
+              Get started
             </a>
             <a href="#learn-more" className="text-sm font-semibold leading-6 text-gray-900" aria-label="Learn more about Investalyze">
               Learn more <span aria-hidden="true">→</span>
