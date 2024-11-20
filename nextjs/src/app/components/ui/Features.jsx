@@ -35,4 +35,25 @@ export default function Features() {
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Powerful tools and insights to help you make informed investment decisions
           </p>
-          
+          </div>
+        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
+            {features.map((feature) => (
+              <div key={feature.name} className="flex flex-col items-center text-center">
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-lg bg-indigo-600">
+                  <feature.icon className="h-8 w-8 text-white" aria-hidden="true" />
+                </div>
+                <dt className="text-xl font-semibold leading-7 text-gray-900">
+                  {feature.name}
+                </dt>
+                <dd className="mt-4 text-base leading-7 text-gray-600">
+                  {feature.description}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  );
+}
