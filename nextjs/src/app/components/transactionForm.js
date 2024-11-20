@@ -8,10 +8,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/app/components/ui/select"
 import { ScrollArea } from "@/app/components/ui/scroll-area"
 import { PlusIcon, XIcon } from 'lucide-react'
+let stockData = require('@/../public/allstocks.json');
+
+console.log(stockData);
 
 const emptyInvestment = {
   stockId: '',
-  type: '',
+  type: 'buy',
   quantity: '',
   purchasePrice: '',
   totalValue: '',
@@ -104,16 +107,29 @@ export function InvestmentFormJsx() {
                   )}
                 </div>
                 <div className="space-y-4">
-                  <div>
-                    <Label htmlFor={`stockId-${index}`}>Stock ID</Label>
-                    <Input
-                      id={`stockId-${index}`}
+                 {/* Stock Search Field */}
+                 <div>
+                    <Label htmlFor={`stockId-${index}`}>Stock Symbol</Label>
+                    <Select
                       name="stockId"
                       value={investment.stockId}
-                      onChange={(e) => handleInputChange(index, e)}
-                      required />
+                      onValueChange={(value) => handleSelectChange(index, 'stockId', value)}
+                      required
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select stock symbol" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {stockData.companies.map((stock) => (
+                          <SelectItem key={stock.symbol} value={stock.symbol}>
+                            {stock.symbol} - {stock.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
                   </div>
-                  <div>
+
+                  {/* <div>
                     <Label htmlFor={`type-${index}`}>Type</Label>
                     <Select
                       name="type"
@@ -129,7 +145,7 @@ export function InvestmentFormJsx() {
                         <SelectItem value="sell">Sell</SelectItem>
                       </SelectContent>
                     </Select>
-                  </div>
+                  </div> */}
                   <div>
                     <Label htmlFor={`quantity-${index}`}>Quantity</Label>
                     <Input
