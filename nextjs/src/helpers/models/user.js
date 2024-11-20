@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
+
+  
   name: {
     type: String,
     required: true
@@ -18,6 +20,6 @@ const userSchema = new mongoose.Schema({
  
 });
 
-const User = mongoose.model('User', userSchema);
+// const User = mongoose.model('User', userSchema);
 
 export default  mongoose.models.User || mongoose.model('User', userSchema);
