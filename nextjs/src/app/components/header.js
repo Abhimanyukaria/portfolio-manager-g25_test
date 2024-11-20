@@ -20,22 +20,30 @@ import { ChartBarIcon, MagnifyingGlassIcon, UserCircleIcon } from '@heroicons/re
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 
+import { usePathname } from 'next/navigation'
+
+
 export function HeaderJs() {
 
   const { user, error, isLoading } = useUser();
 
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [userName, setUserName] = useState('John Doe')
+  const [dashboard, setDashboard] = useState(false)
 
-  const toggleLogin = () => {
-    
-    setIsLoggedIn(!isLoggedIn)
-  }
+  const pathname = usePathname();
+    console.log(pathname);
 
+    useEffect(() => {
+      
+
+      if(pathname == '/dashboard') setDashboard(true);
+  
+    }, [pathname])
+ 
   useEffect(() => {
     setIsLoggedIn(true);
-    setUserName(user.nickname);
+    // setUserName(user.nickname);/
 
   }, [user])
 
@@ -49,9 +57,9 @@ export function HeaderJs() {
             <span className="font-bold text-xl text-gray-900">Investalyze</span>
           </div>
           
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" className="text-gray-600 hover:text-gray-900">
-              <ChartBarIcon className="h-5 w-5 mr-2" />
+          <div className={`flex items-center space-x-4 text-lg`}>
+            <Button variant="ghost" className={`${dashboard? "text-blue-600 hover:underline": " text-gray-600 hover:text-gray-900 "} text-base `}>
+              <ChartBarIcon className={`h-5 w-5 mr-2 `} />
               Dashboard
             </Button>
             
@@ -67,15 +75,18 @@ export function HeaderJs() {
             {isLoggedIn ? (
               <a href="/profile" >
               <Button   className="bg-black text-gray-100 hover:text-gray-200 hover:ring-2 ring-green-100">
+              <UserCircleIcon className="h-5 w-5 mr-2" />
                 My Profile
               </Button>
               </a>
       
             ) : (
-              <Button onClick={toggleLogin}>
+              <a href="/api/auth/login" >
+              <Button>
                 <UserCircleIcon className="h-5 w-5 mr-2" />
                 Login
               </Button>
+              </a>
             )}
           </div>
         </div>
