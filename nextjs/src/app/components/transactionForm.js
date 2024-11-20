@@ -8,9 +8,10 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/app/components/ui/select"
 import { ScrollArea } from "@/app/components/ui/scroll-area"
 import { PlusIcon, XIcon } from 'lucide-react'
+import { StockSearchJsx } from '@/components/stock-search'
 let stockData = require('@/../public/allstocks.json');
 
-console.log(stockData);
+// console.log(stockData);
 
 const emptyInvestment = {
   stockId: '',
@@ -23,6 +24,8 @@ const emptyInvestment = {
 
 export function InvestmentFormJsx() {
   const [investments, setInvestments] = useState([{ ...emptyInvestment }])
+
+
   // const [openForm,setOpenForm] = useState(isFormOpen)
   const scrollAreaRef = useRef(null)
 
@@ -69,141 +72,130 @@ export function InvestmentFormJsx() {
     if (scrollAreaRef.current) {
       const scrollElement = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]')
       if (scrollElement) {
-        scrollElement.scrollTop = scrollElement.scrollHeight-600
+        scrollElement.scrollTop = scrollElement.scrollHeight - 600
       }
     }
   }, [investments.length])
 
+  const [mystock, setStock] = useState('');
+
+  const handleStockIdChange = (index, stockId) => {
+    setInvestments((prevInvestments) => {
+      const newInvestments = [...prevInvestments];
+      newInvestments[index] = { ...newInvestments[index], stockId };
+      return newInvestments;
+    });
+  };
+
+  console.log(mystock);
+
+
+
   return (
     (
-    
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="blacky">
-          <PlusIcon className="mr-2 h-4 w-4" />
-          Add Investment
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px]">
-        <DialogHeader>
-          <DialogTitle>Add New Investment(s)</DialogTitle>
-        </DialogHeader>
-        <form onSubmit={handleSubmit}>
-          <ScrollArea className="h-[60vh] pr-4" ref={scrollAreaRef}>
-            {investments.map((investment, index) => (
-              <div
-                key={index}
-                className="mb-6 pb-6 border-b border-gray-200 last:border-b-0">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-semibold">Investment {index + 1}</h3>
-                  {index > 0 && (
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => removeInvestment(index)}>
-                      <XIcon className="h-4 w-4" />
-                    </Button>
-                  )}
-                </div>
-                <div className="space-y-4">
-                 {/* Stock Search Field */}
-                 <div>
-                    <Label htmlFor={`stockId-${index}`}>Stock Symbol</Label>
-                    <Select
-                      name="stockId"
-                      value={investment.stockId}
-                      onValueChange={(value) => handleSelectChange(index, 'stockId', value)}
-                      required
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select stock symbol" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {stockData.companies.map((stock) => (
-                          <SelectItem key={stock.symbol} value={stock.symbol}>
-                            {stock.symbol} - {stock.name}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
 
-                  {/* <div>
-                    <Label htmlFor={`type-${index}`}>Type</Label>
-                    <Select
-                      name="type"
-                      className="bg-slate-100"
-                      onValueChange={(value) => handleSelectChange(index, value)}
-                      value={investment.type}
-                      required>
-                      <SelectTrigger id={`type-${index}`}>
-                        <SelectValue placeholder="Select transaction type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="buy">Buy</SelectItem>
-                        <SelectItem value="sell">Sell</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div> */}
-                  <div>
-                    <Label htmlFor={`quantity-${index}`}>Quantity</Label>
-                    <Input
-                      id={`quantity-${index}`}
-                      name="quantity"
-                      type="number"
-                      value={investment.quantity}
-                      onChange={(e) => handleInputChange(index, e)}
-                      required />
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button variant="blacky">
+            <PlusIcon className="mr-2 h-4 w-4" />
+            Add Investment
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[600px]">
+          <DialogHeader>
+            <DialogTitle>Add New Investment(s)</DialogTitle>
+          </DialogHeader>
+          <form onSubmit={handleSubmit}>
+            <ScrollArea className="h-[60vh] pr-4" ref={scrollAreaRef}>
+              {investments.map((investment, index) => (
+                <div
+                  key={index}
+                  className="mb-6 pb-6 border-b border-gray-200 last:border-b-0">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-lg font-semibold">Investment {index + 1}</h3>
+                    {index > 0 && (
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => removeInvestment(index)}>
+                        <XIcon className="h-4 w-4" />
+                      </Button>
+                    )}
                   </div>
-                  <div>
-                    <Label htmlFor={`purchasePrice-${index}`}>Purchase Price (in US$)</Label>
-                    <Input
-                      id={`purchasePrice-${index}`}
-                      name="purchasePrice"
-                      type="number"
-                      step="0.01"
-                      value={investment.purchasePrice}
-                      onChange={(e) => handleInputChange(index, e)}
-                      required />
-                  </div>
-                  <div>
-                    <Label htmlFor={`totalValue-${index}`}>Total Value (in US$)</Label>
-                    <Input
-                      
-                      id={`totalValue-${index}`}
-                      name="totalValue"
-                      value={investment.purchasePrice * investment.quantity}
-                      onChange={(e) => handleInputChange(index, e)}
-                      disabled/>
-                  </div>
-                  <div>
-                    <Label htmlFor={`transactionDate-${index}`}>Transaction Date</Label>
-                    <Input
-                      id={`transactionDate-${index}`}
-                      name="transactionDate"
-                      type="date"
-                      value={investment.transactionDate}
-                      onChange={(e) => handleInputChange(index, e)}
-                      required />
+                  <div className="space-y-4">
+                    {/* Stock Search Field */}
+
+
+                    <div>
+                    <Label htmlFor={`stockId-${index}`}>Enter Stock ID</Label>
+                      <StockSearchJsx
+                        setStock={(stockId) => {
+                          if (stockId && stockId !== investments[index].stockId) {
+                            handleStockIdChange(index, stockId);
+                          }
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor={`quantity-${index}`}>Quantity</Label>
+                      <Input
+                        id={`quantity-${index}`}
+                        name="quantity"
+                        type="number"
+                        value={investment.quantity}
+                        onChange={(e) => handleInputChange(index, e)}
+                        required />
+                    </div>
+                    <div>
+                      <Label htmlFor={`purchasePrice-${index}`}>Purchase Price (in US$)</Label>
+                      <Input
+                        id={`purchasePrice-${index}`}
+                        name="purchasePrice"
+                        type="number"
+                        step="0.01"
+                        value={investment.purchasePrice}
+                        onChange={(e) => handleInputChange(index, e)}
+                        required />
+                    </div>
+                    <div>
+                      <Label htmlFor={`totalValue-${index}`}>Total Value (in US$)</Label>
+                      <Input
+
+                        id={`totalValue-${index}`}
+                        name="totalValue"
+                        value={investment.purchasePrice * investment.quantity}
+                        onChange={(e) => handleInputChange(index, e)}
+                        disabled />
+                    </div>
+                    <div>
+                      <Label htmlFor={`transactionDate-${index}`}>Transaction Date</Label>
+                      <Input
+                        id={`transactionDate-${index}`}
+                        name="transactionDate"
+                        type="date"
+                        value={investment.transactionDate}
+                        onChange={(e) => handleInputChange(index, e)}
+                        required />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </ScrollArea>
-          <div className="mt-4 space-y-4">
-            <Button
-              type="button"
-              variant="outline"
-              className="w-full"
-              onClick={addNewInvestment}>
-              <PlusIcon className="mr-2 h-4 w-4" />
-              New Investment
-            </Button>
-            <Button type="submit" variant="greeny" className="w-full">Submit Investments</Button>
-          </div>
-        </form>
-      </DialogContent>
-    </Dialog>)
+              ))}
+            </ScrollArea>
+            <div className="mt-4 space-y-4">
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full"
+                onClick={addNewInvestment}>
+                <PlusIcon className="mr-2 h-4 w-4" />
+                New Investment
+              </Button>
+              <Button type="submit" variant="greeny" className="w-full">Submit Investments</Button>
+            </div>
+          </form>
+        </DialogContent>
+      </Dialog>)
   );
 }
