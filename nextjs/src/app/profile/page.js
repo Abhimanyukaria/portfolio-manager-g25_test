@@ -2,6 +2,9 @@
 // import { Layout, Breadcrumb, Card } from 'antd';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import LogoutButton from '../components/LogoutButton';
+import { HeaderJs } from '../components/header';
+import MyLoader from '../components/loader';
+import { useEffect, useState } from 'react';
 
 
 
@@ -13,20 +16,29 @@ export default function Profile() {
 
     const mydate  = user? user.updated_at.substring(0, 10): "Loading...";
 
-    
+    const [loading, setLoading] = useState(true);
 
+    
+    useEffect(()=> {
+        console.log("ok");
+        if(user){
+            console.log("hi",user)
+            setLoading(false);
+        }
+        else{
+            console.log("error",error);
+        }
+    },[user,error])
 
     console.log(user, error);
 
-    if(!user){
-        return <div> Loading... </div>
-
-    }
+    if (loading) return <MyLoader/>
 
     return (
 
         
         <div>
+            <HeaderJs/>
             <div >
         <div class="flex flex-col justify-center items-center h-[100vh] text-black bg-slate-300">
             <div class="relative flex flex-col items-center rounded-[20px] w-[400px] mx-auto p-4 bg-white bg-clip-border shadow-3xl shadow-shadow-500 drk:!bg-navy-800 drk:text-white drk:!shadow-none">

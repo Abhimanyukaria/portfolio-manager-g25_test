@@ -7,8 +7,9 @@ const transactionSchema = new mongoose.Schema({
     required: true
   },
   stockId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Stock', // Reference to the Stock model
+    // type: mongoose.Schema.Types.ObjectId,
+    // ref: 'Stock', // Reference to the Stock model
+    type: String,
     required: true
   },
   type: {
@@ -38,6 +39,8 @@ const transactionSchema = new mongoose.Schema({
   }
 });
 
-const Transaction = mongoose.model('Transaction', transactionSchema);
+// const Transaction = mongoose.model('Transaction', transactionSchema);
 
-module.exports = Transaction;
+export default  mongoose.models.Transaction || mongoose.model('Transaction', transactionSchema);
+
+// module.exports = Transaction;

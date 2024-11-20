@@ -1,8 +1,12 @@
 'use client'
 
-import React, { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import React, { useState,useEffect } from 'react'
+// import { Button } from "@/components/ui/button"
+// import { Input } from "@/components/ui/input"
+
+import { useUser } from '@auth0/nextjs-auth0/client';
+
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,17 +14,39 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+} from "./ui/dropdown-menu"
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { ChartBarIcon, MagnifyingGlassIcon, UserCircleIcon } from '@heroicons/react/24/outline'
+import { Button } from './ui/button'
+import { Input } from './ui/input'
+
+import { usePathname } from 'next/navigation'
+
 
 export function HeaderJs() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [userName, setUserName] = useState('John Doe')
 
-  const toggleLogin = () => {
-    setIsLoggedIn(!isLoggedIn)
-  }
+  const { user, error, isLoading } = useUser();
+
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [dashboard, setDashboard] = useState(false)
+
+  const pathname = usePathname();
+    console.log(pathname);
+
+    useEffect(() => {
+      
+
+      if(pathname == '/dashboard') setDashboard(true);
+  
+    }, [pathname])
+ 
+  useEffect(() => {
+    setIsLoggedIn(true);
+    // setUserName(user.nickname);/
+
+  }, [user])
+
 
   return (
     (<header className="bg-white shadow-sm">
@@ -31,11 +57,13 @@ export function HeaderJs() {
             <span className="font-bold text-xl text-gray-900">Investalyze</span>
           </div>
           
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" className="text-gray-600 hover:text-gray-900">
-              <ChartBarIcon className="h-5 w-5 mr-2" />
+          <div className={`flex items-center space-x-4 text-lg`}>
+            <a href="/dashboard">
+            <Button variant="ghost" className={`${dashboard? "text-blue-600 hover:underline": " text-gray-600 hover:text-gray-900 "} text-base `}>
+              <ChartBarIcon className={`h-5 w-5 mr-2 `} />
               Dashboard
             </Button>
+            </a>
             
             <div className="relative">
               <MagnifyingGlassIcon
@@ -47,29 +75,20 @@ export function HeaderJs() {
             </div>
             
             {isLoggedIn ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center space-x-2">
-                    <Avatar className="h-8 w-8">
-                      <AvatarImage src="/placeholder.svg?height=32&width=32" alt={userName} />
-                      <AvatarFallback>{userName.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                    </Avatar>
-                    <span>{userName}</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>Profile</DropdownMenuItem>
-                  <DropdownMenuItem>Settings</DropdownMenuItem>
-                  <DropdownMenuItem onClick={toggleLogin}>Logout</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <a href="/profile" >
+              <Button   className="bg-black text-gray-100 hover:text-gray-200 hover:ring-2 ring-green-100">
+              <UserCircleIcon className="h-5 w-5 mr-2" />
+                My Profile
+              </Button>
+              </a>
+      
             ) : (
-              <Button onClick={toggleLogin}>
+              <a href="/api/auth/login" >
+              <Button>
                 <UserCircleIcon className="h-5 w-5 mr-2" />
                 Login
               </Button>
+              </a>
             )}
           </div>
         </div>
