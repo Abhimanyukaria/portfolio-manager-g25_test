@@ -173,6 +173,54 @@ const DashboardJs = () => {
             </CardContent>
         </Card>
 
+        <Card className="col-span-2">
+            <CardHeader>
+                <CardTitle>Top Gainers & Losers</CardTitle>
+            </CardHeader>
+            <CardContent>
+            <div className="grid gap-4 md:grid-cols-2">
+                <div>
+                <h3 className="mb-2 font-semibold">Top Gainers</h3>
+                <div className="rounded bg-green-100 p-2">
+                    <div className="font-semibold">Axis ELSS Tax Saver-G</div>
+                    <div className="text-green-600">₹4,562 (1.45%)</div>
+                </div>
+                </div>
+                <div>
+                <h3 className="mb-2 font-semibold">Top Losers</h3>
+                <div className="rounded bg-red-100 p-2">
+                    <div className="font-semibold">Infosys</div>
+                    <div className="text-red-600">₹-1,675 (-0.85%)</div>
+                </div>
+                </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+            <CardHeader>
+                <CardTitle>VR's Analysis</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <div className="space-y-4">
+                <div>
+                    <div className="font-semibold">Quality Score</div>
+                    <div className="h-2 w-full rounded bg-gray-200">
+                        <div className="h-2 w-3/4 rounded bg-green-500"></div>
+                    </div>
+                </div>
+                <div>
+                    <div className="font-semibold">Asset Allocation</div>
+                    <div>95.6% of your investments are in equities.</div>
+                </div>
+                <div>
+                    <div className="font-semibold">Equity Sector Diversity</div>
+                    <div>You have invested a high amount in just one sector. You should be more diversified.</div>
+                </div>
+                </div>
+            </CardContent>
+        </Card>
+
         </div>
 
         </div>
