@@ -39,6 +39,9 @@ const DashboardJs = () => {
                 });
            
           })
+          .catch((error) => {
+            console.log(error);
+          })
       }, [])
     
     return (
