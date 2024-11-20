@@ -4,37 +4,60 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/ui/ca
 import { Button } from "@/app/components/ui/button"
 import { Tabs, TabsList, TabsTrigger } from "@/app/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/app/components/ui/select";
+import { HeaderJs } from "../components/header";
+import { PlusIcon } from "@heroicons/react/24/outline";
+import { useEffect, useState } from "react";
+import { InvestmentFormJsx } from "../components/transactionForm";
+import axios from "axios";
 
-function MoreVerticalIcon(props) {
-    return (
-      (<svg
-        {...props}
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round">
-        <circle cx="12" cy="12" r="1" />
-        <circle cx="12" cy="5" r="1" />
-        <circle cx="12" cy="19" r="1" />
-      </svg>)
-    );
-}
+
+
+ 
 
 const DashboardJs = () => {
+
+
+    useEffect(() => {
+        fetch('/api/getPortfolio')
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data)
+
+            fetch('api/getTransaction', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json',
+                },
+                body: JSON.stringify({ portfolioId: ['636d72cfd43b7e001e8a5b3a'] }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+           
+          })
+      }, [])
+    
     return (
-        (<div className="min-h-screen bg-gray-100 p-8">
+        (
+        
+
+        <div>
+
+        <HeaderJs/>
+        <div className="min-h-screen bg-gray-100 p-8">
             <div className="mb-8 flex items-center justify-between">
-                <h1 className="text-3xl font-bold">Demo Investments - 1</h1>
+                <h1 className="text-3xl font-bold">My Portfolio</h1>
                 <div className="flex gap-2">
-                    <Button>Add Investments</Button>
-                    <Button variant="outline">
-                        <MoreVerticalIcon className="h-4 w-4" />
-                    </Button>
+                    {/* <Button onClick={() => setIsFormOpen(true) } variant="blacky">
+                        <PlusIcon  className="h-5 w-5 mr-3" />
+                        Add Investments</Button> */}
+
+                        <InvestmentFormJsx/>
+                    
                 </div>
             </div>
 
@@ -223,6 +246,7 @@ const DashboardJs = () => {
 
         </div>
 
+        </div>
         </div>
             
         )
