@@ -27,4 +27,29 @@ export default function Hero() {
               href="#get-started"
               className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               aria-label="Get started with Investalyze"
-            ></a>
+            >
+
+            </a>
+            Get started
+            </a>
+            <a href="#learn-more" className="text-sm font-semibold leading-6 text-gray-900" aria-label="Learn more about Investalyze">
+              Learn more <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+        <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
+          <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+            <img
+              src="https://images.unsplash.com/photo-1642790106117-e829e14a795f?auto=format&fit=crop&q=80&w=2340"
+              alt="Screenshot of Investalyze dashboard, showcasing analytics and insights."
+              width={2432}
+              height={1442}
+              loading="lazy"
+              className="w-[76rem] rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10 transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
