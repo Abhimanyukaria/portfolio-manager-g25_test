@@ -1,7 +1,6 @@
 // pages/api/transactions/addTransaction.js
 
 import connectDB from "@/helpers/connectDB";
-
 import { NextResponse } from "next/server";
 import { getSession } from '@auth0/nextjs-auth0';
 import User from "@/helpers/models/user";
@@ -20,13 +19,12 @@ export async function GET(req, res) {
       return NextResponse.json({ error: "User not authenticated" }, { status: 401 });
     }
 
-    // Check if user exists in the MongoDB database
+    // Check if the user exists in the MongoDB database
     let existingUser = await User.findOne({ email: user.email });
 
     if (!existingUser) {
       // If the user does not exist, create a new user in MongoDB
-
-      console.log("oyy naya banao")
+      console.log("Creating new user...");
       existingUser = new User({
         email: user.email,
         name: user.nickname || "",
@@ -35,16 +33,22 @@ export async function GET(req, res) {
 
       await existingUser.save();
       console.log("New user added to database:", existingUser);
-      
-      
     } else {
       console.log("User found in database:", existingUser);
     }
 
-    // Return the user data from MongoDB
-    return NextResponse.json({ message: "User retrieved", user: existingUser });
+    // Fetch all portfolios for the user
+      const portfolios = await Portfolio.find({ userId: existingUser._id }).select('_id name');
+      const portfolioIds = portfolios.map(portfolio => portfolio._id);
 
+      // Respond with user data and portfolio IDs
+      return NextResponse.json({
+        message: "User and portfolios retrieved successfully",
+        user: existingUser,
+        portfolios: portfolioIds,
+      });
 
+    // return NextResponse.json({user});    
   } catch (error) {
     console.error("Error:", error);
     return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
