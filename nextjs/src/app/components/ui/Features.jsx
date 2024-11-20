@@ -35,7 +35,7 @@ export default function Features() {
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Powerful tools and insights to help you make informed investment decisions
           </p>
-          </div>
+        </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-4">
             {features.map((feature) => (
