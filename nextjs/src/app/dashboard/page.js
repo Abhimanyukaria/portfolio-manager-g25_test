@@ -2,7 +2,8 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/ui/card"
 import { Button } from "@/app/components/ui/button"
-import { Tabs, TabsList, TabsTrigger } from "@/app/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/app/components/ui/tabs"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/app/components/ui/select";
 
 function MoreVerticalIcon(props) {
     return (
@@ -140,6 +141,34 @@ const DashboardJs = () => {
                     <rect x="10" y="40" width="80" height="20" fill="#4f46e5" />
                     <rect x="10" y="70" width="40" height="20" fill="#10b981" />
                 </svg>
+            </div>
+            </CardContent>
+        </Card>
+
+        <Card>
+            <CardHeader>
+                <CardTitle>Returns by Investment Type</CardTitle>
+            </CardHeader>
+            <CardContent>
+            <Select>
+                <SelectTrigger>
+                    <SelectValue placeholder="1 Day" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectItem value="1day">1 Day</SelectItem>
+                    <SelectItem value="1week">1 Week</SelectItem>
+                    <SelectItem value="1month">1 Month</SelectItem>
+                </SelectContent>
+            </Select>
+            <div className="mt-4 space-y-2">
+                <div className="flex justify-between">
+                    <span>Mutual Funds</span>
+                    <span className="text-green-500">₹+4,562 (1.45%)</span>
+                </div>
+                <div className="flex justify-between">
+                    <span>Stocks</span>
+                    <span className="text-red-500">₹-1,700 (-0.92%)</span>
+                </div>
             </div>
             </CardContent>
         </Card>
