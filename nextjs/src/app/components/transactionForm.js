@@ -1,12 +1,12 @@
 'use client'
 
 import React, { useState, useRef, useEffect } from 'react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { Button } from "@/app/components/ui/button"
+import { Input } from "@/app/components/ui/input"
+import { Label } from "@/app/components/ui/label"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/app/components/ui/dialog"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/app/components/ui/select"
+import { ScrollArea } from "@/app/components/ui/scroll-area"
 import { PlusIcon, XIcon } from 'lucide-react'
 
 const emptyInvestment = {
@@ -20,6 +20,7 @@ const emptyInvestment = {
 
 export function InvestmentFormJsx() {
   const [investments, setInvestments] = useState([{ ...emptyInvestment }])
+  // const [openForm,setOpenForm] = useState(isFormOpen)
   const scrollAreaRef = useRef(null)
 
   const handleInputChange = (index, e) => {
@@ -65,15 +66,17 @@ export function InvestmentFormJsx() {
     if (scrollAreaRef.current) {
       const scrollElement = scrollAreaRef.current.querySelector('[data-radix-scroll-area-viewport]')
       if (scrollElement) {
-        scrollElement.scrollTop = scrollElement.scrollHeight
+        scrollElement.scrollTop = scrollElement.scrollHeight-600
       }
     }
   }, [investments.length])
 
   return (
-    (<Dialog>
+    (
+    
+    <Dialog>
       <DialogTrigger asChild>
-        <Button>
+        <Button variant="blacky">
           <PlusIcon className="mr-2 h-4 w-4" />
           Add Investment
         </Button>
@@ -138,7 +141,7 @@ export function InvestmentFormJsx() {
                       required />
                   </div>
                   <div>
-                    <Label htmlFor={`purchasePrice-${index}`}>Purchase Price</Label>
+                    <Label htmlFor={`purchasePrice-${index}`}>Purchase Price (in US$)</Label>
                     <Input
                       id={`purchasePrice-${index}`}
                       name="purchasePrice"
@@ -149,15 +152,14 @@ export function InvestmentFormJsx() {
                       required />
                   </div>
                   <div>
-                    <Label htmlFor={`totalValue-${index}`}>Total Value</Label>
+                    <Label htmlFor={`totalValue-${index}`}>Total Value (in US$)</Label>
                     <Input
+                      
                       id={`totalValue-${index}`}
                       name="totalValue"
-                      type="number"
-                      step="0.01"
-                      value={investment.totalValue}
+                      value={investment.purchasePrice * investment.quantity}
                       onChange={(e) => handleInputChange(index, e)}
-                      required />
+                      disabled/>
                   </div>
                   <div>
                     <Label htmlFor={`transactionDate-${index}`}>Transaction Date</Label>
@@ -182,7 +184,7 @@ export function InvestmentFormJsx() {
               <PlusIcon className="mr-2 h-4 w-4" />
               New Investment
             </Button>
-            <Button type="submit" className="w-full">Submit Investments</Button>
+            <Button type="submit" variant="greeny" className="w-full">Submit Investments</Button>
           </div>
         </form>
       </DialogContent>
