@@ -14,6 +14,7 @@ export default function Navbar() {
             <TrendingUp className="h-8 w-8 text-indigo-600" />
             <span className="ml-2 text-xl font-bold text-gray-900">Investalyze</span>
           </div>
+
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
               <a
@@ -39,6 +40,7 @@ export default function Navbar() {
               </button>
             </div>
           </div>
+
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -50,6 +52,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
       <div
         className={`md:hidden transition-transform duration-300 ${
           isOpen ? 'transform translate-y-0' : 'transform -translate-y-full'
