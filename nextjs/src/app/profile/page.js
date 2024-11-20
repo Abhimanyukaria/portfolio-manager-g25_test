@@ -4,6 +4,7 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 import LogoutButton from '../components/LogoutButton';
 import { HeaderJs } from '../components/header';
 import MyLoader from '../components/loader';
+import { useEffect, useState } from 'react';
 
 
 
@@ -15,15 +16,23 @@ export default function Profile() {
 
     const mydate  = user? user.updated_at.substring(0, 10): "Loading...";
 
-    
+    const [loading, setLoading] = useState(true);
 
+    
+    useEffect(()=> {
+        console.log("ok");
+        if(user){
+            console.log("hi",user)
+            setLoading(false);
+        }
+        else{
+            console.log("error",error);
+        }
+    },[user,error])
 
     console.log(user, error);
 
-    if(!user){
-        return <MyLoader/>
-
-    }
+    if (loading) return <MyLoader/>
 
     return (
 

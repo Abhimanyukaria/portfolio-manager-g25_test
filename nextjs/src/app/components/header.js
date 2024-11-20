@@ -58,10 +58,12 @@ export function HeaderJs() {
           </div>
           
           <div className={`flex items-center space-x-4 text-lg`}>
+            <a href="/dashboard">
             <Button variant="ghost" className={`${dashboard? "text-blue-600 hover:underline": " text-gray-600 hover:text-gray-900 "} text-base `}>
               <ChartBarIcon className={`h-5 w-5 mr-2 `} />
               Dashboard
             </Button>
+            </a>
             
             <div className="relative">
               <MagnifyingGlassIcon
