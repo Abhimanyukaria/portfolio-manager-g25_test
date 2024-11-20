@@ -3,6 +3,7 @@
 import { useUser } from '@auth0/nextjs-auth0/client';
 import LogoutButton from '../components/LogoutButton';
 import { HeaderJs } from '../components/header';
+import MyLoader from '../components/loader';
 
 
 
@@ -20,7 +21,7 @@ export default function Profile() {
     console.log(user, error);
 
     if(!user){
-        return <div> Loading... </div>
+        return <MyLoader/>
 
     }
 
