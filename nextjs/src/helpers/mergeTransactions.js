@@ -1,1 +1,4 @@
-f
+function mergeTransactions(transaction){
+
+    
+}
