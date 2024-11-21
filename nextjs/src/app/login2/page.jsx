@@ -16,7 +16,7 @@ export default async function Page(){
             <div className='text-black'>
 
 
-            <TSLAChart/>
+            {/* <TSLAChart/> */}
             </div>
             
         </div>

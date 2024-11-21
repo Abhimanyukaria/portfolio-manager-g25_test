@@ -12,7 +12,7 @@ let stockData = require('@/../public/allstocks.json');
 
 const stocks = stockData.companies;
 
-console.log(stocks);
+// console.log(stocks);
 
 
 // Mock data for 500 stocks (you would replace this with your actual JSON data)

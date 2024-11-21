@@ -4,25 +4,53 @@
 import React, { useEffect, useState } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import MyLoader from './loader';
 
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend);
 
-const TSLAChart = () => {
+const MyChart = ({stockId,startDate}) => {
   const [data, setData] = useState([]); // State to store the fetched data
   const [chartData, setChartData] = useState(null); // State for chart-ready data
   const [interval, setInterval] = useState('weekly'); // State to track selected interval
 
+  // const [loading, setLoading] = useState(true);
+
+
+
+  
+  const period1 = startDate;
+  const period2 = new Date().toISOString().split('T')[0];
+  console.log(period1,period2)
   // Fetch stock data and store it in the `data` state
   const fetchData = async () => {
-    try {
-      const response = await fetch('/api/tsla-data');
-      const data2 = await response.json();
 
-      console.log('Fetched data:', data2.quotes);
-      setData(data2.quotes); // Store the fetched data in the state
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
+
+      fetch('api/get-stock-data', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify(
+          {
+            "stockId":stockId,
+            "period1":period1,
+            "period2":period2
+        
+        }
+        )
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            console.log('Fetched data:', data.quotes);
+            setData(data.quotes); // Store the fetched data in the state
+            setLoading(false);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+
+        
   };
 
   // Filter data based on the selected interval
@@ -64,15 +92,16 @@ const TSLAChart = () => {
   }, []);
 
   // Render loading message if data isn't available yet
-  if (!chartData) return <p>Loading...</p>;
+  // if (!chartData) return <p>Loading...</p>;
+
+  if(!chartData){
+    return <MyLoader/>
+  }
 
   return (
-    <div>
-      <h2>TSLA Stock Prices ({interval.toUpperCase()})</h2>
+    <div className='mx-2'>
 
-      {/* Radio Buttons for interval selection */}
       
-
       <Line
         data={chartData}
         options={{
@@ -83,7 +112,7 @@ const TSLAChart = () => {
             },
             title: {
               display: true,
-              text: `TSLA Stock Open Prices (${interval.toUpperCase()})`,
+              text: `${stockId} Stock Open Prices (${interval.toUpperCase()})`,
             },
           },
           elements: {
@@ -134,4 +163,4 @@ const TSLAChart = () => {
   );
 };
 
-export default TSLAChart;
+export default MyChart;

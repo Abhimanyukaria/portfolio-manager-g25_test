@@ -9,6 +9,7 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import { InvestmentFormJsx } from "../components/transactionForm";
 import axios from "axios";
+import MyChart from "../components/MyChart";
 
 
 
@@ -83,8 +84,14 @@ const DashboardJs = () => {
         </div>
         
         <Tabs defaultValue="dashboard" className="mb-8">
-            <TabsList>
-                <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
+            <TabsList className="overflow-auto flex-wrap flex">
+            <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
+                <TabsTrigger value="overview">Overview</TabsTrigger>
+                <TabsTrigger value="performance">Performance</TabsTrigger>
+                <TabsTrigger value="analysis">Analysis</TabsTrigger>
+                <TabsTrigger value="tax-report">Tax Report</TabsTrigger>
+                <TabsTrigger value="transactions">Transactions</TabsTrigger>
+                <TabsTrigger value="alerts">Alerts</TabsTrigger><TabsTrigger value="dashboard">Dashboard</TabsTrigger>
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="performance">Performance</TabsTrigger>
                 <TabsTrigger value="analysis">Analysis</TabsTrigger>
@@ -100,17 +107,7 @@ const DashboardJs = () => {
             <CardHeader>
                 <CardTitle>Performance</CardTitle>
             </CardHeader>
-            <CardContent>
-                <div className="h-[300px]">
-                    <svg viewBox="0 0 100 100" className="h-full w-full">
-                    <path
-                        d="M0,80 Q20,70 40,75 T80,60 T100,40"
-                        fill="none"
-                        stroke="#4f46e5"
-                        strokeWidth="2" />
-                    </svg>
-                </div>
-            </CardContent>
+            <MyChart stockId="AAPL" startDate='2016-01-01' />
         </Card>
 
         <Card>
