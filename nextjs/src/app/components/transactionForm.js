@@ -65,6 +65,20 @@ export function InvestmentFormJsx() {
       createdAt: new Date()
     }))
     console.log('Submitted transactions:', submittedData)
+
+    fetch('/api/addTransaction', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({transactions:submittedData})
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error))
+
+
+
     // Here you would typically send this data to your backend
   }
 

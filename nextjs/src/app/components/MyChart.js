@@ -44,7 +44,7 @@ const MyChart = ({stockId,startDate}) => {
             console.log(data);
             console.log('Fetched data:', data.quotes);
             setData(data.quotes); // Store the fetched data in the state
-            setLoading(false);
+            // setLoading(false);
         })
         .catch((error) => {
             console.error(error);
