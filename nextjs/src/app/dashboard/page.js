@@ -10,7 +10,9 @@ import { useEffect, useState } from "react";
 import { InvestmentFormJsx } from "../components/transactionForm";
 import axios from "axios";
 import MyChart from "../components/MyChart";
+import AllocationCard from "../components/allocation-chart";
 
+const sectors = ["Tech", "Petroleum", "Finance", "Healthcare", "Defense", "Retail"];
 
 
  
@@ -18,32 +20,104 @@ import MyChart from "../components/MyChart";
 const DashboardJs = () => {
 
 
+    const [transactions, setTransactions] = useState([]);
+    const [currentStock, setCurrentStock] = useState('AAPL');
+    const [currentDate, setCurrentDate] = useState('2021-01-01');
+    const [totalValue, setTotalValue] = useState(0);
+    const [investedAmount, setInvestedAmount] = useState(0);
+    const [oneDayChange, setOneDayChange] = useState(0);
+    const [allTimeReturns, setAllTimeReturns] = useState(0);
+    const [stockDetails, setStockDetails] = useState([]);
+
+
+    const [sectorAllocations,setSectorAllocations] = useState([]);
+
+
+    useEffect(() => {
+        if (transactions.length === 0) return;
+
+        const fetchStockPrices = async () => {
+            try {
+                const stockIds = transactions.map(t => t.stockId);
+
+                // Fetch current stock prices
+                const response = await fetch('/api/all-stock-details', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ stockIds }),
+                });
+                const data = await response.json();
+                console.log("Fetched stock details:", data.stockDetails);
+
+                // Calculate portfolio values
+                let totalCurrentValue = 0;
+                let totalInvested = 0;
+                let totalDayChange = 0;
+
+                transactions.forEach(transaction => {
+                    const stockDetail = data.stockDetails.find(s => s.stockId === transaction.stockId);
+                    if (stockDetail) {
+                        const currentPrice = stockDetail.result.price.regularMarketPrice;
+                        const previousClose = stockDetail.result.price.regularMarketPreviousClose;
+
+                        totalCurrentValue += transaction.quantity * currentPrice;
+                        totalInvested += transaction.quantity * transaction.purchasePrice;
+
+                        // Calculate 1-day change for each stock
+                        totalDayChange += transaction.quantity * (currentPrice - previousClose);
+                    }
+                });
+
+                setTotalValue(totalCurrentValue);
+                setInvestedAmount(totalInvested);
+                setOneDayChange(totalDayChange);
+                setAllTimeReturns(totalCurrentValue - totalInvested);
+                setStockDetails(data.stockDetails);
+                
+            } catch (error) {
+                console.error("Error fetching stock prices:", error);
+            }
+        };
+
+        fetchStockPrices();
+    }, [transactions]);
+
+
+   
+
     useEffect(() => {
         fetch('/api/getPortfolio')
           .then((res) => res.json())
           .then((data) => {
-            console.log(data)
+            console.log("fetched data",data)
 
-            fetch('api/getTransaction', {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json',
-                },
-                body: JSON.stringify({ portfolioId: ['636d72cfd43b7e001e8a5b3a'] }),
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data);
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
+            setTransactions(data.transactions)
            
           })
           .catch((error) => {
             console.log(error);
           })
       }, [])
+
+
+      
+      function AllStocks() {
+        if (!transactions || transactions.length === 0) {
+            return <div></div>;
+        }
+        return transactions.map((transaction) => (
+            <TabsTrigger
+                key={transaction.stockId}
+                value={transaction.stockId}
+                onClick={() => {
+                    setCurrentStock(transaction.stockId)
+                    setCurrentDate(transaction.transactionDate)
+                }}
+            >
+                {transaction.stockId}
+            </TabsTrigger>
+        ))
+    }
     
     return (
         (
@@ -56,48 +130,54 @@ const DashboardJs = () => {
             <div className="mb-8 flex items-center justify-between">
                 <h1 className="text-3xl font-bold">My Portfolio</h1>
                 <div className="flex gap-2">
-                    {/* <Button onClick={() => setIsFormOpen(true) } variant="blacky">
-                        <PlusIcon  className="h-5 w-5 mr-3" />
-                        Add Investments</Button> */}
+                    
 
                         <InvestmentFormJsx/>
                     
                 </div>
             </div>
 
-        <div className="mb-8 flex items-center justify-between rounded-lg bg-white p-4 shadow">
-            <div>
-                <div className="text-sm text-gray-500">CURRENT VALUE</div>
-                <div className="text-2xl font-bold">₹5.09 Lakh</div>
-                <div className="text-sm text-gray-500">₹1.76 Lakh Invested</div>
-            </div>
-            <div>
-                <div className="text-sm text-gray-500">1 DAY</div>
-                <div className="text-xl font-bold text-green-500">₹+2,862</div>
-                <div className="text-sm text-green-500">0.57%</div>
-            </div>
-            <div>
-                <div className="text-sm text-gray-500">ALL TIME RETURNS</div>
-                <div className="text-xl font-bold text-green-500">₹+3.50 Lakh</div>
-                <div className="text-sm text-green-500">14.8% p.a.</div>
-            </div>
+            <div className="mb-8 flex items-center justify-between rounded-lg bg-white p-4 shadow">
+    <div>
+        <div className="text-sm text-gray-500">CURRENT VALUE</div>
+        <div className="text-2xl font-bold">${totalValue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+        <div className="text-sm text-gray-500">Invested: ${investedAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+    </div>
+    <div>
+        <div className="text-sm text-gray-500">1 DAY</div>
+        <div
+            className={`text-xl font-bold ${
+                oneDayChange >= 0 ? "text-green-500" : "text-red-500"
+            }`}
+        >
+            ${oneDayChange.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
         </div>
+        <div className={text-sm ${oneDayChange >= 0 ? "text-green-500" : "text-red-500"}}>
+            {((oneDayChange / totalValue) * 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
+        </div>
+    </div>
+    <div>
+        <div className="text-sm text-gray-500">ALL TIME RETURNS</div>
+        <div
+            className={`text-xl font-bold ${
+                allTimeReturns >= 0 ? "text-green-500" : "text-red-500"
+            }`}
+        >
+            ${allTimeReturns.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+        </div>
+        <div className={text-sm ${allTimeReturns >= 0 ? "text-green-500" : "text-red-500"}}>
+            {((allTimeReturns / investedAmount) * 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}% p.a.
+        </div>
+    </div>
+</div>
+
         
         <Tabs defaultValue="dashboard" className="mb-8">
             <TabsList className="overflow-auto flex-wrap flex">
             <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="performance">Performance</TabsTrigger>
-                <TabsTrigger value="analysis">Analysis</TabsTrigger>
-                <TabsTrigger value="tax-report">Tax Report</TabsTrigger>
-                <TabsTrigger value="transactions">Transactions</TabsTrigger>
-                <TabsTrigger value="alerts">Alerts</TabsTrigger><TabsTrigger value="dashboard">Dashboard</TabsTrigger>
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="performance">Performance</TabsTrigger>
-                <TabsTrigger value="analysis">Analysis</TabsTrigger>
-                <TabsTrigger value="tax-report">Tax Report</TabsTrigger>
-                <TabsTrigger value="transactions">Transactions</TabsTrigger>
-                <TabsTrigger value="alerts">Alerts</TabsTrigger>
+                <AllStocks/>
             </TabsList>
         </Tabs> 
 
@@ -107,36 +187,10 @@ const DashboardJs = () => {
             <CardHeader>
                 <CardTitle>Performance</CardTitle>
             </CardHeader>
-            <MyChart stockId="AAPL" startDate='2016-01-01' />
+            <MyChart stockId={currentStock} startDate={currentDate} />
         </Card>
 
-        <Card>
-            <CardHeader>
-                <CardTitle>Allocation</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <div className="flex justify-center">
-                    <svg width="200" height="200" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="45" fill="#4f46e5" />
-                        <circle cx="50" cy="50" r="30" fill="#ffffff" />
-                        <text
-                        x="50"
-                        y="50"
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                        fill="#4f46e5"
-                        fontSize="10">
-                        95.6%
-                        </text>
-                    </svg>
-                </div>
-                <div className="mt-4 flex justify-between text-sm">
-                    <div>Equity 95.6%</div>
-                    <div>Debt 0.47%</div>
-                    <div>Others 0.93%</div>
-                </div>
-            </CardContent>
-        </Card>
+       <AllocationCard stockDetails={stockDetails} transactions={transactions}/>
 
         <Card>
             <CardHeader>
