@@ -24,7 +24,7 @@ export async function POST(req, res) {
     const result = await yahooFinance.chart(stockId, { period1, period2 });
 
 
-    console.log('data from api',result);
+    // console.log('data from api',result);
 
     // console.log('bye');
     return NextResponse.json(result);

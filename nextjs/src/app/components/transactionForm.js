@@ -9,7 +9,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ScrollArea } from "@/app/components/ui/scroll-area"
 import { PlusIcon, XIcon } from 'lucide-react'
 import { StockSearchJsx } from '@/components/stock-search'
+import { useUser } from '@auth0/nextjs-auth0/client'
 let stockData = require('@/../public/allstocks.json');
+
+
 
 // console.log(stockData);
 
@@ -23,6 +26,10 @@ const emptyInvestment = {
 }
 
 export function InvestmentFormJsx() {
+
+  const { user, error, isLoading } = useUser();
+
+
   const [investments, setInvestments] = useState([{ ...emptyInvestment }])
 
 
@@ -71,7 +78,9 @@ export function InvestmentFormJsx() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({transactions:submittedData})
+      body: JSON.stringify({
+        "user_email":user.email,
+        transactions:submittedData})
     })
     .then(response => response.json())
     .then(data => console.log(data))

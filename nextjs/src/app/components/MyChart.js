@@ -6,12 +6,18 @@ import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement
 import { Line } from 'react-chartjs-2';
 import MyLoader from './loader';
 
+import { useUser } from '@auth0/nextjs-auth0/client';
+
+
+
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend);
 
 const MyChart = ({stockId,startDate}) => {
   const [data, setData] = useState([]); // State to store the fetched data
   const [chartData, setChartData] = useState(null); // State for chart-ready data
   const [interval, setInterval] = useState('weekly'); // State to track selected interval
+
+
 
   // const [loading, setLoading] = useState(true);
 
@@ -32,6 +38,7 @@ const MyChart = ({stockId,startDate}) => {
         },
         body: JSON.stringify(
           {
+            
             "stockId":stockId,
             "period1":period1,
             "period2":period2

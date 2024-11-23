@@ -8,7 +8,7 @@ const transactionSchema = new mongoose.Schema({
   },
   stockId: {
     
-    id: String,
+    type: String,
     required: true
   },
   type: {

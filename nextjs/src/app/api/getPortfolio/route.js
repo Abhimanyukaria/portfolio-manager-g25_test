@@ -31,15 +31,47 @@ export async function GET(req, res) {
         createdAt: new Date(),
       });
 
+      
+
       await existingUser.save();
       console.log("New user added to database:", existingUser);
+
+
+      let initPortfolio = new Portfolio({
+        userId: existingUser._id,
+        name: "My Portfolio",
+        createdAt: new Date(),
+      });
+
+
+      console.log("Portfolio initialized:", initPortfolio);
     } else {
       console.log("User found in database:", existingUser);
     }
 
     // Fetch all portfolios for the user
       const portfolios = await Portfolio.find({ userId: existingUser._id }).select('_id name');
-      const portfolioIds = portfolios.map(portfolio => portfolio._id);
+
+      let portfolioIds = [];
+
+      if(portfolios.length === 0){
+
+        let initPortfolio = new Portfolio({
+          userId: existingUser._id,
+          name: "My Portfolio",
+          createdAt: new Date(),
+        });
+        await initPortfolio.save();
+        console.log("Portfolio initialized:", initPortfolio);
+        portfolioIds.push(initPortfolio._id);
+
+      }
+      else{
+      portfolioIds = portfolios.map(portfolio => portfolio._id);
+      }
+
+      console.log("Portfolios found:", portfolios);
+
 
       // Respond with user data and portfolio IDs
       return NextResponse.json({
@@ -51,6 +83,6 @@ export async function GET(req, res) {
     // return NextResponse.json({user});    
   } catch (error) {
     console.error("Error:", error);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 501 });
   }
 }
