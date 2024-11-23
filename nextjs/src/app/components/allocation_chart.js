@@ -74,4 +74,49 @@ const AllocationCard = ({ stockDetails ,transactions}) => {
         });
     }, [stockDetails]);
 
-   
+    if (!chartData) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>Allocation</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <div className="flex justify-center">
+                    {/* Render Doughnut Chart */}
+                    <Doughnut
+                        data={chartData}
+                        options={{
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: true, // Display legend
+                                    position: 'bottom',
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function (tooltipItem) {
+                                            return ${tooltipItem.label}: ${tooltipItem.raw.toFixed(2)}%;
+                                        },
+                                    },
+                                },
+                            },
+                        }}
+                    />
+                </div>
+                <div className="mt-4 flex flex-col gap-2 text-sm">
+                    {chartData.labels.map((industry, index) => (
+                        <div key={index} className="flex justify-between">
+                            <span>{industry}</span>
+                            <span>{chartData.datasets[0].data[index].toFixed(2)}%</span>
+                        </div>
+                    ))}
+                </div>
+            </CardContent>
+        </Card>
+    );
+};
+
+export default AllocationCard;
