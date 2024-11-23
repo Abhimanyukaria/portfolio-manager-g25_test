@@ -6,6 +6,9 @@ import { getSession } from '@auth0/nextjs-auth0';
 import User from "@/helpers/models/user";
 import Portfolio from "@/helpers/models/portfolio";
 
+
+import Transaction from "@/helpers/models/transaction";
+
 export async function GET(req, res) {
   // Ensure the database is connected
   await connectDB();
@@ -31,26 +34,65 @@ export async function GET(req, res) {
         createdAt: new Date(),
       });
 
+      
+
       await existingUser.save();
       console.log("New user added to database:", existingUser);
+
+
+      let initPortfolio = new Portfolio({
+        userId: existingUser._id,
+        name: "My Portfolio",
+        createdAt: new Date(),
+      });
+
+
+      console.log("Portfolio initialized:", initPortfolio);
     } else {
       console.log("User found in database:", existingUser);
     }
 
     // Fetch all portfolios for the user
       const portfolios = await Portfolio.find({ userId: existingUser._id }).select('_id name');
-      const portfolioIds = portfolios.map(portfolio => portfolio._id);
+
+      let portfolioIds = [];
+
+      if(portfolios.length === 0){
+
+        let initPortfolio = new Portfolio({
+          userId: existingUser._id,
+          name: "My Portfolio",
+          createdAt: new Date(),
+        });
+        await initPortfolio.save();
+        console.log("Portfolio initialized:", initPortfolio);
+        portfolioIds.push(initPortfolio._id);
+
+      }
+      else{
+      portfolioIds = portfolios.map(portfolio => portfolio._id);
+      }
+
+      console.log("Portfolios found:", portfolios);
+
+      const myportfolio = portfolios[0];
+
+      const transactions = await Transaction.find({portfolioId: myportfolio._id});
+
+      console.log(transactions);
+
 
       // Respond with user data and portfolio IDs
       return NextResponse.json({
         message: "User and portfolios retrieved successfully",
         user: existingUser,
         portfolios: portfolioIds,
+        transactions: transactions
       });
 
     // return NextResponse.json({user});    
   } catch (error) {
     console.error("Error:", error);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 501 });
   }
 }

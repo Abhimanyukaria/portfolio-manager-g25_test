@@ -9,7 +9,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ScrollArea } from "@/app/components/ui/scroll-area"
 import { PlusIcon, XIcon } from 'lucide-react'
 import { StockSearchJsx } from '@/components/stock-search'
+import { useUser } from '@auth0/nextjs-auth0/client'
 let stockData = require('@/../public/allstocks.json');
+
 
 // console.log(stockData);
 
@@ -23,6 +25,10 @@ const emptyInvestment = {
 }
 
 export function InvestmentFormJsx() {
+
+  const { user, error, isLoading } = useUser();
+
+
   const [investments, setInvestments] = useState([{ ...emptyInvestment }])
 
 
@@ -60,11 +66,27 @@ export function InvestmentFormJsx() {
       ...investment,
       quantity: Number(investment.quantity),
       purchasePrice: Number(investment.purchasePrice),
-      totalValue: Number(investment.totalValue),
+      totalValue: Number(investment.quantity) * Number(investment.purchasePrice),
       transactionDate: new Date(investment.transactionDate),
       createdAt: new Date()
     }))
     console.log('Submitted transactions:', submittedData)
+
+    fetch('/api/addTransaction', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "user_email":user.email,
+        transactions:submittedData})
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error))
+
+
+
     // Here you would typically send this data to your backend
   }
 
@@ -87,7 +109,7 @@ export function InvestmentFormJsx() {
     });
   };
 
-  console.log(mystock);
+  // console.log(mystock);
 
 
 
