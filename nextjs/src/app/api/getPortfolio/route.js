@@ -6,6 +6,9 @@ import { getSession } from '@auth0/nextjs-auth0';
 import User from "@/helpers/models/user";
 import Portfolio from "@/helpers/models/portfolio";
 
+
+import Transaction from "@/helpers/models/transaction";
+
 export async function GET(req, res) {
   // Ensure the database is connected
   await connectDB();
@@ -72,12 +75,19 @@ export async function GET(req, res) {
 
       console.log("Portfolios found:", portfolios);
 
+      const myportfolio = portfolios[0];
+
+      const transactions = await Transaction.find({portfolioId: myportfolio._id});
+
+      console.log(transactions);
+
 
       // Respond with user data and portfolio IDs
       return NextResponse.json({
         message: "User and portfolios retrieved successfully",
         user: existingUser,
         portfolios: portfolioIds,
+        transactions: transactions
       });
 
     // return NextResponse.json({user});    

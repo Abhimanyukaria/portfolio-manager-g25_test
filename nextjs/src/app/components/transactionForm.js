@@ -13,7 +13,6 @@ import { useUser } from '@auth0/nextjs-auth0/client'
 let stockData = require('@/../public/allstocks.json');
 
 
-
 // console.log(stockData);
 
 const emptyInvestment = {
