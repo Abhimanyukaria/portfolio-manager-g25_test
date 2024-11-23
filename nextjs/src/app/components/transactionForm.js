@@ -66,7 +66,7 @@ export function InvestmentFormJsx() {
       ...investment,
       quantity: Number(investment.quantity),
       purchasePrice: Number(investment.purchasePrice),
-      totalValue: Number(investment.totalValue),
+      totalValue: Number(investment.quantity) * Number(investment.purchasePrice),
       transactionDate: new Date(investment.transactionDate),
       createdAt: new Date()
     }))
@@ -109,7 +109,7 @@ export function InvestmentFormJsx() {
     });
   };
 
-  console.log(mystock);
+  // console.log(mystock);
 
 
 
