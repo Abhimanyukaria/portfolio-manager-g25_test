@@ -19,7 +19,7 @@ export async function POST(req, res) {
         for (const stockId of stockIds) {
             try {
                 // Fetch stock details for the current stockId
-                const result = await yahooFinance.quoteSummary(stockId, { modules: ['price', 'summaryDetail'] });
+                const result = await yahooFinance.quoteSummary(stockId, { modules: ['price', 'summaryDetail','summaryProfile'] });
                 stockDetails.push({
                     stockId,
                     result
