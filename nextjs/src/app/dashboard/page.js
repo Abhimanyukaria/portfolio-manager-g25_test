@@ -12,8 +12,6 @@ import axios from "axios";
 import MyChart from "../components/MyChart";
 import AllocationCard from "../components/allocation-chart";
 
-const sectors = ["Tech", "Petroleum", "Finance", "Healthcare", "Defense", "Retail"];
-import AllocationCard from "../components/allocation-chart";
 
 const sectors = ["Tech", "Petroleum", "Finance", "Healthcare", "Defense", "Retail"];
 
