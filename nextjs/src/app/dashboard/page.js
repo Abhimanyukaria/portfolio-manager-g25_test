@@ -22,87 +22,99 @@ const DashboardJs = () => {
 
 
     const [transactions, setTransactions] = useState([]);
-    const [currentStock, setCurrentStock] = useState('AAPL');
-    const [currentDate, setCurrentDate] = useState('2021-01-01');
+    const [currentStock, setCurrentStock] = useState("AAPL");
+    const [currentDate, setCurrentDate] = useState("2021-01-01");
     const [totalValue, setTotalValue] = useState(0);
     const [investedAmount, setInvestedAmount] = useState(0);
     const [oneDayChange, setOneDayChange] = useState(0);
     const [allTimeReturns, setAllTimeReturns] = useState(0);
     const [stockDetails, setStockDetails] = useState([]);
-
+    const [topGainers, setTopGainers] = useState([]); // State for top gainers
 
     const [sectorAllocations,setSectorAllocations] = useState([]);
 
 
+
+    useEffect(() => {
+        // Fetch portfolio data
+        fetch("/api/getPortfolio")
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("Fetched portfolio data:", data);
+                setTransactions(data.transactions);
+            })
+            .catch((error) => {
+                console.error("Error fetching portfolio data:", error);
+            });
+    }, []);
+    
     useEffect(() => {
         if (transactions.length === 0) return;
-
+    
         const fetchStockPrices = async () => {
             try {
-                const stockIds = transactions.map(t => t.stockId);
-
+                const stockIds = transactions.map((t) => t.stockId);
+    
                 // Fetch current stock prices
-                const response = await fetch('/api/all-stock-details', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                const response = await fetch("/api/all-stock-details", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ stockIds }),
                 });
+    
                 const data = await response.json();
                 console.log("Fetched stock details:", data.stockDetails);
-
+    
                 // Calculate portfolio values
                 let totalCurrentValue = 0;
                 let totalInvested = 0;
                 let totalDayChange = 0;
-
-                transactions.forEach(transaction => {
-                    const stockDetail = data.stockDetails.find(s => s.stockId === transaction.stockId);
+    
+                transactions.forEach((transaction) => {
+                    const stockDetail = data.stockDetails.find((s) => s.stockId === transaction.stockId);
                     if (stockDetail) {
                         const currentPrice = stockDetail.result.price.regularMarketPrice;
                         const previousClose = stockDetail.result.price.regularMarketPreviousClose;
-
+    
                         totalCurrentValue += transaction.quantity * currentPrice;
                         totalInvested += transaction.quantity * transaction.purchasePrice;
-
+    
                         // Calculate 1-day change for each stock
                         totalDayChange += transaction.quantity * (currentPrice - previousClose);
                     }
                 });
-
+    
                 setTotalValue(totalCurrentValue);
                 setInvestedAmount(totalInvested);
                 setOneDayChange(totalDayChange);
                 setAllTimeReturns(totalCurrentValue - totalInvested);
                 setStockDetails(data.stockDetails);
-                
             } catch (error) {
                 console.error("Error fetching stock prices:", error);
             }
         };
-
+    
         fetchStockPrices();
     }, [transactions]);
-
-
-   
-
+    
     useEffect(() => {
-        fetch('/api/getPortfolio')
-          .then((res) => res.json())
-          .then((data) => {
-            console.log("fetched data",data)
+        // Fetch top gainers data
+        const fetchTopGainers = async () => {
+            try {
+                const response = await fetch("/api/get-top-gainers");
+                const data = await response.json();
+                setTopGainers(data); // Store the fetched gainers in state
+                console.log("Top Gainers:", data);
+            } catch (error) {
+                console.error("Error fetching top gainers:", error);
+            }
+        };
+    
+        fetchTopGainers();
+    }, []);
+    
 
-            setTransactions(data.transactions)
-           
-          })
-          .catch((error) => {
-            console.log(error);
-          })
-      }, [])
-
-
-      
-      function AllStocks() {
+    function AllStocks() {
         if (!transactions || transactions.length === 0) {
             return <div></div>;
         }
@@ -111,15 +123,15 @@ const DashboardJs = () => {
                 key={transaction.stockId}
                 value={transaction.stockId}
                 onClick={() => {
-                    setCurrentStock(transaction.stockId)
-                    setCurrentDate(transaction.transactionDate)
+                    setCurrentStock(transaction.stockId);
+                    setCurrentDate(transaction.transactionDate);
                 }}
             >
                 {transaction.stockId}
             </TabsTrigger>
-        ))
+        ));
     }
-    
+
     return (
         (
         
@@ -127,16 +139,30 @@ const DashboardJs = () => {
         <div>
 
         <HeaderJs/>
+
+
         <div className="min-h-screen bg-gray-100 p-8">
+
+
             <div className="mb-8 flex items-center justify-between">
+
+
                 <h1 className="text-3xl font-bold">My Portfolio</h1>
+
+
+            {/* button to add investment */}
                 <div className="flex gap-2">
                     
 
                         <InvestmentFormJsx/>
                     
                 </div>
+
+
             </div>
+
+
+            {/* Combined stats of portfolio */}
 
             <div className="mb-8 flex items-center justify-between rounded-lg bg-white p-4 shadow">
     <div>
@@ -172,6 +198,8 @@ const DashboardJs = () => {
     </div>
 </div>
 
+
+            {/* List of stocks for graph */}
         
         <Tabs defaultValue="dashboard" className="mb-8">
             <TabsList className="overflow-auto flex-wrap flex">
@@ -183,6 +211,8 @@ const DashboardJs = () => {
         </Tabs> 
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+
 
         <Card className="col-span-2">
             <CardHeader>
@@ -251,29 +281,25 @@ const DashboardJs = () => {
             </CardContent>
         </Card>
 
+
+
         <Card className="col-span-2">
-            <CardHeader>
-                <CardTitle>Top Gainers & Losers</CardTitle>
-            </CardHeader>
-            <CardContent>
-            <div className="grid gap-4 md:grid-cols-2">
-                <div>
-                <h3 className="mb-2 font-semibold">Top Gainers</h3>
-                <div className="rounded bg-green-100 p-2">
-                    <div className="font-semibold">Axis ELSS Tax Saver-G</div>
-                    <div className="text-green-600">₹4,562 (1.45%)</div>
-                </div>
-                </div>
-                <div>
-                <h3 className="mb-2 font-semibold">Top Losers</h3>
-                <div className="rounded bg-red-100 p-2">
-                    <div className="font-semibold">Infosys</div>
-                    <div className="text-red-600">₹-1,675 (-0.85%)</div>
-                </div>
-                </div>
-            </div>
-          </CardContent>
-        </Card>
+                        <CardHeader>
+                            <CardTitle>Top Gainers Today</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="grid gap-4 md:grid-cols-2">
+                                {topGainers.map((gainer, index) => (
+                                    <div key={index} className="rounded bg-green-100 p-2">
+                                        <div className="font-semibold">{gainer.name} ({gainer.stockId})</div>
+                                        <div className="text-green-600">+{gainer.gain.toFixed(2)}%</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </CardContent>
+                    </Card>
+
+
 
         <Card>
             <CardHeader>
