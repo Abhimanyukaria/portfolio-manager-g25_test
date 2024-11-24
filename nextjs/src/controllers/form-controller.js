@@ -1,9 +1,22 @@
-function validateInvestment(input) {
+import fs from 'fs'
+
+export function validateInvestment(input) {
     const { stockId, quantity, purchasePrice, transactionDate } = input;
 
+    const stockData = JSON.parse(fs.readFileSync('./public/allstocks.json', 'utf8'));
     // Check if all fields are provided
-    if (!stockId || !quantity || !purchasePrice || !transactionDate) {
+    if (
+        stockId === undefined || 
+        quantity === undefined || 
+        purchasePrice === undefined || 
+        transactionDate === undefined
+    ) {
         return { success: false, error: "All fields (stockId, quantity, purchasePrice, transactionDate) are required." };
+    }
+
+    const stockExists = stockData.companies.some(company => company.symbol === stockId);
+    if (!stockExists) {
+        return { success: false, error: "Requested Stock does not exist in the database." };
     }
 
     // Validate quantity
@@ -30,14 +43,3 @@ function validateInvestment(input) {
     // If all validations pass
     return { success: true, message: "Input is valid." };
 }
-
-// Example Usage
-const investment = {
-    stockId: "AAPL",
-    quantity: 10,
-    purchasePrice: 150.5,
-    transactionDate: "2024-11-23", // Change to a future date to see the error
-};
-
-const result = validateInvestment(investment);
-console.log(result);
