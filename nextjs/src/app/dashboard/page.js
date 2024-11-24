@@ -13,6 +13,8 @@ import MyChart from "../components/MyChart";
 import AllocationCard from "../components/allocation-chart";
 import { TopGainersAndLosers } from "../components/top-gnl";
 import { InvestmentByYear } from "../components/per-year";
+import MyLoader from "../components/loader";
+import { set } from "mongoose";
 
 
 const sectors = ["Tech", "Petroleum", "Finance", "Healthcare", "Defense", "Retail"];
@@ -33,16 +35,20 @@ const DashboardJs = () => {
     const [stockDetails, setStockDetails] = useState([]);
     const [topGainers, setTopGainers] = useState([]); // State for top gainers
 
+    const [loading, setLoading] = useState(true);
+
 
 
 
     useEffect(() => {
         // Fetch portfolio data
+        setLoading(true);
         fetch("/api/getPortfolio")
             .then((res) => res.json())
             .then((data) => {
                 console.log("Fetched portfolio data:", data);
                 setTransactions(data.transactions);
+                setLoading(false);
             })
             .catch((error) => {
                 console.error("Error fetching portfolio data:", error);
@@ -50,6 +56,7 @@ const DashboardJs = () => {
     }, []);
     
     useEffect(() => {
+        setLoading(true);
         if (transactions.length === 0) return;
     
         const fetchStockPrices = async () => {
@@ -90,6 +97,8 @@ const DashboardJs = () => {
                 setOneDayChange(totalDayChange);
                 setAllTimeReturns(totalCurrentValue - totalInvested);
                 setStockDetails(data.stockDetails);
+
+                setLoading(false);
             } catch (error) {
                 console.error("Error fetching stock prices:", error);
             }
@@ -132,6 +141,11 @@ const DashboardJs = () => {
             </TabsTrigger>
         ));
     }
+
+    if(loading){
+        return <MyLoader/>
+    }
+
 
     return (
         (
@@ -204,9 +218,7 @@ const DashboardJs = () => {
         
         <Tabs defaultValue="dashboard" className="mb-8">
             <TabsList className="overflow-auto flex-wrap flex">
-            <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="performance">Performance</TabsTrigger>
+           
                 <AllStocks/>
             </TabsList>
         </Tabs> 
