@@ -26,8 +26,9 @@ const MyChart = ({stockId,startDate}) => {
   
   const period1 = startDate;
   const period2 = new Date().toISOString().split('T')[0];
-  console.log(period1,period2)
+  // console.log(period1,period2)
   // Fetch stock data and store it in the `data` state
+  
   const fetchData = async () => {
 
 
@@ -48,7 +49,7 @@ const MyChart = ({stockId,startDate}) => {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
+            // console.log(data);
             console.log('Fetched data:', data.quotes);
             setData(data.quotes); // Store the fetched data in the state
             // setLoading(false);
@@ -59,6 +60,8 @@ const MyChart = ({stockId,startDate}) => {
 
         
   };
+
+  
 
   // Filter data based on the selected interval
   const filterDataByInterval = (interval) => {
@@ -93,16 +96,13 @@ const MyChart = ({stockId,startDate}) => {
     }
   }, [interval, data]);
 
-  // Fetch data only once on component mount
   useEffect(() => {
+    console.log(stockId, period1, period2);
     fetchData();
-  }, []);
-
-  // Render loading message if data isn't available yet
-  // if (!chartData) return <p>Loading...</p>;
+}, [stockId, period1, period2]);
 
   if(!chartData){
-    return <MyLoader/>
+    return <div>Loading...</div>
   }
 
   return (
