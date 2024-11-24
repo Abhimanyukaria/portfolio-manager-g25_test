@@ -7,6 +7,8 @@ import { StarIcon } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import { usePathname } from 'next/navigation';
 import MyChart from '@/app/components/MyChart';
+import Navbar from '@/app/components/ui/Navbar';
+import { HeaderJs } from '@/app/components/header';
 
 function calculateLiquidity(summaryDetail) {
     const regularMarketVolume = summaryDetail.regularMarketVolume;
@@ -18,9 +20,25 @@ function calculateLiquidity(summaryDetail) {
     const liquidityRatio = regularMarketVolume / averageDailyVolume10Day;
   
     // Volume Turnover Ratio
-    const volumeTurnoverRatio = (regularMarketVolume * regularMarketPrice) / marketCap;
+    // const volumeTurnoverRatio = (regularMarketVolume * regularMarketPrice) / marketCap;
   
     return liquidityRatio.toFixed(0);
+  }
+
+  function renderStars(value) {
+    const starCount = Math.round(value * 5); // Convert percentage (0-1 scale) to stars (1-5)
+    return (
+      <div className="flex">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <StarIcon
+            key={star}
+            className={`h-6 w-6 ${
+              star <= starCount ? 'text-yellow-400 fill-current' : 'text-gray-300'
+            }`}
+          />
+        ))}
+      </div>
+    );
   }
   
 
@@ -32,6 +50,8 @@ const StockInfo = () => {
   const stockId = pathname.split("/")[2]; // Extract stockId from the URL
   const [stockDetails, setStockDetails] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [insight, setInsight] = useState(null);
+
 
   useEffect(() => {
     const fetchStockDetails = async () => {
@@ -51,7 +71,25 @@ const StockInfo = () => {
       }
     };
 
+    const fetchInsights = async () => {
+        try {
+          const response = await fetch('/api/insights', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ stockId }),
+          });
+          const data = await response.json();
+          setInsight(data);
+          console.log('Fetched stock insights:', data);
+        } catch (error) {
+          console.error('Error fetching stock insights:', error);
+        }
+      };
+
+
+
     fetchStockDetails();
+    fetchInsights();
   }, [stockId]);
 
   if (loading) {
@@ -71,9 +109,20 @@ const StockInfo = () => {
 
   console.log('Liquidity Ratio:', liquidityRatio);
 
+  const recommendation =
+  insight?.recommendation?.rating || 'No recommendation available';
+const targetPrice = insight?.recommendation?.targetPrice
+  ? `$${insight.recommendation.targetPrice}`
+  : 'N/A';
+
+  const { instrumentInfo, companySnapshot } = insight || {};
+
+
   return (
-    <div className="max-w-4xl mx-auto p-4">
-      <div className="flex justify-between items-center mb-4">
+    <div className=" mx-auto p-4">
+
+        <HeaderJs/>
+      <div className="flex justify-between items-center mb-4 mt-6">
         <div>
           <h1 className="text-2xl font-bold">{price.longName || price.shortName}</h1>
           <div className="flex items-center">
@@ -97,39 +146,8 @@ const StockInfo = () => {
         </div>
       </div>
 
-      {/* Value Research Rating */}
-      <Card className="mb-6">
-        <CardHeader>
-          <CardTitle>Value Research Rating</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex justify-between items-center">
-            <div className="flex">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <StarIcon key={star} className="h-6 w-6 text-yellow-400 fill-current" />
-              ))}
-            </div>
-            <div className="grid grid-cols-4 gap-4">
-              <div>
-                <p className="text-sm font-semibold">Quality Score</p>
-                <p className="text-lg font-bold text-green-500">8/10</p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold">Growth Score</p>
-                <p className="text-lg font-bold text-yellow-500">6/10</p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold">Valuation Score</p>
-                <p className="text-lg font-bold text-yellow-500">6/10</p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold">Momentum Score</p>
-                <p className="text-lg font-bold text-red-500">2/10</p>
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+       {/* Insights Card */}
+   
 
       {/* Share Price Card */}
       <Card className="mb-6">
@@ -257,6 +275,65 @@ const StockInfo = () => {
               <p className="text-sm text-gray-500">Book Value</p>
               <p className="font-semibold">{summaryDetail.bookValue || 'N/A'}</p>
             </div>
+          </div>
+        </CardContent>
+      </Card>
+
+
+      <Card className="mb-6 mt-6">
+        <CardHeader>
+          <CardTitle>Stock Insights</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className=" grid grid-cols-3 gap-4">
+            {/* Technical Events */}
+            {instrumentInfo?.technicalEvents && (
+              <div className='col-span-2'>
+                <p className="text-sm text-gray-500">Technical Outlook</p>
+                <p className="font-semibold">{instrumentInfo.technicalEvents.shortTermOutlook.stateDescription}</p>
+                <p className="text-sm text-gray-500">
+                  Short-Term: <span className="font-semibold">{instrumentInfo.technicalEvents.shortTermOutlook.direction}</span>
+                </p>
+                
+                <p className="text-sm text-gray-500">
+                  Long-Term: <span className="font-semibold">{instrumentInfo.technicalEvents.longTermOutlook.direction}</span>
+                </p>
+              </div>
+            )}
+
+            {/* Valuation */}
+            {instrumentInfo?.valuation && (
+              <div>
+                <p className="text-sm text-gray-500">Valuation</p>
+                <p className="font-semibold">
+                  {instrumentInfo.valuation.description} ({instrumentInfo.valuation.discount} discount)
+                </p>
+              </div>
+            )}
+
+            {/* Innovativeness */}
+            {companySnapshot?.company?.innovativeness && (
+              <div>
+                <p className="text-sm text-gray-500">Innovativeness</p>
+                {renderStars(companySnapshot.company.innovativeness)}
+              </div>
+            )}
+
+            {/* Hiring */}
+            {companySnapshot?.company?.hiring && (
+              <div>
+                <p className="text-sm text-gray-500">Hiring Activity</p>
+                {renderStars(companySnapshot.company.hiring)}
+              </div>
+            )}
+
+            {/* Insider Sentiments */}
+            {companySnapshot?.company?.insiderSentiments && (
+              <div>
+                <p className="text-sm text-gray-500">Insider Sentiments</p>
+                {renderStars(companySnapshot.company.insiderSentiments)}
+              </div>
+            )}
           </div>
         </CardContent>
       </Card>

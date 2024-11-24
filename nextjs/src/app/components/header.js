@@ -21,15 +21,34 @@ import { Button } from './ui/button'
 import { Input } from './ui/input'
 
 import { usePathname } from 'next/navigation'
+import { StockSearchJsx } from '@/components/navbar-stock-search';
+
+
+import { useRouter } from 'next/router'
+
+
+
 
 
 export function HeaderJs() {
 
   const { user, error, isLoading } = useUser();
 
+  // const router = useRouter();
+
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [dashboard, setDashboard] = useState(false)
+  const [stock, setStock] = useState('')
+
+  // useEffect(() => {
+
+  //   window.location.href('/search-stock/'+ stock);
+  // }
+  // , [stock])
+
+
+  console.log(stock);
 
   const pathname = usePathname();
     console.log(pathname);
@@ -65,14 +84,15 @@ export function HeaderJs() {
             </Button>
             </a>
             
-            <div className="relative">
+            <StockSearchJsx setStock={setStock}/>
+            {/* <div className="relative">
               <MagnifyingGlassIcon
                 className="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
               <Input
                 type="search"
                 placeholder="Search stocks..."
                 className="pl-10 pr-4 py-2 border rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            </div>
+            </div> */}
             
             {isLoggedIn ? (
               <a href="/profile" >
