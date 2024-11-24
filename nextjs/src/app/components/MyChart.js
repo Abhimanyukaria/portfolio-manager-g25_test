@@ -32,7 +32,7 @@ const MyChart = ({stockId,startDate}) => {
   const fetchData = async () => {
 
 
-      fetch('api/get-stock-data', {
+      fetch('http://localhost:3000/api/get-stock-data', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',

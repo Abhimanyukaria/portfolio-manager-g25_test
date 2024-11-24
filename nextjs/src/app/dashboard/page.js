@@ -12,6 +12,7 @@ import axios from "axios";
 import MyChart from "../components/MyChart";
 import AllocationCard from "../components/allocation-chart";
 import { TopGainersAndLosers } from "../components/top-gnl";
+import { InvestmentByYear } from "../components/per-year";
 
 
 const sectors = ["Tech", "Petroleum", "Finance", "Healthcare", "Defense", "Retail"];
@@ -225,72 +226,16 @@ const DashboardJs = () => {
             
        <TopGainersAndLosers stockDetails={stockDetails} transactions={transactions}/>
 
-        <Card>
+       
+        <InvestmentByYear transactions={transactions} stockDetails={stockDetails}/>
 
-
-
-            <CardHeader>
-                <CardTitle>Transactions</CardTitle>
-            </CardHeader>
-            <CardContent>
-            <div className="h-[200px]">
-                <svg viewBox="0 0 100 100" className="h-full w-full">
-                    <rect x="10" y="20" width="10" height="60" fill="#4f46e5" />
-                    <rect x="30" y="30" width="10" height="50" fill="#4f46e5" />
-                    <rect x="50" y="40" width="10" height="40" fill="#4f46e5" />
-                    <rect x="70" y="50" width="10" height="30" fill="#4f46e5" />
-                </svg>
-            </div>
-            </CardContent>
-        </Card>
-
-        <Card>
-            <CardHeader>
-                <CardTitle>Estimated Tax</CardTitle>
-            </CardHeader>
-            <CardContent>
-            <div className="h-[200px]">
-                <svg viewBox="0 0 100 100" className="h-full w-full">
-                    <rect x="10" y="40" width="80" height="20" fill="#4f46e5" />
-                    <rect x="10" y="70" width="40" height="20" fill="#10b981" />
-                </svg>
-            </div>
-            </CardContent>
-        </Card>
-
-        <Card>
-            <CardHeader>
-                <CardTitle>Returns by Investment Type</CardTitle>
-            </CardHeader>
-            <CardContent>
-            <Select>
-                <SelectTrigger>
-                    <SelectValue placeholder="1 Day" />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectItem value="1day">1 Day</SelectItem>
-                    <SelectItem value="1week">1 Week</SelectItem>
-                    <SelectItem value="1month">1 Month</SelectItem>
-                </SelectContent>
-            </Select>
-            <div className="mt-4 space-y-2">
-                <div className="flex justify-between">
-                    <span>Mutual Funds</span>
-                    <span className="text-green-500">₹+4,562 (1.45%)</span>
-                </div>
-                <div className="flex justify-between">
-                    <span>Stocks</span>
-                    <span className="text-red-500">₹-1,700 (-0.92%)</span>
-                </div>
-            </div>
-            </CardContent>
-        </Card>
+       
 
 
 
         <Card className="col-span-2">
                         <CardHeader>
-                            <CardTitle>Top Gainers Today</CardTitle>
+                            <CardTitle>Top Gainers Today in the Market</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <div className="grid gap-4 md:grid-cols-2">
@@ -306,29 +251,7 @@ const DashboardJs = () => {
 
 
 
-        <Card>
-            <CardHeader>
-                <CardTitle>VR's Analysis</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <div className="space-y-4">
-                <div>
-                    <div className="font-semibold">Quality Score</div>
-                    <div className="h-2 w-full rounded bg-gray-200">
-                        <div className="h-2 w-3/4 rounded bg-green-500"></div>
-                    </div>
-                </div>
-                <div>
-                    <div className="font-semibold">Asset Allocation</div>
-                    <div>95.6% of your investments are in equities.</div>
-                </div>
-                <div>
-                    <div className="font-semibold">Equity Sector Diversity</div>
-                    <div>You have invested a high amount in just one sector. You should be more diversified.</div>
-                </div>
-                </div>
-            </CardContent>
-        </Card>
+       
 
         </div>
 
