@@ -9,6 +9,7 @@ import { usePathname } from 'next/navigation';
 import MyChart from '@/app/components/MyChart';
 import Navbar from '@/app/components/ui/Navbar';
 import { HeaderJs } from '@/app/components/header';
+import MyLoader from '@/app/components/loader';
 
 function calculateLiquidity(summaryDetail) {
     const regularMarketVolume = summaryDetail.regularMarketVolume;
@@ -93,7 +94,7 @@ const StockInfo = () => {
   }, [stockId]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <MyLoader/>
   }
 
   if (!stockDetails) {

@@ -72,8 +72,9 @@ export function HeaderJs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <ChartBarIcon className="h-8 w-8 text-blue-600 mr-2" />
-            <span className="font-bold text-xl text-gray-900">Investalyze</span>
+            {/* <ChartBarIcon className="h-8 w-8 text-blue-600 mr-2" /> */}
+            <img src="/logo.jpeg" className="h-12 w-auto mr-2 -ml-6" />
+            <span className="font-bold text-xl text-gray-900 ">INVESTALYZE</span>
           </div>
           
           <div className={`flex items-center space-x-4 text-lg`}>
