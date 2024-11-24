@@ -11,6 +11,7 @@ import { InvestmentFormJsx } from "../components/transactionForm";
 import axios from "axios";
 import MyChart from "../components/MyChart";
 import AllocationCard from "../components/allocation-chart";
+import { TopGainersAndLosers } from "../components/top-gnl";
 
 
 const sectors = ["Tech", "Petroleum", "Finance", "Healthcare", "Defense", "Retail"];
@@ -31,7 +32,6 @@ const DashboardJs = () => {
     const [stockDetails, setStockDetails] = useState([]);
     const [topGainers, setTopGainers] = useState([]); // State for top gainers
 
-    const [sectorAllocations,setSectorAllocations] = useState([]);
 
 
 
@@ -222,8 +222,13 @@ const DashboardJs = () => {
         </Card>
 
        <AllocationCard stockDetails={stockDetails} transactions={transactions}/>
+            
+       <TopGainersAndLosers stockDetails={stockDetails} transactions={transactions}/>
 
         <Card>
+
+
+
             <CardHeader>
                 <CardTitle>Transactions</CardTitle>
             </CardHeader>
