@@ -11,6 +11,8 @@ import Navbar from '@/app/components/ui/Navbar';
 import { HeaderJs } from '@/app/components/header';
 import MyLoader from '@/app/components/loader';
 
+import Link from 'next/link';
+
 function calculateLiquidity(summaryDetail) {
     const regularMarketVolume = summaryDetail.regularMarketVolume;
     const averageDailyVolume10Day = summaryDetail.averageDailyVolume10Day;
@@ -354,14 +356,14 @@ const StockInfo = () => {
       </div>
       <div>
         <p className="text-sm text-gray-500">Website</p>
-        <a
+        <Link
           href={summaryProfile.website}
           target="_blank"
           rel="noopener noreferrer"
           className="font-semibold text-blue-500 hover:underline"
         >
           {summaryProfile.website}
-        </a>
+        </Link>
       </div>
       <div>
         <p className="text-sm text-gray-500">Industry</p>
@@ -381,14 +383,14 @@ const StockInfo = () => {
       </div>
       <div>
         <p className="text-sm text-gray-500">Investor Relations</p>
-        <a
+        <Link
           href={summaryProfile.irWebsite}
           target="_blank"
           rel="noopener noreferrer"
           className="font-semibold text-blue-500 hover:underline"
         >
           Investor Relations Page
-        </a>
+        </Link>
       </div>
     </div>
   </CardContent>

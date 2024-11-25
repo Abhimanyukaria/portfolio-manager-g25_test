@@ -8,6 +8,8 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { ChevronsUpDownIcon, CheckIcon } from 'lucide-react'
 import { cn } from "@/lib/utils"
 
+import Link from 'next/link'
+
 let stockData = require('@/../public/allstocks.json');
 
 const stocks = stockData.companies;
@@ -28,7 +30,7 @@ export function StockSearchJsx({ setStock }) {
     const inputRef = useRef(null)
 
 
-    setStock(value);
+    // setStock(value);
 
     console.log(value);
 
@@ -59,8 +61,8 @@ export function StockSearchJsx({ setStock }) {
                             ? `${stocks.find((stock) => stock.symbol === value)?.name} (${value})`
                             : "Select stock..."}
 
-                        <a class="cssbuttons-io ml-2 -mx-5" href={'/stock-info/' + value} >
-                                                {/* <a href={'/stock-info/' + value}> */}
+                        <Link className="cssbuttons-io ml-2 -mx-5" href={'/stock-info/' + value} >
+                                                {/* <Link href={'/stock-info/' + value}> */}
 
                             <span>
                                 Search
@@ -69,19 +71,19 @@ export function StockSearchJsx({ setStock }) {
                                     xmlns="http://www.w3.org/2000/svg"
                                     role="img"
                                     aria-labelledby="title desc"
-                                    class="svg-icon search-icon"
+                                    className="svg-icon search-icon"
                                 >
                                     <title>Search Icon</title>
                                     <desc id="desc">A magnifying glass icon.</desc>
-                                    <g stroke="white" fill="none" class="search-path">
-                                        <path d="M18.5 18.3l-5.4-5.4" stroke-linecap="square"></path>
+                                    <g stroke="white" fill="none" className="search-path">
+                                        <path d="M18.5 18.3l-5.4-5.4" strokeLinecap="square"></path>
                                         <circle r="7" cy="8" cx="8"></circle>
                                     </g>
                                 </svg>
                             </span>
-                            {/* </a> */}
+                            {/* </Link> */}
 
-                        </a>
+                        </Link>
 
                     </Button>
                 </PopoverTrigger>
@@ -100,6 +102,7 @@ export function StockSearchJsx({ setStock }) {
                                     key={stock.symbol}
                                     onClick={() => {
                                         setValue(stock.symbol)
+                                        setStock(stock.symbol)
                                         setOpen(false)
                                         // onSelect(stock.symbol)
                                     }}

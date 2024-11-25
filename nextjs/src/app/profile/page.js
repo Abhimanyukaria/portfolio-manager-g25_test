@@ -40,19 +40,19 @@ export default function Profile() {
         <div>
             <HeaderJs/>
             <div >
-        <div class="flex flex-col justify-center items-center h-[100vh] text-black bg-slate-300">
-            <div class="relative flex flex-col items-center rounded-[20px] w-[400px] mx-auto p-4 bg-white bg-clip-border shadow-3xl shadow-shadow-500 drk:!bg-navy-800 drk:text-white drk:!shadow-none">
-                <div class="relative flex h-32 w-full justify-center rounded-xl bg-cover" >
-                    <img src="/randomass.jpg" class="absolute flex h-32 w-full justify-center rounded-xl bg-cover"/> 
-                    <div class="absolute -bottom-12 flex h-[87px] w-[87px] items-center justify-center rounded-full border-[4px] border-white bg-pink-400 drk:!border-navy-700">
-                        <img class="h-full w-full rounded-full" src={user.picture} alt="avatar"/>
+        <div className="flex flex-col justify-center items-center h-[100vh] text-black bg-slate-300">
+            <div className="relative flex flex-col items-center rounded-[20px] w-[400px] mx-auto p-4 bg-white bg-clip-border shadow-3xl shadow-shadow-500 drk:!bg-navy-800 drk:text-white drk:!shadow-none">
+                <div className="relative flex h-32 w-full justify-center rounded-xl bg-cover" >
+                    <img src="/randomass.jpg" className="absolute flex h-32 w-full justify-center rounded-xl bg-cover"/> 
+                    <div className="absolute -bottom-12 flex h-[87px] w-[87px] items-center justify-center rounded-full border-[4px] border-white bg-pink-400 drk:!border-navy-700">
+                        <img className="h-full w-full rounded-full" src={user.picture} alt="avatar"/>
                     </div>
                 </div> 
-                <div class="mt-16 flex flex-col items-center">
-                    <h4 class="text-xl text-black font-bold text-navy-700 drk:text-white">
+                <div className="mt-16 flex flex-col items-center">
+                    <h4 className="text-xl text-black font-bold text-navy-700 drk:text-white">
                     {user.nickname}
                     </h4>
-                    <p class="text-base font-normal text-gray-800">{user.email}</p>
+                    <p className="text-base font-normal text-gray-800">{user.email}</p>
                     <div className='font-bold pt-3'> <span className=''> Joined at: </span> {mydate}</div>
                 </div> 
                 

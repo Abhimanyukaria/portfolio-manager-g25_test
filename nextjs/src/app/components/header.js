@@ -6,6 +6,8 @@ import React, { useState,useEffect } from 'react'
 
 import { useUser } from '@auth0/nextjs-auth0/client';
 
+import Link from 'next/link';
+
 
 import {
   DropdownMenu,
@@ -78,12 +80,12 @@ export function HeaderJs() {
           </div>
           
           <div className={`flex items-center space-x-4 text-lg`}>
-            <a href="/dashboard">
+            <Link href="/dashboard">
             <Button variant="ghost" className={`${dashboard? "text-blue-600 hover:underline": " text-gray-600 hover:text-gray-900 "} text-base `}>
               <ChartBarIcon className={`h-5 w-5 mr-2 `} />
               Dashboard
             </Button>
-            </a>
+            </Link>
             
             <StockSearchJsx setStock={setStock}/>
             {/* <div className="relative">
@@ -96,20 +98,20 @@ export function HeaderJs() {
             </div> */}
             
             {isLoggedIn ? (
-              <a href="/profile" >
+              <Link href="/profile" >
               <Button   className="bg-black text-gray-100 hover:text-gray-200 hover:ring-2 ring-green-100">
               <UserCircleIcon className="h-5 w-5 mr-2" />
                 My Profile
               </Button>
-              </a>
+              </Link>
       
             ) : (
-              <a href="/api/auth/login" >
+              <Link href="/api/auth/login" >
               <Button>
                 <UserCircleIcon className="h-5 w-5 mr-2" />
                 Login
               </Button>
-              </a>
+              </Link>
             )}
           </div>
         </div>

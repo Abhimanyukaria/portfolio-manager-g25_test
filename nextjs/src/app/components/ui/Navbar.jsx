@@ -1,5 +1,6 @@
 import { Menu, X, TrendingUp } from 'lucide-react';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,24 +18,24 @@ export default function Navbar() {
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
-              <a
+              <Link
                 href="#features"
                 className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
               >
                 Features
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#pricing"
                 className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
               >
                 Pricing
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#testimonials"
                 className="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
               >
                 Testimonials
-              </a>
+              </Link>
               <button className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">
                 Get Started
               </button>
@@ -59,27 +60,27 @@ export default function Navbar() {
         }`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
+          <Link
             href="#features"
             onClick={handleLinkClick}
             className="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium"
           >
             Features
-          </a>
-          <a
+          </Link>
+          <Link
             href="#pricing"
             onClick={handleLinkClick}
             className="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium"
           >
             Pricing
-          </a>
-          <a
+          </Link>
+          <Link
             href="#testimonials"
             onClick={handleLinkClick}
             className="text-gray-700 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium"
           >
             Testimonials
-          </a>
+          </Link>
           <button className="w-full bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition-colors">
             Get Started
           </button>
