@@ -29,7 +29,7 @@ import {
     };
   
     // Aggregate investments and returns by year
-    const investmentsAndReturnsByYear = transactions.reduce((acc, transaction) => {
+    const investmentsAndReturnsByYear = transactions ? transactions.reduce((acc, transaction) => {
       const year = new Date(transaction.transactionDate).getFullYear();
       const returns = calculateReturns(transaction);
   
@@ -41,7 +41,7 @@ import {
       acc[year].returns += returns;
   
       return acc;
-    }, {});
+    }, {}) : {};
   
     // Sort years and prepare data for the chart
     const years = Object.keys(investmentsAndReturnsByYear).sort((a, b) => a - b);

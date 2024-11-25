@@ -14,7 +14,7 @@ import AllocationCard from "../components/allocation-chart";
 import { TopGainersAndLosers } from "../components/top-gnl";
 import { InvestmentByYear } from "../components/per-year";
 import MyLoader from "../components/loader";
-import { set } from "mongoose";
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 
 const sectors = ["Tech", "Petroleum", "Finance", "Healthcare", "Defense", "Retail"];
@@ -37,13 +37,34 @@ const DashboardJs = () => {
 
     const [loading, setLoading] = useState(true);
 
+    // const { user, error, isLoading } = useUser();
+
+
 
 
 
     useEffect(() => {
+
+        // try {
+        //     const response = await fetch('/api/insights', {
+        //       method: 'POST',
+        //       headers: { 'Content-Type': 'application/json' },
+        //       body: JSON.stringify({ stockId }),
+        //     });
+        //     const data = await response.json();
+        //     setInsight(data);
+        //     console.log('Fetched stock insights:', data);
+        //   } catch (error) {
+        //     console.error('Error fetching stock insights:', error);
+        //   }
+          
         // Fetch portfolio data
         setLoading(true);
-        fetch("/api/getPortfolio")
+        fetch("/api/getPortfolio", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ hi:"hi" }),
+          })
             .then((res) => res.json())
             .then((data) => {
                 console.log("Fetched portfolio data:", data);
@@ -57,7 +78,7 @@ const DashboardJs = () => {
     
     useEffect(() => {
         setLoading(true);
-        if (transactions.length === 0) return;
+        if (transactions && transactions.length === 0) return;
     
         const fetchStockPrices = async () => {
             try {
@@ -125,10 +146,40 @@ const DashboardJs = () => {
     
 
     function AllStocks() {
+
+        // let stockIds = transactions.map((t) => t.stockId);
+
+        //remove duplicates from the transactions array
+
+        
+
+        
+
+
+
+        
+
+
+
         if (!transactions || transactions.length === 0) {
             return <div></div>;
         }
-        return transactions.map((transaction) => (
+
+        const uniqueTransactions = Array.from(
+            transactions.reduce((map, transaction) => {
+                if (!map.has(transaction.stockId)) {
+                    map.set(transaction.stockId, transaction);
+                }
+                return map;
+            }, new Map()).values()
+        );
+
+        //
+        return uniqueTransactions.map((transaction) => (
+
+            
+            
+
             <TabsTrigger
                 key={transaction.stockId}
                 value={transaction.stockId}
@@ -139,6 +190,9 @@ const DashboardJs = () => {
             >
                 {transaction.stockId}
             </TabsTrigger>
+
+           
+
         ));
     }
 

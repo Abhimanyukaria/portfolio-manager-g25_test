@@ -9,14 +9,23 @@ import Portfolio from "@/helpers/models/portfolio";
 
 import Transaction from "@/helpers/models/transaction";
 
-export async function GET(req, res) {
+export async function POST(req, res) {
   // Ensure the database is connected
+
+  console.log("this is an api route");
+
+  const session = await getSession();
+  const { user } = session;
+
+  // const body  = await req.json();
+
+  // const user = await body.user;
+
   await connectDB();
 
   try {
     // Retrieve user information from Auth0 session
-    const session = await getSession();
-    const { user } = session;
+   
 
     if (!user || !user.email) {
       return NextResponse.json({ error: "User not authenticated" }, { status: 401 });
