@@ -66,7 +66,7 @@
 
 // export default App;
 
-export default function(){
+export default function App2(){
     return(
         <div>
             Hello
