@@ -20,7 +20,7 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 const sectors = ["Tech", "Petroleum", "Finance", "Healthcare", "Defense", "Retail"];
 
 
- 
+
 
 const DashboardJs = () => {
 
@@ -45,26 +45,15 @@ const DashboardJs = () => {
 
     useEffect(() => {
 
-        // try {
-        //     const response = await fetch('/api/insights', {
-        //       method: 'POST',
-        //       headers: { 'Content-Type': 'application/json' },
-        //       body: JSON.stringify({ stockId }),
-        //     });
-        //     const data = await response.json();
-        //     setInsight(data);
-        //     console.log('Fetched stock insights:', data);
-        //   } catch (error) {
-        //     console.error('Error fetching stock insights:', error);
-        //   }
-          
+
+
         // Fetch portfolio data
         setLoading(true);
         fetch("/api/getPortfolio", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ hi:"hi" }),
-          })
+            body: JSON.stringify({ hi: "hi" }),
+        })
             .then((res) => res.json())
             .then((data) => {
                 console.log("Fetched portfolio data:", data);
@@ -75,44 +64,44 @@ const DashboardJs = () => {
                 console.error("Error fetching portfolio data:", error);
             });
     }, []);
-    
+
     useEffect(() => {
         setLoading(true);
         if (transactions && transactions.length === 0) return;
-    
+
         const fetchStockPrices = async () => {
             try {
                 const stockIds = transactions.map((t) => t.stockId);
-    
+
                 // Fetch current stock prices
                 const response = await fetch("/api/all-stock-details", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ stockIds }),
                 });
-    
+
                 const data = await response.json();
                 console.log("Fetched stock details:", data.stockDetails);
-    
+
                 // Calculate portfolio values
                 let totalCurrentValue = 0;
                 let totalInvested = 0;
                 let totalDayChange = 0;
-    
+
                 transactions.forEach((transaction) => {
                     const stockDetail = data.stockDetails.find((s) => s.stockId === transaction.stockId);
                     if (stockDetail) {
                         const currentPrice = stockDetail.result.price.regularMarketPrice;
                         const previousClose = stockDetail.result.price.regularMarketPreviousClose;
-    
+
                         totalCurrentValue += transaction.quantity * currentPrice;
                         totalInvested += transaction.quantity * transaction.purchasePrice;
-    
+
                         // Calculate 1-day change for each stock
                         totalDayChange += transaction.quantity * (currentPrice - previousClose);
                     }
                 });
-    
+
                 setTotalValue(totalCurrentValue);
                 setInvestedAmount(totalInvested);
                 setOneDayChange(totalDayChange);
@@ -124,10 +113,10 @@ const DashboardJs = () => {
                 console.error("Error fetching stock prices:", error);
             }
         };
-    
+
         fetchStockPrices();
     }, [transactions]);
-    
+
     useEffect(() => {
         // Fetch top gainers data
         const fetchTopGainers = async () => {
@@ -140,25 +129,12 @@ const DashboardJs = () => {
                 console.error("Error fetching top gainers:", error);
             }
         };
-    
+
         fetchTopGainers();
     }, []);
-    
+
 
     function AllStocks() {
-
-        // let stockIds = transactions.map((t) => t.stockId);
-
-        //remove duplicates from the transactions array
-
-        
-
-        
-
-
-
-        
-
 
 
         if (!transactions || transactions.length === 0) {
@@ -177,8 +153,8 @@ const DashboardJs = () => {
         //
         return uniqueTransactions.map((transaction) => (
 
-            
-            
+
+
 
             <TabsTrigger
                 key={transaction.stockId}
@@ -191,141 +167,162 @@ const DashboardJs = () => {
                 {transaction.stockId}
             </TabsTrigger>
 
-           
+
 
         ));
     }
 
-    if(loading){
-        return <MyLoader/>
+    if (loading) {
+        return <MyLoader />
     }
+
+    if (!transactions || transactions.length === 0) {
+        return (
+          <div>
+            <HeaderJs />
+            <div className="mb-8 flex items-center justify-between">
+              <h1 className="text-3xl font-bold">My Portfolio</h1>
+              <div className="flex gap-2">
+                <InvestmentFormJsx />
+              </div>
+            </div>
+            <div className="min-h-screen bg-gray-100 p-8">No transactions found</div>
+          </div>
+        );
+      }
 
 
     return (
         (
+
+
+            <div>
+
+                <HeaderJs />
+
+
+
+         
+
         
 
-        <div>
 
-        <HeaderJs/>
-
-
-        <div className="min-h-screen bg-gray-100 p-8">
+                        <div className="min-h-screen bg-gray-100 p-8">
 
 
-            <div className="mb-8 flex items-center justify-between">
+                            <div className="mb-8 flex items-center justify-between">
 
 
-                <h1 className="text-3xl font-bold">My Portfolio</h1>
+                                <h1 className="text-3xl font-bold">My Portfolio</h1>
 
 
-            {/* button to add investment */}
-                <div className="flex gap-2">
-                    
-
-                        <InvestmentFormJsx/>
-                    
-                </div>
+                                {/* button to add investment */}
+                                <div className="flex gap-2">
 
 
-            </div>
+                                    <InvestmentFormJsx />
+
+                                </div>
 
 
-            {/* Combined stats of portfolio */}
-
-            <div className="mb-8 flex items-center justify-between rounded-lg bg-white p-4 shadow">
-    <div>
-        <div className="text-sm text-gray-500">CURRENT VALUE</div>
-        <div className="text-2xl font-bold">${totalValue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-        <div className="text-sm text-gray-500">Invested: ${investedAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-    </div>
-    <div>
-        <div className="text-sm text-gray-500">1 DAY</div>
-        <div
-            className={`text-xl font-bold ${
-                oneDayChange >= 0 ? "text-green-500" : "text-red-500"
-            }`}
-        >
-            ${oneDayChange.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-        </div>
-        <div className={`text-sm ${oneDayChange >= 0 ? "text-green-500" : "text-red-500"}`}>
-            {((oneDayChange / totalValue) * 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
-        </div>
-    </div>
-    <div>
-        <div className="text-sm text-gray-500">ALL TIME RETURNS</div>
-        <div
-            className={`text-xl font-bold ${
-                allTimeReturns >= 0 ? "text-green-500" : "text-red-500"
-            }`}
-        >
-            ${allTimeReturns.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-        </div>
-        <div className={`text-sm ${allTimeReturns >= 0 ? "text-green-500" : "text-red-500"}`}>
-            {((allTimeReturns / investedAmount) * 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}% p.a.
-        </div>
-    </div>
-</div>
-
-
-            {/* List of stocks for graph */}
-        
-        <Tabs defaultValue="dashboard" className="mb-8">
-            <TabsList className="overflow-auto flex-wrap flex">
-           
-                <AllStocks/>
-            </TabsList>
-        </Tabs> 
-
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-
-
-
-        <Card className="col-span-2">
-            <CardHeader>
-                <CardTitle>Performance</CardTitle>
-            </CardHeader>
-            <MyChart stockId={currentStock} startDate={currentDate} />
-        </Card>
-
-       <AllocationCard stockDetails={stockDetails} transactions={transactions}/>
-            
-       <TopGainersAndLosers stockDetails={stockDetails} transactions={transactions}/>
-
-       
-        <InvestmentByYear transactions={transactions} stockDetails={stockDetails}/>
-
-       
-
-
-
-        <Card className="col-span-2">
-                        <CardHeader>
-                            <CardTitle>Top Gainers Today in the Market</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <div className="grid gap-4 md:grid-cols-2">
-                                {topGainers.map((gainer, index) => (
-                                    <div key={index} className="rounded bg-green-100 p-2">
-                                        <div className="font-semibold">{gainer.name} ({gainer.stockId})</div>
-                                        <div className="text-green-600">+{gainer.gain.toFixed(2)}%</div>
-                                    </div>
-                                ))}
                             </div>
-                        </CardContent>
-                    </Card>
+
+
+                            {/* Combined stats of portfolio */}
+
+                            <div className="mb-8 flex items-center justify-between rounded-lg bg-white p-4 shadow">
+                                <div>
+                                    <div className="text-sm text-gray-500">CURRENT VALUE</div>
+                                    <div className="text-2xl font-bold">${totalValue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                                    <div className="text-sm text-gray-500">Invested: ${investedAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                                </div>
+                                <div>
+                                    <div className="text-sm text-gray-500">1 DAY</div>
+                                    <div
+                                        className={`text-xl font-bold ${oneDayChange >= 0 ? "text-green-500" : "text-red-500"
+                                            }`}
+                                    >
+                                        ${oneDayChange.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                    </div>
+                                    <div className={`text-sm ${oneDayChange >= 0 ? "text-green-500" : "text-red-500"}`}>
+                                        {((oneDayChange / totalValue) * 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%
+                                    </div>
+                                </div>
+                                <div>
+                                    <div className="text-sm text-gray-500">ALL TIME RETURNS</div>
+                                    <div
+                                        className={`text-xl font-bold ${allTimeReturns >= 0 ? "text-green-500" : "text-red-500"
+                                            }`}
+                                    >
+                                        ${allTimeReturns.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                    </div>
+                                    <div className={`text-sm ${allTimeReturns >= 0 ? "text-green-500" : "text-red-500"}`}>
+                                        {((allTimeReturns / investedAmount) * 100).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}% p.a.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            {/* List of stocks for graph */}
+
+                            <Tabs defaultValue="dashboard" className="mb-8">
+                                <TabsList className="overflow-auto flex-wrap flex">
+
+                                    <AllStocks />
+                                </TabsList>
+                            </Tabs>
+
+                            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
 
 
-       
+                                <Card className="col-span-2">
+                                    <CardHeader>
+                                        <CardTitle>Performance</CardTitle>
+                                    </CardHeader>
+                                    <MyChart stockId={currentStock} startDate={currentDate} />
+                                </Card>
 
-        </div>
+                                <AllocationCard stockDetails={stockDetails} transactions={transactions} />
 
-        </div>
-        </div>
+                                <TopGainersAndLosers stockDetails={stockDetails} transactions={transactions} />
+
+
+                                <InvestmentByYear transactions={transactions} stockDetails={stockDetails} />
+
+
+
+
+
+                                <Card className="col-span-2">
+                                    <CardHeader>
+                                        <CardTitle>Top Gainers Today in the Market</CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <div className="grid gap-4 md:grid-cols-2">
+                                            {topGainers.map((gainer, index) => (
+                                                <div key={index} className="rounded bg-green-100 p-2">
+                                                    <div className="font-semibold">{gainer.name} ({gainer.stockId})</div>
+                                                    <div className="text-green-600">+{gainer.gain.toFixed(2)}%</div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </CardContent>
+                                </Card>
+
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
             
         )
-    );
+
+                );
+
   };
-  
-  export default DashboardJs;
+
+                export default DashboardJs;

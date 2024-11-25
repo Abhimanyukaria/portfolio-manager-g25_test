@@ -32,7 +32,7 @@ const MyChart = ({stockId,startDate}) => {
   const fetchData = async () => {
 
 
-      fetch('http://localhost:3000/api/get-stock-data', {
+      fetch('https://portfolio-manager-g25.vercel.app/api/get-stock-data', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',

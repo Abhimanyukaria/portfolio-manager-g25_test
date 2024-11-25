@@ -67,8 +67,10 @@ const StockInfo = () => {
         const data = await response.json();
         setStockDetails(data.stockDetails[0]); // Get the first stock detail
         console.log('Fetched stock details:', data.stockDetails[0].result);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching stock details:', error);
+        setLoading(false);
       } finally {
         setLoading(false);
       }
@@ -84,8 +86,11 @@ const StockInfo = () => {
           const data = await response.json();
           setInsight(data);
           console.log('Fetched stock insights:', data);
+          setLoading(false);
         } catch (error) {
           console.error('Error fetching stock insights:', error);
+          setLoading(false);
+          
         }
       };
 
