@@ -176,7 +176,7 @@ const targetPrice = insight?.recommendation?.targetPrice
         <CardContent>
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <p className="font-semibold mb-2">Today's Range</p>
+              <p className="font-semibold mb-2">Today&apos;s Range</p>
               <div className="relative pt-1">
                 <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-gray-200">
                   <div
