@@ -62,10 +62,13 @@ const DashboardJs = () => {
             })
             .catch((error) => {
                 console.error("Error fetching portfolio data:", error);
+                setLoading(false);
             });
     }, []);
 
     useEffect(() => {
+
+
         setLoading(true);
         if (transactions && transactions.length === 0) return;
 
@@ -111,6 +114,7 @@ const DashboardJs = () => {
                 setLoading(false);
             } catch (error) {
                 console.error("Error fetching stock prices:", error);
+                setLoading(false);
             }
         };
 
