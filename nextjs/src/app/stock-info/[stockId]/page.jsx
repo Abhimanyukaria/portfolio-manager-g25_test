@@ -108,13 +108,9 @@ const StockInfo = () => {
 
   const liquidityRatio = calculateLiquidity(summaryDetail);
 
-  console.log('Liquidity Ratio:', liquidityRatio);
 
-  const recommendation =
-  insight?.recommendation?.rating || 'No recommendation available';
-const targetPrice = insight?.recommendation?.targetPrice
-  ? `$${insight.recommendation.targetPrice}`
-  : 'N/A';
+  
+
 
   const { instrumentInfo, companySnapshot } = insight || {};
 

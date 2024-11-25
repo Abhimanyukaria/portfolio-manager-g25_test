@@ -46,7 +46,7 @@ export default function Testimonials() {
                       >
                         <path d="M9 12h2v7H7v-5H4V9h5zM20 9h-5v2h3v5h-2v2h4z" />
                       </svg>
-                      "{testimonial.content}"
+                      {testimonial.content}
                     </blockquote>
                     <figcaption className="mt-6 border-t border-gray-100 pt-6">
                       <div className="flex items-center">
