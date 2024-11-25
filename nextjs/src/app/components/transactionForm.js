@@ -27,6 +27,8 @@ const emptyInvestment = {
 export function InvestmentFormJsx() {
 
   const { user, error, isLoading } = useUser();
+  const [open, setOpen] = useState(false)
+
 
 
   const [investments, setInvestments] = useState([{ ...emptyInvestment }])
@@ -82,12 +84,15 @@ export function InvestmentFormJsx() {
         transactions:submittedData})
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => console.log(data)
+      
+    )
     .catch(error => console.error(error))
 
 
 
-    // Here you would typically send this data to your backend
+    // Here you would typically send this data to your 0
+    setOpen(false)
   }
 
   useEffect(() => {
@@ -116,7 +121,7 @@ export function InvestmentFormJsx() {
   return (
     (
 
-      <Dialog>
+      <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <Button variant="blacky">
             <PlusIcon className="mr-2 h-4 w-4" />
