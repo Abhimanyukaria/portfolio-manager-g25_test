@@ -106,12 +106,12 @@ export function HeaderJs() {
               </Link>
       
             ) : (
-              <Link href="/api/auth/login" >
+              <a href="/api/auth/login" >
               <Button>
                 <UserCircleIcon className="h-5 w-5 mr-2" />
                 Login
               </Button>
-              </Link>
+              </a>
             )}
           </div>
         </div>
