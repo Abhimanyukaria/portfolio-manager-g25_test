@@ -21,7 +21,7 @@ export function DeleteInvestmentDialogJsx({ mytransactions }) {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(/api/delete-transaction, {
+      const response = await fetch(`/api/delete-transaction`, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ transactionId: id }),
@@ -36,7 +36,7 @@ export function DeleteInvestmentDialogJsx({ mytransactions }) {
         prevTransactions.filter((transaction) => transaction._id !== id)
       );
 
-      console.log(Transaction with ID ${id} deleted successfully.);
+      console.log(`Transaction with ID ${id} deleted successfully.`);
     } catch (error) {
       console.error('Error deleting transaction:', error);
     }

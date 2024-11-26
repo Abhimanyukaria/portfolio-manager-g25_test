@@ -15,6 +15,8 @@ import { TopGainersAndLosers } from "../components/top-gnl";
 import { InvestmentByYear } from "../components/per-year";
 import MyLoader from "../components/loader";
 import { useUser } from '@auth0/nextjs-auth0/client';
+import { Delete } from "lucide-react";
+import { DeleteInvestmentDialogJsx } from "@/components/delete-investment-dialog";
 
 
 const sectors = ["Tech", "Petroleum", "Finance", "Healthcare", "Defense", "Retail"];
@@ -226,6 +228,8 @@ const DashboardJs = () => {
 
                                     <InvestmentFormJsx />
 
+                                    <DeleteInvestmentDialogJsx mytransactions={transactions}/>
+
                                 </div>
 
 
@@ -304,7 +308,10 @@ const DashboardJs = () => {
                                     </CardHeader>
                                     <CardContent>
                                         <div className="grid gap-4 md:grid-cols-2">
-                                            {topGainers.map((gainer, index) => (
+                                            { topGainers.error ? 
+                                                <div> {topGainers.error} </div>
+                                                :
+                                            topGainers.map((gainer, index) => (
                                                 <div key={index} className="rounded bg-green-100 p-2">
                                                     <div className="font-semibold">{gainer.name} ({gainer.stockId})</div>
                                                     <div className="text-green-600">+{gainer.gain.toFixed(2)}%</div>
