@@ -41,4 +41,53 @@ export function DeleteInvestmentDialogJsx({ mytransactions }) {
       console.error('Error deleting transaction:', error);
     }
   };
+
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="destructive">Delete transactions</Button>
+      </DialogTrigger>
+      <DialogContent className="max-w-4xl">
+        <DialogHeader>
+          <DialogTitle>Delete transactions</DialogTitle>
+        </DialogHeader>
+        <ScrollArea className="h-[400px] w-full">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Stock ID</TableHead>
+                <TableHead>Type</TableHead>
+                <TableHead>Quantity</TableHead>
+                <TableHead>Purchase Price</TableHead>
+                <TableHead>Total Value</TableHead>
+                <TableHead>Transaction Date</TableHead>
+                <TableHead>Action</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {transactions && transactions.map((investment) => (
+                <TableRow key={investment._id}>
+                  <TableCell>{investment.stockId}</TableCell>
+                  <TableCell>{investment.type}</TableCell>
+                  <TableCell>{investment.quantity}</TableCell>
+                  <TableCell>${investment.purchasePrice.toFixed(2)}</TableCell>
+                  <TableCell>${investment.totalValue.toFixed(2)}</TableCell>
+                  <TableCell>{new Date(investment.transactionDate).toLocaleDateString()}</TableCell>
+                  <TableCell>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => handleDelete(investment._id)}
+                    >
+                      <Trash2Icon className="h-4 w-4 text-red-500" />
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </ScrollArea>
+      </DialogContent>
+    </Dialog>
+  );
 }
