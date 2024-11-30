@@ -11,7 +11,14 @@ import Navbar from '@/app/components/ui/Navbar';
 import { HeaderJs } from '@/app/components/header';
 import MyLoader from '@/app/components/loader';
 
+import copy from 'clipboard-copy';
+
+
+
+
 import Link from 'next/link';
+
+
 
 function calculateLiquidity(summaryDetail) {
     const regularMarketVolume = summaryDetail.regularMarketVolume;
@@ -54,6 +61,17 @@ const StockInfo = () => {
   const [stockDetails, setStockDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [insight, setInsight] = useState(null);
+
+  const [isCopied, setIsCopied] = useState(false);
+
+  const handleCopyClick = async () => {
+    try {
+      await copy('https://portfolio-manager-g25.vercel.app/stock-info/'+stockId);
+      setIsCopied(true);
+    } catch (error) {
+      console.error('Failed to copy text to clipboard', error);
+    }
+  };
 
 
   useEffect(() => {
@@ -145,8 +163,10 @@ const StockInfo = () => {
             As on {new Date(price.regularMarketTime).toLocaleString()}
           </p>
         </div>
-        <div>
-          <Button variant="blacky">Share</Button>
+        <div className='mx-5'>
+        <Button onClick={handleCopyClick} variant ={isCopied? "greeny":"blacky"}>
+        {isCopied ? 'Copied!' : 'Share Link'}
+      </Button>
         </div>
       </div>
 
@@ -362,7 +382,7 @@ const StockInfo = () => {
       <div>
         <p className="text-sm text-gray-500">Website</p>
         <Link
-          href={summaryProfile.website}
+          href={summaryProfile.website ?summaryProfile.website :"#"}
           target="_blank"
           rel="noopener noreferrer"
           className="font-semibold text-blue-500 hover:underline"
@@ -389,7 +409,7 @@ const StockInfo = () => {
       <div>
         <p className="text-sm text-gray-500">Investor Relations</p>
         <Link
-          href={summaryProfile.irWebsite}
+          href={summaryProfile.irWebsite ? summaryProfile.irWebsite : "#" }
           target="_blank"
           rel="noopener noreferrer"
           className="font-semibold text-blue-500 hover:underline"
