@@ -10,11 +10,13 @@ import { useEffect, useState } from 'react';
 
 export default function Profile() {
 
+
     const { user, error, isLoading } = useUser();
 
 
 
     const mydate  = user? user.updated_at.substring(0, 10): "Loading...";
+    // const mydate = "hello";
 
     const [loading, setLoading] = useState(true);
 

@@ -15,7 +15,7 @@ export async function POST(req, res) {
   console.log("this is an api route");
 
   const session = await getSession();
-  const { user } = session;
+  const { user } = await session;
 
   // const body  = await req.json();
 
