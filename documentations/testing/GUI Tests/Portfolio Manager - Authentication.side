@@ -1,0 +1,304 @@
+{
+  "id": "2163b149-13a7-4360-bd37-b9378673b69d",
+  "version": "2.0",
+  "name": "Portfolio Manager - Authentication",
+  "url": "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/login?state=hKFo2SBSdWlYRm1Vc2p5TWFQLTVpVkhrVjlhM3k1N2RZZm90WaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIFNkQ2pjMzdEY2tFWDJRaHFpTW9GWk5vRzRocXhaMEdmo2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY",
+  "tests": [{
+    "id": "a23490af-77b1-4299-9ddc-fbbf56684f68",
+    "name": "Buttons",
+    "commands": [{
+      "id": "5c4bf31a-bac3-4d18-95f2-d00c3dfaa4f6",
+      "comment": "",
+      "command": "open",
+      "target": "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/login?state=hKFo2SBfZ3h1SVpORWpmZ0lMV25nc0dqVkRzcF92WS1XV2VHUaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHFYcDUwRmtuNjhlVFFXQmU1MEM2Q2J1MF9nZDE0TDV5o2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2dc6ee2c-a0a0-497d-8566-2beea926b5d9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cbad2a82-0dcd-42b9-b254-b84435f3befc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ulp-button-icon",
+      "targets": [
+        ["css=.ulp-button-icon", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "383a6ab7-e2ce-42d4-b181-8ed545f9c239",
+      "comment": "",
+      "command": "click",
+      "target": "css=.c567de7a4",
+      "targets": [
+        ["css=.c567de7a4", "css:finder"],
+        ["xpath=(//button[@name='action'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d1d810f-8de7-4a6d-9e4a-8945aa0cf9c0",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "ddcfc39a-7f98-4148-9865-dcaeb193e563",
+    "name": "Text Box",
+    "commands": [{
+      "id": "75e9ba20-88d5-4640-a4c2-34ab016ffa6e",
+      "comment": "",
+      "command": "open",
+      "target": "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/login?state=hKFo2SBTakR6amVIb3EzS2UybkZHNzFPM0Fsc1ZkTzgxUFQxR6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDV3ekhScmRkczE5UVRtSGFMeGUzY0M1amNXcExmbjNOo2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "45bc0115-3ce0-48e4-803e-65fd404c8c4a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ca0d3cbf8",
+      "targets": [
+        ["css=.ca0d3cbf8", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20ee1552-ff6f-4f67-a0ac-af62519a363a",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "202201435@daiict.ac.in"
+    }, {
+      "id": "3fe1fc50-1e39-479f-902f-f1e72a0d4289",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e78e7b31-d3e1-40e7-a711-dc68da104cfe",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "RYYibai@08"
+    }, {
+      "id": "bbe6e3aa-d5e2-40e9-83b3-8993bc1c3ca5",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "4cd67706-75da-4641-9068-fd164cd47235",
+    "name": "Link - Forgot Password",
+    "commands": [{
+      "id": "053632ec-5136-4ab8-aa43-187f7b5e3f5b",
+      "comment": "",
+      "command": "open",
+      "target": "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/login?state=hKFo2SBSS0UwQ1JoLTJwd2V2Ti1vS0I3X2VEMVF1c1JZWVRLNKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDdJTU50RjlEQjVnQ1NreXlaVzlUUmw4QV9BOGltTzB2o2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8aa4f831-b247-44aa-b48d-f84c7c6ac226",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x800",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b7e6df12-22e6-4f8d-b76b-126d22ff0519",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Forgot password?",
+      "targets": [
+        ["linkText=Forgot password?", "linkText"],
+        ["css=.c8038c99e", "css:finder"],
+        ["xpath=//a[contains(text(),'Forgot password?')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/u/login/password-reset-start/Username-Password-Authentication?state=hKFo2SBSS0UwQ1JoLTJwd2V2Ti1vS0I3X2VEMVF1c1JZWVRLNKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDdJTU50RjlEQjVnQ1NreXlaVzlUUmw4QV9BOGltTzB2o2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY')]", "xpath:href"],
+        ["xpath=//p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Forgot password?')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "1ae6f2db-2c42-4a1c-a36d-fc83d8836c03",
+    "name": "Forgot Password Page",
+    "commands": []
+  }, {
+    "id": "0c2e349a-f42a-4346-9212-1843496d886a",
+    "name": "Link - SignUp",
+    "commands": [{
+      "id": "67b61ad4-2315-4171-bb73-d97ce94c9c2a",
+      "comment": "",
+      "command": "open",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "eb96c346-3d22-4a9b-8b20-cc03eb2b8ec0",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sign up",
+      "targets": [
+        ["linkText=Sign up", "linkText"],
+        ["css=.cc1ae301a > .c6f8aa1b3", "css:finder"],
+        ["xpath=//a[contains(text(),'Sign up')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/u/signup?state=hKFo2SBSNjN0RFB5Qk9YYUEyVW1FSUg3Z29uc2ZBUmREQ3B6T6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHY0cjRkcW92cU13amZsT0lKOGM1cVQwT3l2RXJFUk1Oo2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY')]", "xpath:href"],
+        ["xpath=//div/p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Sign up')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b318dde6-ceda-4377-be84-1e86f00938f6",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "bdc483c0-9eb0-494c-aeb3-be74447c79eb",
+    "name": "Link - Continue with Google",
+    "commands": [{
+      "id": "88798f30-1818-4d7a-85b9-76e9f35af177",
+      "comment": "",
+      "command": "open",
+      "target": "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/login?state=hKFo2SBSNjN0RFB5Qk9YYUEyVW1FSUg3Z29uc2ZBUmREQ3B6T6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHY0cjRkcW92cU13amZsT0lKOGM1cVQwT3l2RXJFUk1Oo2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "67483d70-0b84-44a3-aac9-248f18951103",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x800",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "07eb0c3c-43d4-4538-8948-44b8902fc8aa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cde7ef202",
+      "targets": [
+        ["css=.cde7ef202", "css:finder"],
+        ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
+        ["xpath=//div[3]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Continue with Google')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5bcdac97-4793-477a-adee-1e9da813a657",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "efbeec05-dcf4-4792-b421-a1c79db2b2c9",
+    "name": "Sigup Page",
+    "commands": [{
+      "id": "d8222ad2-a14d-481e-8ac4-8702f85d71ec",
+      "comment": "",
+      "command": "open",
+      "target": "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/signup?state=hKFo2SBTakR6amVIb3EzS2UybkZHNzFPM0Fsc1ZkTzgxUFQxR6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDV3ekhScmRkczE5UVRtSGFMeGUzY0M1amNXcExmbjNOo2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bb5de88e-ba72-4537-a563-4e75fd2b78c3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1051x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6e5618c3-de84-4920-a073-e1dd6c25df30",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "202201435@daiict.ac.in"
+    }, {
+      "id": "9a17db61-61c9-4cb4-8222-ff5da6cdaab6",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "Abhi"
+    }, {
+      "id": "c33b9a2a-cf2e-4ba6-85dc-3fee734c4332",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "RYYibai@08"
+    }, {
+      "id": "72f25548-f807-4457-8af5-4bef17304919",
+      "comment": "",
+      "command": "click",
+      "target": "css=.c567de7a4",
+      "targets": [
+        ["css=.c567de7a4", "css:finder"],
+        ["xpath=(//button[@name='action'])[2]", "xpath:attributes"],
+        ["xpath=//div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "c04395b5-6307-4181-802b-f809813f4521",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://dev-bczx7clqqw28hxlg.us.auth0.com/u/login?state=hKFo2SBfZ3h1SVpORWpmZ0lMV25nc0dqVkRzcF92WS1XV2VHUaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHFYcDUwRmtuNjhlVFFXQmU1MEM2Q2J1MF9nZDE0TDV5o2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY", "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/login?state=hKFo2SBSS0UwQ1JoLTJwd2V2Ti1vS0I3X2VEMVF1c1JZWVRLNKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDdJTU50RjlEQjVnQ1NreXlaVzlUUmw4QV9BOGltTzB2o2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY", "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/login?state=hKFo2SBlVkJmeTRNdUZETUF3bU1NeUV3SEgtT0xhM0lzZ2I2eqFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIFNYeDNPZ2RuTXIxNnNZWTU4bzM0dXNIRmxNWjJObjVoo2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY", "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/login?state=hKFo2SBSNjN0RFB5Qk9YYUEyVW1FSUg3Z29uc2ZBUmREQ3B6T6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHY0cjRkcW92cU13amZsT0lKOGM1cVQwT3l2RXJFUk1Oo2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY", "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/login?state=hKFo2SBTakR6amVIb3EzS2UybkZHNzFPM0Fsc1ZkTzgxUFQxR6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDV3ekhScmRkczE5UVRtSGFMeGUzY0M1amNXcExmbjNOo2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY", "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/signup?state=hKFo2SBTakR6amVIb3EzS2UybkZHNzFPM0Fsc1ZkTzgxUFQxR6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDV3ekhScmRkczE5UVRtSGFMeGUzY0M1amNXcExmbjNOo2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY", "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/reset-password/request/Username-Password-Authentication?state=hKFo2SBJdEwxbExmZTlhZWpNMGJKdGNydlVCMEItY1pGSUI2UqFurnJlc2V0LXBhc3N3b3Jko3RpZNkgaUhZWG9vZkNuMmxRY3VEVDVmdGJ1S3lmR09ZYnowaFqjY2lk2SBxc0ZxY2dJWndTeEJPdTA1Z0xHVjlrRXJIRUtURTROZg", "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/reset-password/request/Username-Password-Authentication?state=hKFo2SBIX0I0NXJVSzN0RXJlWnZJeWNKenpvT0ktZlFLWVozWKFurnJlc2V0LXBhc3N3b3Jko3RpZNkga1h5eXExS29rOVhMeFI4SVFzUlhnV2g3cU93c09NazKjY2lk2SBxc0ZxY2dJWndTeEJPdTA1Z0xHVjlrRXJIRUtURTROZg", "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/reset-password/request/Username-Password-Authentication?state=hKFo2SB2TWRfZGs2M25la2F1ODRReUt6SFZxQ1BfeWctMjJfU6FurnJlc2V0LXBhc3N3b3Jko3RpZNkga1h5eXExS29rOVhMeFI4SVFzUlhnV2g3cU93c09NazKjY2lk2SBxc0ZxY2dJWndTeEJPdTA1Z0xHVjlrRXJIRUtURTROZg", "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/login?state=hKFo2SAzU1B6T0lOREVLLVlLbGxUMV9NbUVWblZsWXNnQ3d3Z6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIGtYeXlxMUtvazlYTHhSOElRc1JYZ1doN3FPd3NPTWsyo2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY", "https://dev-bczx7clqqw28hxlg.us.auth0.com/u/login?state=hKFo2SBSdWlYRm1Vc2p5TWFQLTVpVkhrVjlhM3k1N2RZZm90WaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIFNkQ2pjMzdEY2tFWDJRaHFpTW9GWk5vRzRocXhaMEdmo2NpZNkgcXNGcWNnSVp3U3hCT3UwNWdMR1Y5a0VySEVLVEU0TmY"],
+  "plugins": []
+}

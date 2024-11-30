@@ -1,0 +1,226 @@
+{
+  "id": "project-id",
+  "version": "2.0",
+  "name": "Portfolio Manager - Stock Info",
+  "url": "https://portfolio-manager-g25.vercel.app/stock-info/ABT",
+  "tests": [{
+    "id": "test-id",
+    "name": "Link - Company Website",
+    "commands": [{
+      "id": "1",
+      "comment": "",
+      "command": "open",
+      "target": "/stock-info/ABT",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1052x800",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=https://www.abbott.com",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4",
+      "comment": "",
+      "command": "storeWindowHandle",
+      "target": "root",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "370ecbdf-4d17-44dc-b4e4-cab8678cde90",
+    "name": "Link - Investor Relations",
+    "commands": [{
+      "id": "45bf50df-5604-42bd-8993-25d9863e4b04",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/stock-info/ABT",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1b677324-007c-4718-91fd-92db42f43216",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1052x800",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7b950bda-4d57-460b-819d-1dae23a4a362",
+      "comment": "",
+      "command": "mouseDown",
+      "target": "css=.mydict > div",
+      "targets": [
+        ["css=.mydict > div", "css:finder"],
+        ["xpath=//div[2]/div[2]/div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7d8a9e8-15a3-4d00-9c64-a4b541cbf7a7",
+      "comment": "",
+      "command": "mouseUp",
+      "target": "css=.mb-6 .grid-cols-2",
+      "targets": [
+        ["css=.mb-6 .grid-cols-2", "css:finder"],
+        ["xpath=//div[6]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5af47a21-d44b-477c-817d-9fa0e39f27ca",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Investor Relations Page",
+      "targets": [
+        ["linkText=Investor Relations Page", "linkText"],
+        ["css=div:nth-child(8) > .text-blue-500", "css:finder"],
+        ["xpath=//a[contains(text(),'Investor Relations Page')]", "xpath:link"],
+        ["xpath=//a[@href='http://www.abbottinvestor.com/phoenix.zhtml?c=94004&p=irol-irhome']", "xpath:href"],
+        ["xpath=//div[8]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Investor Relations Page')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b54a646-9fa4-46ee-95bc-342c8e61d4a2",
+      "comment": "",
+      "command": "storeWindowHandle",
+      "target": "root",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8fcb4976-22ee-4723-a252-15cc7eace82f",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "2ff0b7b4-77b6-4e3a-9fc0-ede74b022d7b",
+    "name": "Button - Copy Link of the Page",
+    "commands": [{
+      "id": "037c70f1-a8c2-4a68-94de-e72c9a3b3dae",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/stock-info/ABT",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "38a722fe-7c86-4ddc-a2bf-e739c0e6b96f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x803",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fd0a4616-9643-4693-9b5a-81032f29aecf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.hover\\3A bg-gray-800",
+      "targets": [
+        ["css=.hover\\3A bg-gray-800", "css:finder"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Share Link')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f59bae24-ec6b-466a-8aa3-29356e413e2d",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "2dbc7fba-1781-4dfe-845c-45770e1c6487",
+    "name": "Button - Daily/Weekly/Monthly Button in Graph",
+    "commands": [{
+      "id": "09513c99-3c9d-4a57-b67d-23b43d5a5f0d",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/stock-info/ABT",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "16e9a181-56a1-431a-a8d2-2cb456843fb7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1052x800",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5d6bfd45-e182-41e9-82fe-175fb2517460",
+      "comment": "",
+      "command": "click",
+      "target": "css=label:nth-child(3) > span",
+      "targets": [
+        ["css=label:nth-child(3) > span", "css:finder"],
+        ["xpath=//label[3]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Monthly')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e98e7eca-aaf4-4be6-b44e-394f856c2c11",
+      "comment": "",
+      "command": "click",
+      "target": "css=label:nth-child(1) > span",
+      "targets": [
+        ["css=label:nth-child(1) > span", "css:finder"],
+        ["xpath=//label/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Daily')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c75fc3c1-a157-4a2a-a637-a1f056ba3f77",
+      "comment": "",
+      "command": "click",
+      "target": "css=label:nth-child(2) > span",
+      "targets": [
+        ["css=label:nth-child(2) > span", "css:finder"],
+        ["xpath=//label[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Weekly')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d72c00af-3acc-42e3-9a6a-89264140a430",
+      "comment": "",
+      "command": "click",
+      "target": "css=label:nth-child(1) > span",
+      "targets": [
+        ["css=label:nth-child(1) > span", "css:finder"],
+        ["xpath=//label/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Daily')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "913cc5d3-115a-4682-98d0-491587172460",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "suite-id",
+    "name": "Default Suite",
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["test-id"]
+  }],
+  "urls": ["https://portfolio-manager-g25.vercel.app/", "https://portfolio-manager-g25.vercel.app/stock-info/ABT"],
+  "plugins": []
+}

@@ -1,0 +1,402 @@
+{
+  "id": "fdcffa2d-cee8-4930-b138-1b8530f159fa",
+  "version": "2.0",
+  "name": "Portfolio Manager - Profile Page",
+  "url": "https://portfolio-manager-g25.vercel.app/profile",
+  "tests": [{
+    "id": "0b4c8381-03a2-4eb9-a89e-3790fa5b069f",
+    "name": "Link - Logout",
+    "commands": [{
+      "id": "b22400fc-7995-4c61-8b8f-f206041b73f2",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/profile",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c53c8c58-29e5-493a-9f7b-a32cc33b0a56",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x800",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d56b9249-9fe5-499a-b775-6ad8c2ae89e7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.text2", "css:finder"],
+        ["xpath=//a[contains(text(),'Logout')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/api/auth/logout')]", "xpath:href"],
+        ["xpath=//div[3]/button/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "db8bc469-4c20-41da-9299-19b14f0047af",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "66a8759a-dd2e-4ae5-a95e-1e6ca01f7557",
+    "name": "Link -Dashboard",
+    "commands": [{
+      "id": "27fc597b-f462-4af3-9cf5-2f5a158f5e46",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/profile",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "43bba59c-79de-418a-a675-5e3a6e9e2c83",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x800",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7005c52f-671c-4d2f-9214-2b324a6e4806",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-gray-600",
+      "targets": [
+        ["css=.text-gray-600", "css:finder"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Dashboard')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "20001d8e-b95f-42c9-bd5d-523a034f573f",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "0302db6e-79f5-41e2-863c-12456fef8638",
+    "name": "Link - StockInfo",
+    "commands": [{
+      "id": "38fca85c-0dcc-44ce-aec3-0672e6445602",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/profile",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "336c2aef-e3af-467c-9726-26b349efc25b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x800",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3e13ce42-2b7a-4eb4-a943-cf491951d449",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cssbuttons-io > span",
+      "targets": [
+        ["css=.cssbuttons-io > span", "css:finder"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5975529b-506b-4685-a42a-58abcea42763",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e6bf3187-66d3-4b7c-863e-bb34b29f135c",
+    "name": "Scroll and Click - Stock Search",
+    "commands": [{
+      "id": "874d0732-b14a-4042-8fd2-808186f04010",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/profile",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b9d31bf2-d57a-4d38-9c61-6bca49f2aae7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x800",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4df1556c-8592-4b44-ab92-d26020d0249d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.gap-2",
+      "targets": [
+        ["css=.gap-2", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "95fe9702-320f-4dd2-8cf3-bf4f189b8f57",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.gap-2:nth-child(1)",
+      "targets": [
+        ["css=.gap-2:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='radix-:r0:']/div[2]/div/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3480f88b-5889-4497-acda-e2d8b3fff110",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.gap-2:nth-child(1)",
+      "targets": [
+        ["css=.gap-2:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='radix-:r0:']/div[2]/div/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b2ae44eb-30e5-4855-b867-e8b4bbe3b38a",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.inline-flex:nth-child(2)",
+      "targets": [
+        ["css=.inline-flex:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='radix-:r0:']/div[2]/div/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2da59143-b1f6-4737-95db-fb54062923bf",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.inline-flex:nth-child(2)",
+      "targets": [
+        ["css=.inline-flex:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='radix-:r0:']/div[2]/div/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "adb9fa92-8fca-40e9-bc12-954e939193e7",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=.flex-1",
+      "targets": [
+        ["css=.flex-1", "css:finder"],
+        ["xpath=//div[@id='radix-:r0:']/div[2]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": "-1.60003662109375,12.802688598632812"
+    }, {
+      "id": "f20804d5-7af7-44b1-9389-dd02fdb87266",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=.flex-1",
+      "targets": [
+        ["css=.flex-1", "css:finder"],
+        ["xpath=//div[@id='radix-:r0:']/div[2]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": "-1.60003662109375,12.802688598632812"
+    }, {
+      "id": "1f73b01c-3b7f-4e4f-8758-48b49ac20b21",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=.flex-1",
+      "targets": [
+        ["css=.flex-1", "css:finder"],
+        ["xpath=//div[@id='radix-:r0:']/div[2]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": "-1.60003662109375,12.802688598632812"
+    }, {
+      "id": "dad4862c-e815-4d68-a1a8-f0fb8c07b266",
+      "comment": "",
+      "command": "click",
+      "target": "css=.flex-1",
+      "targets": [
+        ["css=.flex-1", "css:finder"],
+        ["xpath=//div[@id='radix-:r0:']/div[2]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c8be4972-635b-40e9-8e23-698785c15b08",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inline-flex:nth-child(142)",
+      "targets": [
+        ["css=.inline-flex:nth-child(142)", "css:finder"],
+        ["xpath=//div[@id='radix-:r0:']/div[2]/div/div/button[142]", "xpath:idRelative"],
+        ["xpath=//button[142]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "422dda1c-c446-46e5-8784-7b2cb276b3e4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cssbuttons-io > span",
+      "targets": [
+        ["css=.cssbuttons-io > span", "css:finder"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4ba0eff9-2fb7-4f1b-9150-3b835bb6a4e6",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "10e6db00-78bc-4aeb-9fd4-63752bad80f3",
+    "name": "Link - My Profile",
+    "commands": [{
+      "id": "bc00b323-3a7d-4396-9942-5d40ceaf2d05",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/profile",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "82c8ea4c-a183-4dab-8070-312312f1ccee",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x800",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "32b4323b-c141-4131-96f8-ebbb2181c74c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.shadow",
+      "targets": [
+        ["css=.shadow", "css:finder"],
+        ["xpath=//a[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'My Profile')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0905dc3a-7507-4632-8ee3-2f5665cc2604",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "12e7f268-c1fa-418f-b1eb-bf75907b7c3a",
+    "name": "Text Box - Stock Search",
+    "commands": [{
+      "id": "993af82b-2777-4c7a-b03e-63e656db5063",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/profile",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c367321b-f8ec-4b0a-ae09-3aeeecc8d724",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x800",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8d3ae6a5-0a40-41bc-b6f2-80c03481a535",
+      "comment": "",
+      "command": "click",
+      "target": "css=.gap-2",
+      "targets": [
+        ["css=.gap-2", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "221659bc-dc1e-4a99-a17f-c761a7cec2ef",
+      "comment": "",
+      "command": "type",
+      "target": "css=.bg-transparent",
+      "targets": [
+        ["css=.bg-transparent", "css:finder"],
+        ["xpath=//input[@value='abo']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:r0:']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "abo"
+    }, {
+      "id": "c7fc2e56-f83b-4cf4-8e31-185f2f8c12f0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.gap-2:nth-child(1)",
+      "targets": [
+        ["css=.gap-2:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='radix-:r0:']/div[2]/div/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e30560f-11a9-4c4e-b2ee-0e6c6b1b3db6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cssbuttons-io > span",
+      "targets": [
+        ["css=.cssbuttons-io > span", "css:finder"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f8f6d3e-2eeb-4108-8a87-dfd10d8241c1",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.cssbuttons-io > span",
+      "targets": [
+        ["css=.cssbuttons-io > span", "css:finder"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "13f9c1f7-064c-4771-abb5-47cd7a8b49cd",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.cssbuttons-io > span",
+      "targets": [
+        ["css=.cssbuttons-io > span", "css:finder"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "62f78b4f-cebd-49fa-aed8-ca6e3034cd49",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "604addb5-e03f-484f-8192-e11737cc3ea9",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["0b4c8381-03a2-4eb9-a89e-3790fa5b069f"]
+  }],
+  "urls": ["https://portfolio-manager-g25.vercel.app/profile"],
+  "plugins": []
+}

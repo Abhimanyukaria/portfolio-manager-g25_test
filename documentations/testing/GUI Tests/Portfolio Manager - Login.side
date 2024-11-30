@@ -1,0 +1,84 @@
+{
+  "id": "3c49aade-6859-47e4-8a02-134c805e39f5",
+  "version": "2.0",
+  "name": "Portfolio Manager - Login",
+  "url": "",
+  "tests": [{
+    "id": "e7a8f1d2-1dad-4700-b7c5-7816d19a4b1b",
+    "name": "Link - Login",
+    "commands": [{
+      "id": "70088682-e59c-4cd1-beea-ae14fe35c95b",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1deb3f1e-326c-4f4f-a22d-d9a6e6866ea7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1054x800",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bcd64bab-c349-47d6-af4b-1284834b9b23",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-xl",
+      "targets": [
+        ["css=.text-xl", "css:finder"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Join')]", "xpath:innerText"]
+      ],
+      "value": "",
+      "opensWindow": true,
+      "windowHandleName": "win7823",
+      "windowTimeout": 2000
+    }, {
+      "id": "48bcc351-ad71-4e1c-9fa6-d620b267ffcc",
+      "comment": "",
+      "command": "storeWindowHandle",
+      "target": "root",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d37f3655-3487-429c-9487-0e107e0069bc",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${win7823}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fb0b9169-11ae-4e98-a276-51f22ab3fbde",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c057cd2f-a9cb-4e13-a030-220691b4fed9",
+      "comment": "",
+      "command": "selectWindow",
+      "target": "handle=${root}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7aae8337-cac4-431c-bc93-1fa3383c1ef5",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "2411129d-3e30-4146-bd91-b5c96aa09b42",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["e7a8f1d2-1dad-4700-b7c5-7816d19a4b1b"]
+  }],
+  "urls": ["https://portfolio-manager-g25.vercel.app/login"],
+  "plugins": []
+}
