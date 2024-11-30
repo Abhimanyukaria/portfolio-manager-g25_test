@@ -845,6 +845,53 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "33dd18e9-d78b-474d-b79c-e123a54803bd",
+    "name": "Link - Investalyze Logo",
+    "commands": [{
+      "id": "43df0496-f20b-4b0a-8a41-cd102223a653",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/dashboard",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dad1a69a-4359-466c-b6d7-24fb11642ca3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "783x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "89aadc92-8686-4520-939b-442eb087ee4a",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.text-gray-900",
+      "targets": [
+        ["css=.text-gray-900", "css:finder"],
+        ["xpath=//span", "xpath:position"],
+        ["xpath=//span[contains(.,'INVESTALYZE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "426e2f5a-a22a-459a-aa78-37aa6e2fd793",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-gray-900",
+      "targets": [
+        ["css=.text-gray-900", "css:finder"],
+        ["xpath=//span", "xpath:position"],
+        ["xpath=//span[contains(.,'INVESTALYZE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "227b471f-5267-4514-b834-cd39317925ab",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "c836a3c5-3d8d-4b69-b2d9-ee2841fc0fea",
