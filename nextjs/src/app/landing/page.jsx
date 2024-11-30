@@ -19,7 +19,7 @@ function App() {
       <div className="bg-white">
         {/* <Navbar /> */}
 
-        <HeaderJs/>
+        <HeaderJs className="sticky"/>
         <main>
           <Hero />
           <Features />
