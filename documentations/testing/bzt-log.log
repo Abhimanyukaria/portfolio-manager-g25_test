@@ -1,0 +1,237 @@
+[2024-11-30 17:25:33,107 INFO root] Taurus CLI Tool v1.16.35
+[2024-11-30 17:25:33,108 DEBUG root] Build: 14654 Thu Oct 31 20:44:10 UTC 2024
+[2024-11-30 17:25:33,108 DEBUG root] Extended git info:  f2b9932a SPAR-2783-flask-cors upgrade to 4.0.1 (#1874)
+[2024-11-30 17:25:33,108 DEBUG root] Command-line options: {'log': '/tmp/bzt_stgliqyd.log', 'option': None, 'quiet': None, 'verbose': None, 'no_system_configs': None, 'aliases': []}
+[2024-11-30 17:25:33,108 DEBUG root] Python: CPython 3.10.12
+[2024-11-30 17:25:33,108 DEBUG root] OS: uname_result(system='Linux', node='r-v4-674b4a8084d84466106232-0-0-c-gjngx', release='6.1.100+', version='#1 SMP PREEMPT_DYNAMIC Sun Sep 29 16:26:42 UTC 2024', machine='x86_64')
+[2024-11-30 17:25:33,108 DEBUG root] Path to interpreter: /usr/bin/python3
+[2024-11-30 17:25:33,108 DEBUG root] Path to packages: ['/tmp/artifacts', '/usr/local/taurus-cloud/python', '/tmp/artifacts', '/usr/lib/python310.zip', '/usr/lib/python3.10', '/usr/lib/python3.10/lib-dynload', '/usr/local/taurus-cloud/python/lib/python3.10/site-packages', '/usr/local/lib/python3.10/dist-packages', '/usr/lib/python3/dist-packages']
+[2024-11-30 17:25:33,109 DEBUG root] Default python: /usr/local/bin/python
+[2024-11-30 17:25:33,109 DEBUG root] Default python3: /usr/bin/python3
+[2024-11-30 17:25:33,109 DEBUG root] Using personal config: /shared/.bzt-rc
+[2024-11-30 17:25:33,109 INFO root] Starting with configs: ['/shared/.bzt-rc', '/tmp/artifacts/taurus-custom-config.yml', '/tmp/artifacts/taurus-original-config.yml', '/usr/local/bztcloud/final-overrides.yml']
+[2024-11-30 17:25:33,110 INFO Engine] Configuring...
+[2024-11-30 17:25:33,110 DEBUG Engine] Reading system configs from: /etc/bzt.d
+[2024-11-30 17:25:33,128 DEBUG Engine] Base configs list: ['/usr/local/taurus-cloud/python/lib/python3.10/site-packages/bzt/resources/10-base-config.yml', '/usr/local/taurus-cloud/python/lib/python3.10/site-packages/bztcustom/30-custom.yml', '/usr/local/taurus-cloud/python/lib/python3.10/site-packages/bztcloud/50-bztcloud.yml', '/etc/bzt.d/50-jmeter-plugins-all.yml', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2024-11-30 17:25:33,128 DEBUG Engine.Configuration] Configs: ['/usr/local/taurus-cloud/python/lib/python3.10/site-packages/bzt/resources/10-base-config.yml', '/usr/local/taurus-cloud/python/lib/python3.10/site-packages/bztcustom/30-custom.yml', '/usr/local/taurus-cloud/python/lib/python3.10/site-packages/bztcloud/50-bztcloud.yml', '/etc/bzt.d/50-jmeter-plugins-all.yml', '/etc/bzt.d/90-artifacts-dir.json', '/etc/bzt.d/99-zinstallID.json']
+[2024-11-30 17:25:33,128 DEBUG Engine.Configuration] Reading /usr/local/taurus-cloud/python/lib/python3.10/site-packages/bzt/resources/10-base-config.yml as YAML
+[2024-11-30 17:25:33,150 DEBUG Engine.Configuration] Reading /usr/local/taurus-cloud/python/lib/python3.10/site-packages/bztcustom/30-custom.yml as YAML
+[2024-11-30 17:25:33,151 DEBUG Engine.Configuration] Reading /usr/local/taurus-cloud/python/lib/python3.10/site-packages/bztcloud/50-bztcloud.yml as YAML
+[2024-11-30 17:25:33,165 DEBUG Engine.Configuration] Reading /etc/bzt.d/50-jmeter-plugins-all.yml as YAML
+[2024-11-30 17:25:33,167 DEBUG Engine.Configuration] Reading /etc/bzt.d/90-artifacts-dir.json as YAML
+[2024-11-30 17:25:33,168 DEBUG Engine.Configuration] Reading /etc/bzt.d/99-zinstallID.json as YAML
+[2024-11-30 17:25:33,168 DEBUG Engine] User configs list: ['/shared/.bzt-rc', '/tmp/artifacts/taurus-custom-config.yml', '/tmp/artifacts/taurus-original-config.yml', '/usr/local/bztcloud/final-overrides.yml']
+[2024-11-30 17:25:33,168 DEBUG Engine.Configuration] Configs: ['/shared/.bzt-rc', '/tmp/artifacts/taurus-custom-config.yml', '/tmp/artifacts/taurus-original-config.yml', '/usr/local/bztcloud/final-overrides.yml']
+[2024-11-30 17:25:33,169 DEBUG Engine.Configuration] Reading /shared/.bzt-rc as YAML
+[2024-11-30 17:25:33,172 DEBUG Engine.Configuration] Reading /tmp/artifacts/taurus-custom-config.yml as YAML
+[2024-11-30 17:25:33,189 DEBUG Engine.Configuration] Reading /tmp/artifacts/taurus-original-config.yml as YAML
+[2024-11-30 17:25:33,190 DEBUG Engine.Configuration] Reading /usr/local/bztcloud/final-overrides.yml as YAML
+[2024-11-30 17:25:33,191 DEBUG Engine.Configuration] Configs: ['/shared/.bzt-rc', '/tmp/artifacts/taurus-custom-config.yml', '/tmp/artifacts/taurus-original-config.yml', '/usr/local/bztcloud/final-overrides.yml']
+[2024-11-30 17:25:33,191 DEBUG Engine.Configuration] Reading /shared/.bzt-rc as YAML
+[2024-11-30 17:25:33,195 DEBUG Engine.Configuration] Reading /tmp/artifacts/taurus-custom-config.yml as YAML
+[2024-11-30 17:25:33,213 DEBUG Engine.Configuration] Reading /tmp/artifacts/taurus-original-config.yml as YAML
+[2024-11-30 17:25:33,214 DEBUG Engine.Configuration] Reading /usr/local/bztcloud/final-overrides.yml as YAML
+[2024-11-30 17:25:33,216 INFO HTTPClient] Proxy settings not set
+[2024-11-30 17:25:33,216 INFO Engine] Artifacts dir: /tmp/artifacts
+[2024-11-30 17:25:33,216 DEBUG Engine] New artifact filename: /tmp/artifacts/effective
+[2024-11-30 17:25:33,219 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/effective.yml
+[2024-11-30 17:25:33,266 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/effective.json
+[2024-11-30 17:25:33,268 DEBUG Engine] New artifact filename: /tmp/artifacts/merged.yml
+[2024-11-30 17:25:33,271 DEBUG Engine.Configuration] Dumping YAML config into /tmp/artifacts/merged.yml
+[2024-11-30 17:25:33,291 DEBUG Engine] New artifact filename: /tmp/artifacts/merged.json
+[2024-11-30 17:25:33,292 DEBUG Engine.Configuration] Dumping JSON config into /tmp/artifacts/merged.json
+[2024-11-30 17:25:33,293 DEBUG Engine] Add existing artifact (move=False): /shared/.bzt-rc
+[2024-11-30 17:25:33,293 DEBUG Engine] Copying /shared/.bzt-rc to /tmp/artifacts/.bzt-rc
+[2024-11-30 17:25:33,293 DEBUG Engine] Add existing artifact (move=False): /tmp/artifacts/taurus-custom-config.yml
+[2024-11-30 17:25:33,293 DEBUG Engine] No need to copy /tmp/artifacts/taurus-custom-config.yml
+[2024-11-30 17:25:33,293 DEBUG Engine] Add existing artifact (move=False): /tmp/artifacts/taurus-original-config.yml
+[2024-11-30 17:25:33,294 DEBUG Engine] No need to copy /tmp/artifacts/taurus-original-config.yml
+[2024-11-30 17:25:33,294 DEBUG Engine] Add existing artifact (move=False): /usr/local/bztcloud/final-overrides.yml
+[2024-11-30 17:25:33,294 DEBUG Engine] Copying /usr/local/bztcloud/final-overrides.yml to /tmp/artifacts/final-overrides.yml
+[2024-11-30 17:25:33,294 DEBUG Engine] Set PYTHONPATH to :
+	CURRENT: '/usr/local/taurus-cloud/python::/usr/local/taurus-cloud/python:' +
+	TEMP: '/tmp/artifacts/python-packages/3.10.12' +
+	USER: '/shared/.bzt/python-packages/3.10.12'
+[2024-11-30 17:25:33,295 DEBUG Engine] Content of user packages dir: ['jinja2', 'sniffio', 'idna-3.10.dist-info', '__pycache__', 'MarkupSafe-3.0.2.dist-info', 'distutils-precedence.pth', 'cffi', 'setuptools', 'chardet-5.2.0.dist-info', 'bin', 'trio_websocket-0.11.1.dist-info', 'werkzeug', 'execnet', 'jsonpath_ng-1.7.0.dist-info', 'itsdangerous', 'flask_cors', 'jinja2-3.1.4.dist-info', 'flask_login', 'zope', 'pluggy', 'zmq', 'pluggy-1.5.0.dist-info', 'Flask_Login-0.6.3.dist-info', '_cffi_backend.cpython-310-x86_64-linux-gnu.so', 'unicodecsv-0.14.1.dist-info', 'greenlet', 'trio_websocket', 'robotlibcore.py', 'locust', 'zope.interface-7.1.1.dist-info', 'cryptography-43.0.3.dist-info', 'exceptiongroup', 'charset_normalizer', 'coverage', 'sortedcontainers', 'tomli-2.0.2.dist-info', 'requests', 'blinker', 'nose2-0.15.1.dist-info', 'attrs-24.2.0.dist-info', 'cssselect-1.2.0.dist-info', 'charset_normalizer-3.4.0.dist-info', 'werkzeug-3.1.0.dist-info', 'websocket_client-1.8.0.dist-info', 'iniconfig', 'sortedcontainers-2.4.0.dist-info', 'pyzmq.libs', '_brotli.cpython-310-x86_64-linux-gnu.so', 'py.py', 'lxml', 'pycparser', 'click-8.1.7.dist-info', 'zope.event-5.0.dist-info', 'codecov-2.1.13.dist-info', 'msgpack', 'tomli', 'robot', 'brotli.py', 'websocket', 'selenium-4.26.1.dist-info', 'jsonpath_ng', 'gevent', 'locust-2.32.1.dist-info', 'PySocks-1.7.1.dist-info', '_distutils_hack', 'exceptiongroup-1.2.2.dist-info', 'trio-0.27.0.dist-info', 'SeleniumLibrary', 'Brotli-1.1.0.dist-info', 'flask', 'gevent-24.10.3.dist-info', 'selenium', '_pytest', 'idna', 'pycparser-2.22.dist-info', 'robotframework_seleniumlibrary-6.6.1.dist-info', 'h11-0.14.0.dist-info', 'urllib3', 'greenlet-3.1.1.dist-info', 'packaging', 'trio', 'attr', 'apiritif-1.1.3.dist-info', 'attrs', 'cssselect', 'pytest-8.3.3.dist-info', 'robotframework-7.1.1.dist-info', 'cryptography', 'socks.py', 'h11', 'iniconfig-2.0.0.dist-info', 'typing_extensions-4.12.2.dist-info', 'psutil', 'apiritif', 'click', 'unicodecsv', 'lxml-5.3.0.dist-info', 'pyzmq-26.2.0.dist-info', 'psutil-6.1.0.dist-info', 'geventhttpclient', 'wsproto', 'Flask_Cors-4.0.1.dist-info', 'sockshandler.py', 'OpenSSL', 'markupsafe', 'coverage-7.6.4.dist-info', 'outcome', 'itsdangerous-2.2.0.dist-info', 'zope.interface-7.1.1-py3.10-nspkg.pth', 'pytest_xdist-3.6.1.dist-info', 'outcome-1.3.0.post0.dist-info', 'robotframework_pythonlibcore-4.4.1.dist-info', 'execnet-2.1.1.dist-info', 'wsproto-1.2.0.dist-info', 'typing_extensions.py', 'pyOpenSSL-24.2.1.dist-info', 'ply-3.11.dist-info', 'nose2', 'geventhttpclient-2.3.1.dist-info', 'ConfigArgParse-1.7.dist-info', 'chardet', 'packaging-24.1.dist-info', 'cffi-1.17.1.dist-info', 'ply', 'configargparse.py', 'certifi-2024.8.30.dist-info', 'msgpack-1.1.0.dist-info', 'flask-3.0.3.dist-info', 'sniffio-1.3.1.dist-info', 'requests-2.32.3.dist-info', 'xdist', 'poetry.lock', 'pytest', 'blinker-1.8.2.dist-info', 'zope.event-5.0-py3.11-nspkg.pth', 'include', 'setuptools-65.5.0.dist-info', 'urllib3-2.2.3.dist-info', 'certifi', 'codecov', 'pkg_resources']
+[2024-11-30 17:25:33,296 DEBUG Engine] OS env: OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+[2024-11-30 17:25:33,296 DEBUG Engine] OS env: JVM_ARGS=-Xms1024m -Xmx4096m -XX:NewSize=64m -XX:MaxNewSize=128m -XX:PermSize=64m -XX:MaxPermSize=64m -XX:MaxTenuringThreshold=2 -Dsun.rmi.dgc.client.gcInterval=600000 -Dsun.rmi.dgc.server.gcInterval=600000 -Dsun.net.inetaddr.ttl=20 -Dnetworkaddress.cache.ttl=20
+[2024-11-30 17:25:33,296 DEBUG Engine] OS env: TAURUS_JMETER_DISABLE_AUTO_DETECT=True
+[2024-11-30 17:25:33,296 DEBUG Engine] OS env: TAURUS_ARTIFACTS_DIR=/tmp/artifacts
+[2024-11-30 17:25:33,296 DEBUG root] Closing log handler: /tmp/bzt_stgliqyd.log
+[2024-11-30 17:25:33,297 DEBUG root] Switched writing logs to /tmp/artifacts/bzt.log
+[2024-11-30 17:25:33,297 DEBUG root] Linting config
+[2024-11-30 17:25:33,308 INFO Engine] Preparing...
+[2024-11-30 17:25:33,309 DEBUG Engine] Module config: consolidator {'class': 'bzt.modules.aggregator.ConsolidatingAggregator', 'generalize-labels': 1500, 'ignore-labels': ['_#ignore*', '_#ignore'], 'max-error-variety': 100, 'collect-error-response-bodies': True, 'error-response-bodies-limit': 10, 'error-response-bodies-size-limit': 10240, 'extend-aggregation': False}
+[2024-11-30 17:25:33,309 DEBUG root] Importing module: bzt.modules.aggregator
+[2024-11-30 17:25:33,467 DEBUG root] Loading class: 'ConsolidatingAggregator' from <module 'bzt.modules.aggregator' from '/usr/local/taurus-cloud/python/lib/python3.10/site-packages/bzt/modules/aggregator.py'>
+[2024-11-30 17:25:33,468 DEBUG Engine.consolidator] Buffer scaling setup: percentile 95.0 from [0.0, 50.0, 90.0, 95.0, 99.0, 99.9, 100.0] selected
+[2024-11-30 17:25:33,468 DEBUG Engine] Module config: monitoring {'class': 'bzt.modules.monitoring.Monitoring'}
+[2024-11-30 17:25:33,468 DEBUG root] Importing module: bzt.modules.monitoring
+[2024-11-30 17:25:33,470 DEBUG root] Loading class: 'Monitoring' from <module 'bzt.modules.monitoring' from '/usr/local/taurus-cloud/python/lib/python3.10/site-packages/bzt/modules/monitoring.py'>
+[2024-11-30 17:25:33,470 DEBUG Engine] Module config: forced-headers {'class': 'bztcloud.helpers.forcedheaders.ForcedHeaders'}
+[2024-11-30 17:25:33,470 DEBUG root] Importing module: bztcloud.helpers.forcedheaders
+[2024-11-30 17:25:33,500 DEBUG pyvirtualdisplay] version=3.0
+[2024-11-30 17:25:33,606 WARNING Engine] Module 'timelimit' can be only used once, will merge all new instances into single
+[2024-11-30 17:25:33,608 INFO Engine.monitoring.LocalClient] Using Cgroups1LocalMonitor for engine health monitoring
+[2024-11-30 17:25:33,794 INFO Engine.shellexec.Task] Starting shell command: python -c "from pyscripts.utils import atop; atop('-a', '-w', '/tmp/artifacts/admin/atop.binlog', '15')"
+[2024-11-30 17:25:33,822 INFO Engine.shellexec.Task] Starting shell command: python -c "from pyscripts.jetpack import Jetpack as jp; jp.download()"
+[2024-11-30 17:25:39,041 INFO Engine.shellexec.Task] Starting shell command: python -c "from pyscripts.jetpack import Jetpack as jp; jp.run()"
+[2024-11-30 17:25:39,055 INFO root] Creating new s3 client instance
+[2024-11-30 17:25:39,056 INFO root] S3 credential polling interval to set: 0.0
+[2024-11-30 17:25:39,057 INFO root] Creating new client: [{'endpoint_url': 'https://storage.blazemeter.com'}, {'aws_access_key_id': '*****'}, {'aws_secret_access_key': '*****'}, {'config': <botocore.config.Config object at 0x7d73eba91420>}, {'region_name': 'us-east-1'}, {'verify': True}, {'aws_session_token': 'Tk9BQ0NFU1NUT0tFTg=='}]
+[2024-11-30 17:25:39,468 INFO root] Polling is not set for this client - S3 client will be created with the given environment variables and will not refresh
+[2024-11-30 17:25:40,091 INFO Engine.shellexec.Task] Starting shell command: find . -name '*.zip' -exec sh -c 'unzip -o "$0"' '{}' ';'
+[2024-11-30 17:25:48,993 WARNING Engine] Module 'ldjson-results' can be only used once, will merge all new instances into single
+[2024-11-30 17:25:48,994 WARNING Engine.blazemeter] No BlazeMeter API key provided, will upload anonymously
+[2024-11-30 17:25:48,994 INFO Engine.blazemeter] Engine metrics will be sent to 'https://a.blazemeter.com/hs'
+[2024-11-30 17:25:49,037 INFO Engine] Starting...
+[2024-11-30 17:25:49,122 INFO Engine.virtual-display] Starting virtual display[(1024, 768)] :0
+[2024-11-30 17:25:49,309 INFO Engine.cloud-utils] Setting bsh port for jmeter/http to 9000
+[2024-11-30 17:25:49,462 INFO Engine.cloud-utils] Got start command
+[2024-11-30 17:25:49,462 INFO Engine.cloud-utils] Allowed to proceed with start
+[2024-11-30 17:25:49,481 INFO Engine.console] Waiting for results...
+[2024-11-30 17:25:49,481 INFO HappysocksClient] Connecting to happysocks server https://a.blazemeter.com/hs/api-ws
+[2024-11-30 17:25:50,833 INFO HappysocksClient] Connected to happysocks server (1.35s)
+[2024-11-30 17:26:00,977 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 6s
+[2024-11-30 17:26:06,353 INFO Engine.console] Current: 2 vu	1 succ	0 fail	3.144 avg rt	/	Cumulative: 3.144 avg rt, 0% failures
+[2024-11-30 17:26:06,355 INFO Engine.ldjson-results] exported.jetlag.ldjson file size [765 bytes]
+[2024-11-30 17:26:08,500 INFO Engine.console] Current: 2 vu	1 succ	0 fail	0.656 avg rt	/	Cumulative: 1.900 avg rt, 0% failures
+[2024-11-30 17:26:09,228 INFO Engine.console] Current: 2 vu	2 succ	0 fail	0.452 avg rt	/	Cumulative: 1.176 avg rt, 0% failures
+[2024-11-30 17:26:10,287 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 2s
+[2024-11-30 17:26:11,193 INFO Engine.console] Current: 4 vu	10 succ	0 fail	0.320 avg rt	/	Cumulative: 0.408 avg rt, 0% failures
+[2024-11-30 17:26:11,247 INFO Engine.console] Current: 4 vu	14 succ	0 fail	0.294 avg rt	/	Cumulative: 0.382 avg rt, 0% failures
+[2024-11-30 17:26:45,433 INFO Engine.console] Current: 5 vu	12 succ	0 fail	0.386 avg rt	/	Cumulative: 0.377 avg rt, 0% failures
+[2024-11-30 17:26:46,498 INFO Engine.console] Current: 6 vu	9 succ	0 fail	0.530 avg rt	/	Cumulative: 0.397 avg rt, 0% failures
+[2024-11-30 17:26:48,302 INFO Engine.console] Current: 17 vu	4 succ	0 fail	0.149 avg rt	/	Cumulative: 0.388 avg rt, 0% failures
+[2024-11-30 17:26:50,308 INFO Engine.console] Current: 17 vu	10 succ	0 fail	0.107 avg rt	/	Cumulative: 0.351 avg rt, 0% failures
+[2024-11-30 17:26:51,313 INFO Engine.console] Current: 18 vu	10 succ	0 fail	0.126 avg rt	/	Cumulative: 0.335 avg rt, 0% failures
+[2024-11-30 17:26:52,452 INFO Engine.console] Current: 18 vu	9 succ	0 fail	0.109 avg rt	/	Cumulative: 0.321 avg rt, 0% failures
+[2024-11-30 17:26:54,490 INFO Engine.console] Current: 19 vu	11 succ	0 fail	0.139 avg rt	/	Cumulative: 0.308 avg rt, 0% failures
+[2024-11-30 17:26:55,974 INFO Engine.console] Current: 19 vu	13 succ	0 fail	0.157 avg rt	/	Cumulative: 0.297 avg rt, 0% failures
+[2024-11-30 17:26:57,423 INFO Engine.console] Current: 19 vu	14 succ	0 fail	0.145 avg rt	/	Cumulative: 0.285 avg rt, 0% failures
+[2024-11-30 17:26:58,781 INFO Engine.console] Current: 20 vu	13 succ	0 fail	0.187 avg rt	/	Cumulative: 0.273 avg rt, 0% failures
+[2024-11-30 17:28:07,430 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 32s
+[2024-11-30 17:28:07,771 INFO Engine.console] Current: 20 vu	11 succ	0 fail	5.669 avg rt	/	Cumulative: 3.682 avg rt, 3% failures
+[2024-11-30 17:28:33,396 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 60s
+[2024-11-30 17:30:17,726 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 152s
+[2024-11-30 17:30:19,737 INFO Engine.console] Current: 20 vu	6 succ	0 fail	0.115 avg rt	/	Cumulative: 8.891 avg rt, 7% failures
+[2024-11-30 17:31:02,028 INFO Engine.console] Current: 20 vu	5 succ	0 fail	6.731 avg rt	/	Cumulative: 8.606 avg rt, 6% failures
+[2024-11-30 17:31:05,070 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 151s
+[2024-11-30 17:31:05,652 INFO Engine.console] Current: 20 vu	2 succ	0 fail	38.406 avg rt	/	Cumulative: 8.794 avg rt, 6% failures
+[2024-11-30 17:31:07,246 INFO Engine.console] Current: 20 vu	6 succ	0 fail	2.699 avg rt	/	Cumulative: 8.603 avg rt, 6% failures
+[2024-11-30 17:31:08,046 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 122s
+[2024-11-30 17:31:08,184 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 152s
+[2024-11-30 17:31:09,549 INFO Engine.console] Current: 20 vu	1 succ	0 fail	90.151 avg rt	/	Cumulative: 9.165 avg rt, 5% failures
+[2024-11-30 17:32:20,596 INFO Engine.console] Current: 20 vu	1 succ	0 fail	76.159 avg rt	/	Cumulative: 9.318 avg rt, 5% failures
+[2024-11-30 17:32:36,683 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 154s
+[2024-11-30 17:32:36,916 INFO Engine.console] Current: 20 vu	3 succ	0 fail	36.993 avg rt	/	Cumulative: 10.207 avg rt, 4% failures
+[2024-11-30 17:32:52,315 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 152s
+[2024-11-30 17:32:54,510 INFO Engine.console] Current: 20 vu	7 succ	1 fail	23.159 avg rt	/	Cumulative: 10.860 avg rt, 5% failures
+[2024-11-30 17:32:54,970 INFO Engine.console] Current: 20 vu	3 succ	0 fail	0.237 avg rt	/	Cumulative: 11.016 avg rt, 6% failures
+[2024-11-30 17:32:55,624 INFO Engine.console] Current: 20 vu	9 succ	0 fail	0.112 avg rt	/	Cumulative: 10.820 avg rt, 6% failures
+[2024-11-30 17:32:56,597 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 151s
+[2024-11-30 17:32:56,693 INFO Engine.console] Current: 20 vu	7 succ	0 fail	0.129 avg rt	/	Cumulative: 10.488 avg rt, 6% failures
+[2024-11-30 17:32:57,643 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 126s
+[2024-11-30 17:32:57,811 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 122s
+[2024-11-30 17:32:59,758 INFO Engine.console] Current: 20 vu	7 succ	0 fail	0.098 avg rt	/	Cumulative: 8.441 avg rt, 4% failures
+[2024-11-30 17:33:00,051 INFO Engine.console] Current: 20 vu	6 succ	0 fail	0.121 avg rt	/	Cumulative: 8.266 avg rt, 4% failures
+[2024-11-30 17:33:00,967 INFO Engine.console] Current: 20 vu	7 succ	0 fail	0.155 avg rt	/	Cumulative: 8.187 avg rt, 4% failures
+[2024-11-30 17:33:07,824 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 121s
+[2024-11-30 17:33:07,914 INFO Engine.console] Current: 20 vu	8 succ	0 fail	0.116 avg rt	/	Cumulative: 7.700 avg rt, 4% failures
+[2024-11-30 17:33:14,947 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 120s
+[2024-11-30 17:33:15,045 INFO Engine.console] Current: 20 vu	8 succ	0 fail	0.171 avg rt	/	Cumulative: 7.378 avg rt, 3% failures
+[2024-11-30 17:33:19,006 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 121s
+[2024-11-30 17:33:19,245 INFO Engine.console] Current: 20 vu	8 succ	0 fail	0.131 avg rt	/	Cumulative: 6.642 avg rt, 3% failures
+[2024-11-30 17:33:50,865 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 122s
+[2024-11-30 17:33:50,895 INFO Engine.console] Current: 20 vu	8 succ	0 fail	0.259 avg rt	/	Cumulative: 6.585 avg rt, 3% failures
+[2024-11-30 17:34:20,410 INFO Engine.console] Current: 20 vu	6 succ	1 fail	70.663 avg rt	/	Cumulative: 7.661 avg rt, 3% failures
+[2024-11-30 17:34:51,704 INFO Engine.console] Current: 20 vu	11 succ	0 fail	13.076 avg rt	/	Cumulative: 8.056 avg rt, 3% failures
+[2024-11-30 17:34:53,297 INFO Engine.console] Current: 20 vu	8 succ	0 fail	6.908 avg rt	/	Cumulative: 8.046 avg rt, 3% failures
+[2024-11-30 17:34:54,040 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 121s
+[2024-11-30 17:34:54,235 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 122s
+[2024-11-30 17:34:54,376 INFO Engine.console] Current: 20 vu	13 succ	0 fail	1.184 avg rt	/	Cumulative: 7.954 avg rt, 3% failures
+[2024-11-30 17:35:00,027 INFO Engine.console] Current: 20 vu	17 succ	0 fail	1.287 avg rt	/	Cumulative: 7.840 avg rt, 3% failures
+[2024-11-30 17:35:10,979 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 121s
+[2024-11-30 17:35:11,217 INFO Engine.console] Current: 20 vu	13 succ	0 fail	0.183 avg rt	/	Cumulative: 8.114 avg rt, 4% failures
+[2024-11-30 17:35:19,129 INFO Engine.console] Current: 20 vu	5 succ	0 fail	3.372 avg rt	/	Cumulative: 7.939 avg rt, 4% failures
+[2024-11-30 17:35:19,302 INFO Engine.console] Current: 20 vu	5 succ	0 fail	3.305 avg rt	/	Cumulative: 7.918 avg rt, 4% failures
+[2024-11-30 17:35:53,519 INFO Engine.console] Current: 20 vu	2 succ	0 fail	46.962 avg rt	/	Cumulative: 7.914 avg rt, 4% failures
+[2024-11-30 17:36:20,324 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 122s
+[2024-11-30 17:36:20,753 INFO Engine.console] Current: 20 vu	13 succ	0 fail	56.059 avg rt	/	Cumulative: 8.535 avg rt, 4% failures
+[2024-11-30 17:36:45,654 INFO Engine.console] Current: 20 vu	6 succ	0 fail	20.982 avg rt	/	Cumulative: 8.534 avg rt, 4% failures
+[2024-11-30 17:36:49,372 INFO Engine.console] Current: 20 vu	3 succ	0 fail	34.052 avg rt	/	Cumulative: 8.599 avg rt, 4% failures
+[2024-11-30 17:36:54,753 INFO Engine.console] Current: 20 vu	3 succ	0 fail	27.405 avg rt	/	Cumulative: 8.647 avg rt, 4% failures
+[2024-11-30 17:36:56,364 INFO Engine.console] Current: 20 vu	7 succ	0 fail	0.222 avg rt	/	Cumulative: 8.597 avg rt, 4% failures
+[2024-11-30 17:36:57,156 INFO Engine.console] Current: 20 vu	15 succ	0 fail	0.190 avg rt	/	Cumulative: 8.493 avg rt, 3% failures
+[2024-11-30 17:36:58,493 INFO Engine.console] Current: 20 vu	16 succ	0 fail	0.191 avg rt	/	Cumulative: 8.384 avg rt, 3% failures
+[2024-11-30 17:37:03,591 INFO Engine.console] Current: 20 vu	13 succ	0 fail	27.260 avg rt	/	Cumulative: 8.394 avg rt, 3% failures
+[2024-11-30 17:37:15,633 INFO Engine.console] Current: 20 vu	4 succ	0 fail	12.884 avg rt	/	Cumulative: 8.450 avg rt, 3% failures
+[2024-11-30 17:37:19,561 INFO Engine.console] Current: 20 vu	2 succ	0 fail	7.409 avg rt	/	Cumulative: 8.448 avg rt, 3% failures
+[2024-11-30 17:37:20,462 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 121s
+[2024-11-30 17:37:20,535 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 122s
+[2024-11-30 17:37:20,573 INFO Engine.console] Current: 20 vu	6 succ	0 fail	0.502 avg rt	/	Cumulative: 8.411 avg rt, 3% failures
+[2024-11-30 17:38:24,051 INFO Engine.console] Current: 20 vu	5 succ	0 fail	46.039 avg rt	/	Cumulative: 9.208 avg rt, 3% failures
+[2024-11-30 17:38:54,316 INFO Engine.console] Current: 20 vu	6 succ	0 fail	0.106 avg rt	/	Cumulative: 9.167 avg rt, 3% failures
+[2024-11-30 17:38:56,220 INFO Engine.console] Current: 20 vu	1 succ	0 fail	10.896 avg rt	/	Cumulative: 9.164 avg rt, 3% failures
+[2024-11-30 17:39:00,046 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 121s
+[2024-11-30 17:39:00,406 INFO Engine.console] Current: 20 vu	16 succ	0 fail	10.614 avg rt	/	Cumulative: 8.820 avg rt, 3% failures
+[2024-11-30 17:39:19,834 INFO Engine.console] Current: 20 vu	9 succ	0 fail	18.404 avg rt	/	Cumulative: 8.940 avg rt, 3% failures
+[2024-11-30 17:39:26,805 INFO Engine.console] Current: 20 vu	13 succ	0 fail	0.159 avg rt	/	Cumulative: 8.755 avg rt, 3% failures
+[2024-11-30 17:39:58,821 INFO Engine.console] Current: 20 vu	1 succ	0 fail	30.138 avg rt	/	Cumulative: 9.039 avg rt, 3% failures
+[2024-11-30 17:40:30,674 INFO Engine.console] Current: 20 vu	6 succ	0 fail	31.519 avg rt	/	Cumulative: 9.515 avg rt, 3% failures
+[2024-11-30 17:41:03,870 INFO Engine.console] Current: 20 vu	6 succ	0 fail	3.708 avg rt	/	Cumulative: 9.433 avg rt, 2% failures
+[2024-11-30 17:41:05,113 INFO Engine.console] Current: 20 vu	16 succ	0 fail	40.657 avg rt	/	Cumulative: 9.771 avg rt, 2% failures
+[2024-11-30 17:41:37,454 INFO Engine.console] Current: 20 vu	19 succ	0 fail	4.995 avg rt	/	Cumulative: 9.561 avg rt, 2% failures
+[2024-11-30 17:43:09,483 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 122s
+[2024-11-30 17:43:11,444 INFO Engine.console] Current: 20 vu	9 succ	0 fail	7.020 avg rt	/	Cumulative: 9.954 avg rt, 2% failures
+[2024-11-30 17:43:11,582 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 121s
+[2024-11-30 17:43:12,018 INFO Engine.console] Current: 20 vu	14 succ	0 fail	3.603 avg rt	/	Cumulative: 9.943 avg rt, 2% failures
+[2024-11-30 17:43:43,414 INFO Engine.console] Current: 20 vu	10 succ	0 fail	1.368 avg rt	/	Cumulative: 10.086 avg rt, 2% failures
+[2024-11-30 17:44:44,601 INFO Engine.jmeter.JTLReader] Changed data analysis delay to 122s
+[2024-11-30 17:44:44,700 INFO Engine.console] Current: 20 vu	20 succ	0 fail	38.494 avg rt	/	Cumulative: 10.387 avg rt, 2% failures
+[2024-11-30 17:45:19,645 INFO Engine.console] Current: 20 vu	17 succ	0 fail	1.234 avg rt	/	Cumulative: 10.652 avg rt, 2% failures
+[2024-11-30 17:45:51,618 INFO Engine.console] Current: 20 vu	4 succ	0 fail	30.981 avg rt	/	Cumulative: 10.855 avg rt, 2% failures
+[2024-11-30 17:46:22,873 WARNING Engine] Please wait for graceful shutdown...
+[2024-11-30 17:46:22,873 INFO Engine] Shutting down...
+[2024-11-30 17:46:24,281 INFO Engine.periodic-uploader] Terminating process PID 81 with signal Signals.SIGTERM (60 tries left)
+[2024-11-30 17:46:26,324 INFO Engine] Post-processing...
+[2024-11-30 17:46:27,650 INFO Engine.final-stats] Test duration: 0:20:33
+[2024-11-30 17:46:27,651 INFO Engine.final-stats] Samples count: 2057, 2.77% failures
+[2024-11-30 17:46:27,651 INFO Engine.final-stats] Average times: total 11.631, latency 2.150, connect 2.548
+[2024-11-30 17:46:27,714 INFO Engine.final-stats] Percentiles:
++---------------+---------------+
+| Percentile, % | Resp. Time, s |
++---------------+---------------+
+|           0.0 |         0.064 |
+|          50.0 |         0.471 |
+|          90.0 |        36.256 |
+|          95.0 |        60.896 |
+|          99.0 |         90.56 |
+|          99.9 |       150.528 |
+|         100.0 |       151.296 |
++---------------+---------------+
+[2024-11-30 17:46:27,715 INFO Engine.final-stats] Request label stats:
++----------------------------------------------------+--------+--------+--------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| label                                              | status |   succ | avg_rt | error                                                                                                                                                                                             |
++----------------------------------------------------+--------+--------+--------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| https://portfolio-manager-g25.vercel.app/dashboard |  FAIL  | 97.23% | 11.631 | Non HTTP response message: Socket closed                                                                                                                                                          |
+|                                                    |        |        |        | Non HTTP response message: readHandshakeRecord                                                                                                                                                    |
+|                                                    |        |        |        | Non HTTP response message: Premature end of Content-Length delimited message body (expected: 25,931; received: 21,121)                                                                            |
+|                                                    |        |        |        | Non HTTP response message: Connect to portfolio-manager-g25.vercel.app:443 [portfolio-manager-g25.vercel.app/76.76.21.98, portfolio-manager-g25.vercel.app/76.76.21.61] failed: connect timed out |
+|                                                    |        |        |        | Non HTTP response message: Connection already shutdown                                                                                                                                            |
++----------------------------------------------------+--------+--------+--------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+[2024-11-30 17:46:27,716 INFO Engine.ldjson-results] Writing EOF to exported.jetlag.ldjson file
+[2024-11-30 17:46:27,716 INFO Engine.ldjson-results] Waiting for finished files for 59 seconds: ['finished-jetpack-data', 'finished-jetpack-labels']
+[2024-11-30 17:46:28,718 INFO Engine.ldjson-results] Waiting for finished files for 58 seconds: ['finished-jetpack-data', 'finished-jetpack-labels']
+[2024-11-30 17:46:29,719 INFO Engine.ldjson-results] Waiting for finished files for 57 seconds: ['finished-jetpack-labels']
+[2024-11-30 17:46:30,720 INFO Engine.ldjson-results] Finished files found
+[2024-11-30 17:46:30,721 INFO Engine.blazemeter] Sending remaining KPI data to server...
+[2024-11-30 17:46:30,721 INFO HappysocksClient] Disconnecting from happysocks server
+[2024-11-30 17:46:30,723 INFO HappysocksClient] Disconnected from happysocks server
+[2024-11-30 17:46:32,866 INFO Engine.shellexec.Task] Background task was not completed, shutting it down: python -c "from pyscripts.utils import atop; atop('-a', '-w', '/tmp/artifacts/admin/atop.binlog', '15')"
+[2024-11-30 17:46:33,867 INFO Engine.shellexec.Task] Terminating process PID 83 with signal Signals.SIGTERM (60 tries left)
+[2024-11-30 17:46:34,869 INFO Engine.shellexec.Task] Background task was not completed, shutting it down: python -c "from pyscripts.jetpack import Jetpack as jp; jp.run()"
+[2024-11-30 17:46:35,871 INFO Engine.shellexec.Task] Terminating process PID 151 with signal Signals.SIGTERM (60 tries left)
+[2024-11-30 17:46:36,872 INFO Engine.shellexec.Task] Starting shell command: python -c "from pyscripts.handlers import ProcessHandler as ph; ph.kill()"
+[2024-11-30 17:46:40,416 INFO root] Artifacts dir: /tmp/artifacts
+[2024-11-30 17:46:40,417 INFO root] Done performing with code: 0
