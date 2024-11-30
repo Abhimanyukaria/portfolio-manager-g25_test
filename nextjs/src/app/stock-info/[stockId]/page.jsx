@@ -123,7 +123,7 @@ const StockInfo = () => {
 
 
   return (
-    <div className=" mx-auto p-4">
+    <div className=" mx-auto px-4">
 
         <HeaderJs/>
       <div className="flex justify-between items-center mb-4 mt-6">
