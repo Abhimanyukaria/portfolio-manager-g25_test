@@ -11,6 +11,7 @@ import Testimonials from '../components/ui/testimonial';
 
 import Link from 'next/link';
 import { HeaderJs } from '../components/header';
+import Stats2 from '../components/ui/stats2';
 
 
 function App() {
@@ -25,9 +26,10 @@ function App() {
           <Features />
           <Stats />
           <Testimonials />
+          {/* <Stats2/> */}
 
           {/* CTA Section */}
-          <section id="cta" className="bg-indigo-600">
+          <section id="cta" className="bg-teal-600">
             <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
               <div className="mx-auto max-w-2xl text-center">
                 <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -39,15 +41,16 @@ function App() {
                   Join thousands of investors who trust Investalyze for portfolio management.
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
-                  <Link
-                    href="#"
-                    className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-indigo-600 shadow-sm hover:bg-indigo-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                  >
-                    Get started
-                  </Link>
-                  <Link href="#" className="text-sm font-semibold leading-6 text-white">
-                    Learn more <span aria-hidden="true">→</span>
-                  </Link>
+                <a
+              href="/api/auth/login"
+              aria-label="Get started with Investalyze"
+            >
+              <button className="cssbuttons-io-button"> Get started
+                <div className="icon">
+                  <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path></svg>
+                </div>
+              </button>
+            </a>
                 </div>
               </div>
             </div>

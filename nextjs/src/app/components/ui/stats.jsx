@@ -5,12 +5,12 @@ const stats = [
   { label: 'Active Users', value: 100000, suffix: 'K+', icon: Users },
   { label: 'Portfolio Growth', value: 32, suffix: '%', icon: TrendingUp },
   { label: 'Industry Awards', value: 15, suffix: '+', icon: Award },
-  { label: 'Security Rating', value: 'A+', icon: Shield },
+  { label: 'Security Rating', value: '98', icon: Shield },
 ];
 
 export default function Stats() {
   return (
-    <div className="bg-white py-24">
+    <div className="bg-white py-24" id='stats'>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <div className="text-center">

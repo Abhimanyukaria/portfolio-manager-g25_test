@@ -7,12 +7,15 @@ export default function Hero() {
       <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
         <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
           <div className="mt-24 sm:mt-32 lg:mt-16">
-            <Link href="#updates" className="inline-flex space-x-6" aria-label="Learn about the latest updates">
+            <Link href="#stats" className="inline-flex space-x-6" aria-label="Learn about the latest updates">
               <span className="rounded-full bg-indigo-600/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-600 ring-1 ring-inset ring-indigo-600/10">
-                Latest Update
+                Our Stats
               </span>
-              <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-600">
-                <span>New AI-powered insights</span>
+
+              </Link>
+              <Link href="#testimonials" aria-label="View testimonials" className='mx-4 '>
+              <span className="inline-flex items-center space-x-2 text-sm py-1 font-medium leading-6 text-gray-600 rounded-full px-2 hover:bg-black/10 hover:ring-1">
+                <span>View Testimonials</span>
                 <ArrowRight className="h-5 w-5 text-gray-400" />
               </span>
             </Link>
