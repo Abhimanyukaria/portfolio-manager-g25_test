@@ -33,6 +33,7 @@
     "radix-ui": "^1.0.1",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.2.0",
+    "react-countup": "^6.5.3",
     "react-dom": "^18.3.1",
     "stocks.js": "^0.0.19",
     "tailwind-merge": "^2.5.4",
