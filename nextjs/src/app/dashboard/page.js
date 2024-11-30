@@ -95,6 +95,8 @@ const DashboardJs = () => {
 
                 transactions.forEach((transaction) => {
                     const stockDetail = data.stockDetails.find((s) => s.stockId === transaction.stockId);
+
+                    console.log('debug', stockDetail)
                     if (stockDetail) {
                         const currentPrice = stockDetail.result.price.regularMarketPrice;
                         const previousClose = stockDetail.result.price.regularMarketPreviousClose;
@@ -139,6 +141,8 @@ const DashboardJs = () => {
         fetchTopGainers();
     }, []);
 
+    console.log('totalvalue',totalValue)
+
 
     function AllStocks() {
 
@@ -182,6 +186,9 @@ const DashboardJs = () => {
         return <MyLoader />
     }
 
+
+    // If no transactions are found, display a message and return
+
     if (!transactions || transactions.length === 0) {
         return (
           <div>
@@ -205,12 +212,6 @@ const DashboardJs = () => {
             <div>
 
                 <HeaderJs />
-
-
-
-         
-
-        
 
 
                         <div className="min-h-screen bg-gray-100 p-8">

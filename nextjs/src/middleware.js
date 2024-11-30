@@ -20,16 +20,12 @@ export async function middleware(req) {
 
  
 
-  // console.log('hello',theme);
 
-  // console.log(req.cookies);
-
-  // console.log(req);
 
 
 }
 
 // Only run this middleware on the root path (or add any custom path you need)
 export const config = {
-  matcher:[ '/'] // This will apply middleware to the root path
+  matcher:[ '/','/stock-info'] // This will apply middleware to the root path
 };
