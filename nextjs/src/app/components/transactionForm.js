@@ -7,10 +7,13 @@ import { Label } from "@/app/components/ui/label"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/app/components/ui/dialog"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/app/components/ui/select"
 import { ScrollArea } from "@/app/components/ui/scroll-area"
-import { PlusIcon, XIcon } from 'lucide-react'
+import { AlertCircle, PlusIcon, XIcon } from 'lucide-react'
 import { StockSearchJsx } from '@/components/stock-search'
 import { useUser } from '@auth0/nextjs-auth0/client'
 let stockData = require('@/../public/allstocks.json');
+
+import { validateInvestment } from '@/controllers/form-controller'
+import { Alert, AlertDescription } from '@/components/ui/alert'
 
 
 // console.log(stockData);
@@ -63,7 +66,18 @@ export function InvestmentFormJsx() {
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+  
+    for (let investment of investments) {
+      let validated = validateInvestment(investment);
+      if (!validated.success) {
+        setShowError(validated.error);
+        setTimeout(() => setShowError(''), 3000);
+        return; // Exit the function early
+      }
+    }
+  
+    // Proceed only if all investments are valid
     const submittedData = investments.map(investment => ({
       ...investment,
       quantity: Number(investment.quantity),
@@ -71,29 +85,28 @@ export function InvestmentFormJsx() {
       totalValue: Number(investment.quantity) * Number(investment.purchasePrice),
       transactionDate: new Date(investment.transactionDate),
       createdAt: new Date()
-    }))
-    console.log('Submitted transactions:', submittedData)
-
+    }));
+  
+    console.log('Submitted transactions:', submittedData);
+  
     fetch('/api/addTransaction', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        "user_email":user.email,
-        transactions:submittedData})
+        "user_email": user.email,
+        transactions: submittedData
+      })
     })
-    .then(response => response.json())
-    .then(data => console.log(data)
-      
-    )
-    .catch(error => console.error(error))
-
-
-
-    // Here you would typically send this data to your 0
-    setOpen(false)
-  }
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+  
+    // Reset and close the form after successful submission
+    setOpen(false);
+  };
+  
 
   useEffect(() => {
     if (scrollAreaRef.current) {
@@ -104,7 +117,8 @@ export function InvestmentFormJsx() {
     }
   }, [investments.length])
 
-  const [mystock, setStock] = useState('');
+  const [showError, setShowError] = useState('')
+
 
   const handleStockIdChange = (index, stockId) => {
     setInvestments((prevInvestments) => {
@@ -132,6 +146,17 @@ export function InvestmentFormJsx() {
           <DialogHeader>
             <DialogTitle>Add New Investment(s)</DialogTitle>
           </DialogHeader>
+
+          {showError != '' ?  
+              <Alert variant="destructive">
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>
+                  {showError}
+                </AlertDescription>
+              </Alert>
+            : <></>}
+
+
           <form onSubmit={handleSubmit}>
             <ScrollArea className="h-[60vh] pr-4" ref={scrollAreaRef}>
               {investments.map((investment, index) => (

@@ -51,6 +51,10 @@ const DashboardJs = () => {
 
 
         // Fetch portfolio data
+
+        setLoading(true);
+
+        console.log(111);
         
         fetch("/api/getPortfolio", {
             method: 'POST',
@@ -59,23 +63,29 @@ const DashboardJs = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log("Fetched portfolio data:", data);
+                // console.log("Fetched portfolio data:", data);
                 setTransactions(data.transactions);
-                setLoading(false);
+                // setLoading(false);
             })
             .catch((error) => {
                 console.error("Error fetching portfolio data:", error);
                 setLoading(false);
             });
+
+
+            console.log(222);
     }, []);
 
     useEffect(() => {
 
-
+        console.log(333);
         setLoading(true);
+
+        console.log(444);
         if (transactions && transactions.length === 0) {
             
             setLoading(false);
+            console.log(555);
             return;
         }
 
@@ -91,7 +101,7 @@ const DashboardJs = () => {
                 });
 
                 const data = await response.json();
-                console.log("Fetched stock details:", data.stockDetails);
+                // console.log("Fetched stock details:", data.stockDetails);
 
                 // Calculate portfolio values
                 let totalCurrentValue = 0;
@@ -101,7 +111,7 @@ const DashboardJs = () => {
                 transactions.forEach((transaction) => {
                     const stockDetail = data.stockDetails.find((s) => s.stockId === transaction.stockId);
 
-                    console.log('debug', stockDetail)
+                    // console.log('debug', stockDetail)
                     if (stockDetail) {
                         const currentPrice = stockDetail.result.price.regularMarketPrice;
                         const previousClose = stockDetail.result.price.regularMarketPreviousClose;
@@ -120,24 +130,28 @@ const DashboardJs = () => {
                 setAllTimeReturns(totalCurrentValue - totalInvested);
                 setStockDetails(data.stockDetails);
 
-                setLoading(false);
+                // setLoading(false);
             } catch (error) {
                 console.error("Error fetching stock prices:", error);
-                setLoading(false);
+                // setLoading(false);
             }
         };
 
         fetchStockPrices();
+
+        setLoading(false);
     }, [transactions]);
 
     useEffect(() => {
         // Fetch top gainers data
+
+        
         const fetchTopGainers = async () => {
             try {
                 const response = await fetch("/api/get-top-gainers");
                 const data = await response.json();
                 setTopGainers(data); // Store the fetched gainers in state
-                console.log("Top Gainers:", data);
+                // console.log("Top Gainers:", data);
             } catch (error) {
                 console.error("Error fetching top gainers:", error);
             }
@@ -146,7 +160,7 @@ const DashboardJs = () => {
         fetchTopGainers();
     }, []);
 
-    console.log('totalvalue',totalValue)
+    // console.log('totalvalue',totalValue)
 
 
     function AllStocks() {
@@ -194,7 +208,7 @@ const DashboardJs = () => {
 
     // If no transactions are found, display a message and return
 
-    if (!transactions || transactions.length === 0) {
+    else if (transactions.length === 0) {
         return (
           <div>
             <HeaderJs />
@@ -212,7 +226,7 @@ const DashboardJs = () => {
                 </div>
           </div>
         );
-      }
+    }
 
 
     return (

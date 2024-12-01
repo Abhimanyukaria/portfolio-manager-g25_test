@@ -22,7 +22,7 @@ export async function POST(req, res) {
 
 
 
-console.log('hi');
+// console.log('hi');
 console.log('user_email:', user_email);
 
 if (!user_email) {
@@ -70,6 +70,12 @@ console.log('existingUser:', existingUser._id);
     // Use Promise.all to wait for all asynchronous save operations
     const allSavedTransactions = await Promise.all(
       transactions.map(async (transaction) => {
+
+        if(!transaction){
+          throw new Error("Please provide all required fields");
+        } 
+
+
         const {
           stockId,
           type,
@@ -88,6 +94,7 @@ console.log('existingUser:', existingUser._id);
           !purchasePrice ||
           !transactionDate
         ) {
+
           throw new Error("Please provide all required fields");
         }
   

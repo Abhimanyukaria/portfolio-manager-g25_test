@@ -18,7 +18,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const AllocationCard = ({ stockDetails ,transactions}) => {
     const [chartData, setChartData] = useState(null);
 
-    console.log("yoyo",stockDetails,transactions);
+    // console.log("yoyo",stockDetails,transactions);
 
     useEffect(() => {
         // Extract and calculate industry allocation
@@ -45,7 +45,7 @@ const AllocationCard = ({ stockDetails ,transactions}) => {
                 percentage: ((value / totalMarketCap) * 100).toFixed(2),
             }));
 
-            console.log(normalizedAllocations);
+            // console.log(normalizedAllocations);
 
             return normalizedAllocations;
 

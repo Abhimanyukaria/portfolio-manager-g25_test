@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 
 export function TopGainersAndLosers({ stockDetails, transactions }) {
-  console.log('Transactions and Stock Details:', transactions, stockDetails);
+  // console.log('Transactions and Stock Details:', transactions, stockDetails);
 
   const data2 = transactions ? transactions.map((transaction) => {
     const stockDetail = stockDetails.find((s) => s.stockId === transaction.stockId);
@@ -25,7 +25,7 @@ export function TopGainersAndLosers({ stockDetails, transactions }) {
   // Filter out null or undefined entries and sort by gain/loss
   const data = data2.filter(Boolean).sort((a, b) => b.gain - a.gain);
 
-  console.log(data, data2);
+  // console.log(data, data2);
 
   return (
     <Card className="col-span-1">

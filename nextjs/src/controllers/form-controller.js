@@ -1,9 +1,8 @@
-import fs from 'fs'
+let stockData = require('@/../public/allstocks.json');
 
 export function validateInvestment(input) {
     const { stockId, quantity, purchasePrice, transactionDate } = input;
 
-    const stockData = JSON.parse(fs.readFileSync('./public/allstocks.json', 'utf8'));
     // Check if all fields are provided
     if (
         stockId === undefined || 
@@ -29,6 +28,8 @@ export function validateInvestment(input) {
         return { success: false, error: "Purchase price must be a positive number." };
     }
 
+    
+
     // Validate transaction date
     const date = new Date(transactionDate);
     const today = new Date();
@@ -39,6 +40,8 @@ export function validateInvestment(input) {
     if (date > today) {
         return { success: false, error: "Transaction date cannot be in the future." };
     }
+
+    
 
     // If all validations pass
     return { success: true, message: "Input is valid." };

@@ -13,8 +13,8 @@ import {
   ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
   
   export function InvestmentByYear({ transactions, stockDetails }) {
-    console.log('Transactions:', transactions);
-    console.log('Stock Details:', stockDetails);
+    // console.log('Transactions:', transactions);
+    // console.log('Stock Details:', stockDetails);
   
     // Helper to calculate returns based on stockDetails
     const calculateReturns = (transaction) => {
