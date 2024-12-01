@@ -6,9 +6,10 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarProvider } from "@/components/ui/sidebar";
 import { Users, BarChart2, Trash2 } from 'lucide-react';
+import { StockTableComponent } from './stock-table';
 
 // Mock component for stocks
-const MyStockComp = () => <div>Stock Component</div>;
+const MyStockComp = () => <StockTableComponent/>;
 
 export function AdminDashboardComponent() {
   const [activeTab, setActiveTab] = useState('users');
@@ -66,7 +67,7 @@ export function AdminDashboardComponent() {
 
   return (
     <SidebarProvider>
-      <div className="flex h-screen bg-gray-100">
+      <div className="flex h-screen w-screen bg-gray-100">
         <Sidebar className="w-48 bg-white">
           <SidebarContent>
             <SidebarGroup>
@@ -91,10 +92,10 @@ export function AdminDashboardComponent() {
           </SidebarContent>
         </Sidebar>
 
-        <main className="flex-1 p-8 overflow-auto">
+        <main className="flex-1 p-8 overflow-auto w-full">
           {activeTab === 'users' ? (
             <div className="space-y-4">
-              <h1 className="text-2xl font-bold">User Management</h1>
+              <h1 className='text-2xl font-extrabold mb-2 '>Admin User Management</h1>
               <div className="flex items-center space-x-2">
                 <Input
                   placeholder="Search users by name or email"
@@ -114,6 +115,8 @@ export function AdminDashboardComponent() {
                       <TableHead>Action</TableHead>
                     </TableRow>
                   </TableHeader>
+
+
                   <TableBody>
                     {filteredUsers.map((user) => (
                       <TableRow key={user._id}>
