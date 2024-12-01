@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { AlertCircle } from 'lucide-react'
 import { Alert, AlertDescription } from "@/components/ui/alert"
+import { AdminDashboardComponent } from './admin-dashboard'
 
 // Import your AdminDashboard component here
 // import AdminDashboard from './admin-dashboard'
@@ -27,7 +28,7 @@ export function AdminLoginComponent() {
   }
 
   if (isAuthenticated) {
-    return <div>Admin Dashboard Content Goes Here</div>;
+    return <AdminDashboardComponent/>
     // Return your actual AdminDashboard component here
     // return <AdminDashboard />
   }

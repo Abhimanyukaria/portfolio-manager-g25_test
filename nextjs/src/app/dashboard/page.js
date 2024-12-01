@@ -17,6 +17,7 @@ import MyLoader from "../components/loader";
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { Delete } from "lucide-react";
 import { DeleteInvestmentDialogJsx } from "@/components/delete-investment-dialog";
+import SunJs from "@/components/ui/sun";
 
 
 const sectors = ["Tech", "Petroleum", "Finance", "Healthcare", "Defense", "Retail"];
@@ -50,7 +51,7 @@ const DashboardJs = () => {
 
 
         // Fetch portfolio data
-        setLoading(true);
+        
         fetch("/api/getPortfolio", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -72,7 +73,11 @@ const DashboardJs = () => {
 
 
         setLoading(true);
-        if (transactions && transactions.length === 0) return;
+        if (transactions && transactions.length === 0) {
+            
+            setLoading(false);
+            return;
+        }
 
         const fetchStockPrices = async () => {
             try {
@@ -193,13 +198,18 @@ const DashboardJs = () => {
         return (
           <div>
             <HeaderJs />
-            <div className="mb-8 flex items-center justify-between">
+            <div className="my-8 flex items-center justify-between px-5 ">
               <h1 className="text-3xl font-bold">My Portfolio</h1>
               <div className="flex gap-2">
                 <InvestmentFormJsx />
               </div>
             </div>
-            <div className="min-h-screen bg-gray-100 p-8">No transactions found</div>
+            <div className="min-h-screen flex justify-center items-center bg-gray-100 p-8">
+                
+                No transactions found
+                
+                <SunJs/>
+                </div>
           </div>
         );
       }
