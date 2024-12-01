@@ -45,120 +45,93 @@ const DashboardJs = () => {
 
 
 
-
     useEffect(() => {
-
-
-
         // Fetch portfolio data
-
-        setLoading(true);
-
-        console.log(111);
-        
+        setLoading(true); // Start loading when fetching begins
+    
         fetch("/api/getPortfolio", {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ hi: "hi" }),
         })
             .then((res) => res.json())
             .then((data) => {
-                // console.log("Fetched portfolio data:", data);
+                console.log("Fetched portfolio data:", data);
                 setTransactions(data.transactions);
-                // setLoading(false);
+                setLoading(false); // Stop loading after transactions are fetched
             })
             .catch((error) => {
                 console.error("Error fetching portfolio data:", error);
-                setLoading(false);
+                setLoading(false); // Stop loading even if there is an error
             });
-
-
-            console.log(222);
     }, []);
-
+    
     useEffect(() => {
-
-        console.log(333);
-        setLoading(true);
-
-        console.log(444);
-        if (transactions && transactions.length === 0) {
-            
-            setLoading(false);
-            console.log(555);
-            return;
+        if (!transactions || transactions.length === 0) {
+            return; // No transactions, no need to fetch stock prices
         }
-
+    
+        setLoading(true); // Start loading for stock price fetch
+    
         const fetchStockPrices = async () => {
             try {
                 const stockIds = transactions.map((t) => t.stockId);
-
+    
                 // Fetch current stock prices
                 const response = await fetch("/api/all-stock-details", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ stockIds }),
                 });
-
+    
                 const data = await response.json();
-                // console.log("Fetched stock details:", data.stockDetails);
-
+    
                 // Calculate portfolio values
                 let totalCurrentValue = 0;
                 let totalInvested = 0;
                 let totalDayChange = 0;
-
+    
                 transactions.forEach((transaction) => {
                     const stockDetail = data.stockDetails.find((s) => s.stockId === transaction.stockId);
-
-                    // console.log('debug', stockDetail)
                     if (stockDetail) {
                         const currentPrice = stockDetail.result.price.regularMarketPrice;
                         const previousClose = stockDetail.result.price.regularMarketPreviousClose;
-
+    
                         totalCurrentValue += transaction.quantity * currentPrice;
                         totalInvested += transaction.quantity * transaction.purchasePrice;
-
-                        // Calculate 1-day change for each stock
                         totalDayChange += transaction.quantity * (currentPrice - previousClose);
                     }
                 });
-
+    
                 setTotalValue(totalCurrentValue);
                 setInvestedAmount(totalInvested);
                 setOneDayChange(totalDayChange);
                 setAllTimeReturns(totalCurrentValue - totalInvested);
                 setStockDetails(data.stockDetails);
-
-                // setLoading(false);
             } catch (error) {
                 console.error("Error fetching stock prices:", error);
-                // setLoading(false);
+            } finally {
+                setLoading(false); // Stop loading after stock prices are fetched
             }
         };
-
+    
         fetchStockPrices();
-
-        setLoading(false);
     }, [transactions]);
-
+    
     useEffect(() => {
-        // Fetch top gainers data
-
-        
         const fetchTopGainers = async () => {
             try {
                 const response = await fetch("/api/get-top-gainers");
                 const data = await response.json();
-                setTopGainers(data); // Store the fetched gainers in state
-                // console.log("Top Gainers:", data);
+                setTopGainers(data);
             } catch (error) {
                 console.error("Error fetching top gainers:", error);
             }
         };
-
+    
         fetchTopGainers();
     }, []);
+    
 
     // console.log('totalvalue',totalValue)
 
@@ -208,7 +181,7 @@ const DashboardJs = () => {
 
     // If no transactions are found, display a message and return
 
-    else if (transactions.length === 0) {
+    else if (loading == false && transactions.length === 0) {
         return (
           <div>
             <HeaderJs />
