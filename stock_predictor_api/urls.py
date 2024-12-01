@@ -4,9 +4,8 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",views.index,name='index'),
-    path('update/',views.update, name='update'),
-    path('prediction/<slug:symbol>',views.prediction, name='prediction'),
-    path('get_data/',views.get_data, name='get_data'),
-    path('process_data/',views.process_data, name='process_data')
+    path("", views.index, name='index'),
+    path('prediction/<slug:symbol>', views.prediction, name='prediction'),
+    path('clear_predictions/', views.clear_predictions, name='clear_predictions'),
+    path('get_weights/<str:tickers>', views.calculate_portfolio_weights, name='portfolio-weights'),
 ]
