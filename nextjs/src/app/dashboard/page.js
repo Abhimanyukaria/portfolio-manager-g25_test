@@ -17,7 +17,7 @@ import MyLoader from "../components/loader";
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { Delete } from "lucide-react";
 import { DeleteInvestmentDialogJsx } from "@/components/delete-investment-dialog";
-import SunJs from "@/components/ui/sun";
+import {SunJs} from "@/components/ui/sun";
 
 
 const sectors = ["Tech", "Petroleum", "Finance", "Healthcare", "Defense", "Retail"];
@@ -204,7 +204,7 @@ const DashboardJs = () => {
                 <InvestmentFormJsx />
               </div>
             </div>
-            <div className="min-h-screen flex justify-center items-center bg-gray-100 p-8">
+            <div className="min-h-screen flex flex-col text-xl text-bold justify-center items-center bg-gray-100 p-8">
                 
                 No transactions found
                 
