@@ -16,7 +16,7 @@ export function DeleteInvestmentDialogJsx({ mytransactions }) {
   useEffect(() => {
     setTransactions(mytransactions)
 
-    console.log("bolobhai",transactions,mytransactions)
+    // console.log("bolobhai",transactions,mytransactions)
   },[]);
 
   const handleDelete = async (id) => {

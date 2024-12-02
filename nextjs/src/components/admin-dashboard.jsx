@@ -58,7 +58,7 @@ export function AdminDashboardComponent() {
         // Remove the deleted user from the UI
         setUsers(users.filter(user => user._id !== userId));
 
-        console.log(data.message);
+        // console.log(data.message);
        
     } catch (error) {
       console.error("Failed to delete user:", error);

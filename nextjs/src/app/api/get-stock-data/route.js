@@ -20,7 +20,7 @@ export async function POST(req, res) {
     const period2 = body2.period2;
   
     
-        console.log(stockId);
+        // console.log(stockId);
     const result = await yahooFinance.chart(stockId, { period1, period2 });
 
 

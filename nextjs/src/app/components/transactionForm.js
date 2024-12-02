@@ -15,6 +15,9 @@ let stockData = require('@/../public/allstocks.json');
 import { validateInvestment } from '@/controllers/form-controller'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 
+import { useRouter } from 'next/navigation'
+
+
 
 // console.log(stockData);
 
@@ -28,6 +31,10 @@ const emptyInvestment = {
 }
 
 export function InvestmentFormJsx() {
+
+  
+  const router = useRouter()
+
 
   const { user, error, isLoading } = useUser();
   const [open, setOpen] = useState(false)
@@ -100,7 +107,12 @@ export function InvestmentFormJsx() {
       })
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => {
+        console.log('Success:', data);
+        router.refresh();
+        router.replace('/dashboard')
+        router.push('/dashboard');
+      })
       .catch(error => console.error(error));
   
     // Reset and close the form after successful submission
@@ -115,6 +127,12 @@ export function InvestmentFormJsx() {
         scrollElement.scrollTop = scrollElement.scrollHeight - 600
       }
     }
+
+    router.refresh();
+        router.replace('/dashboard')
+        router.push('/dashboard');
+
+        
   }, [investments.length])
 
   const [showError, setShowError] = useState('')

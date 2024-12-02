@@ -57,7 +57,7 @@ const DashboardJs = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log("Fetched portfolio data:", data);
+                // console.log("Fetched portfolio data:", data);
                 setTransactions(data.transactions);
                 setLoading(false); // Stop loading after transactions are fetched
             })

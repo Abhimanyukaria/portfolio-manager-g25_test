@@ -17,10 +17,10 @@ import Stats2 from '../components/ui/stats2';
 function App() {
   return (
     <div>
-      <div className="bg-white">
+      <div className=" container2">
         {/* <Navbar /> */}
 
-        <HeaderJs className=""/>
+        <HeaderJs className=" "/>
         <main>
           <Hero />
           <Features />
