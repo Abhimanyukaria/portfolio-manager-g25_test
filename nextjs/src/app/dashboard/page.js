@@ -18,6 +18,7 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 import { Delete } from "lucide-react";
 import { DeleteInvestmentDialogJsx } from "@/components/delete-investment-dialog";
 import {SunJs} from "@/components/ui/sun";
+import { StockAnalysisCardComponent } from "@/components/stock-analysis-card";
 
 
 const sectors = ["Tech", "Petroleum", "Finance", "Healthcare", "Defense", "Retail"];
@@ -321,7 +322,7 @@ const DashboardJs = () => {
 
 
 
-
+                                <StockAnalysisCardComponent/>
 
                             </div>
 

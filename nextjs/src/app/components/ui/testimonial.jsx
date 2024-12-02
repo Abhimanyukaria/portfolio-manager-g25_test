@@ -4,19 +4,19 @@ export default function Testimonials() {
         content: "Investalyze transformed how I manage my portfolio. The real-time insights are invaluable.",
         author: "Sarah Chen",
         role: "Individual Investor",
-        photo: "https://via.placeholder.com/50"
+        photo: "/p1.png"
       },
       {
         content: "The best investment tool I've used. Clean interface and powerful analytics.",
         author: "Michael Rodriguez",
         role: "Financial Advisor",
-        photo: "https://via.placeholder.com/50"
+        photo: "/p2.png"
       },
       {
         content: "Outstanding portfolio management platform. Worth every penny.",
         author: "David Kim",
         role: "Day Trader",
-        photo: "https://via.placeholder.com/50"
+        photo: "/p3.png"
       }
     ];
   

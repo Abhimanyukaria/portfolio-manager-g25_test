@@ -10,13 +10,31 @@ export async function middleware(req) {
   const cookieStore = await cookies()
   const user = cookieStore.get('appSession')
 
+  const { pathname } = req.nextUrl;
+  console.log(pathname);
+
+
   // If no session or user, redirect to /landing
-  if (!cookieStore || !user) {
-    return NextResponse.redirect(new URL('/landing', req.url));
+
+
+  if( pathname === '/profile'){
+    if (!cookieStore || !user) {
+      return NextResponse.redirect(new URL('/landing', req.url));
+    }
   }
 
-  // If the user is logged in, redirect to /dashboard
-  return NextResponse.redirect(new URL('/dashboard', req.url));
+  
+  if(pathname === '/' || pathname === '/stock-info' ){
+    if (!cookieStore || !user) {
+      return NextResponse.redirect(new URL('/landing', req.url));
+    }
+    else {
+      return NextResponse.redirect(new URL('/dashboard', req.url));
+    }
+  }
+
+
+  
 
  
 
