@@ -5,78 +5,97 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Loader2 } from 'lucide-react'
 
-// Mock data for stock analysis
-const stockAnalysisData = [
-  { stockId: "AAPL", futurePrice: 180.50 },
-  { stockId: "GOOGL", futurePrice: 2750.00 },
-  { stockId: "MSFT", futurePrice: 340.75 },
-  { stockId: "AMZN", futurePrice: 3500.25 },
-  { stockId: "FB", futurePrice: 330.00 }
-]
-
-
-
-export function StockAnalysisCardComponent({stockDetails,transactions}) {
-
-  console.log(stockDetails,transactions)
+export function StockAnalysisCardComponent({ stockDetails, transactions }) {
   const [isLoading, setIsLoading] = useState(false)
   const [showData, setShowData] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-  const [futureAnalysis, setFutureAnalysis] = useState(null);
+  const [futureAnalysis, setFutureAnalysis] = useState([])
 
-
-  const stockName = "Apple Inc.";
-const stockSymbol = "AAPL";
-const currentPrice = 145.50;
+  const predictions = stockDetails.map(stock => {
+    const currentPrice = stock.result.price.regularMarketPrice
+    const futurePrice = currentPrice ? currentPrice * 1.05 : 0 // Prediction logic (+5%)
+    return {
+      stockId: stock.stockId,
+      currentPrice: currentPrice,
+      futurePrice: futurePrice
+    }
+  })
 
   useEffect(() => {
+
+    console.log(1111);
     if (isOpen && isLoading) {
       const timer = setTimeout(() => {
         setIsLoading(false)
         setShowData(true)
       }, 5000)
 
+      console.log(2222)
       const fetchFutureAnalysis = async () => {
         try {
-          const response = await fetch(`https://stock-preditor-api.onrender.com/prediction/${stockSymbol}`);
-          const data = await response.json();
-          setFutureAnalysis(data);
+          const allPredictions = await Promise.all(
+            stockDetails.map(async (stock) => {
+              const response = await fetch(`https://stock-preditor-api.onrender.com/prediction/${stock.stockId}`, {
+                method: 'GET', // or 'POST', depending on your API
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                mode: 'no-cors', // This tells the browser to make the request without CORS restrictions
+              });
+      
+              // Because of `no-cors`, you won't be able to access the response directly if the API doesn't support CORS
+              if (response.ok) {
+                const data = await response.json();  // You may not be able to access this data in `no-cors` mode
+                console.log(data);
+                return { stockId: stock.stockId, futurePrice: data.futurePrice };
+              } else {
+                throw new Error(`Failed to fetch data for ${stock.stockId}`);
+
+
+
+              }
+            })
+          );
+          console.log(predictions);
+          console.log("bhai",allPredictions);
+
+
+            setFutureAnalysis(allPredictions);
+
         } catch (error) {
           console.error("Error fetching future analysis:", error);
         }
       };
+      
 
       fetchFutureAnalysis();
 
-      return () => clearTimeout(timer)
+      if(futureAnalysis.length === 0) {
+        setFutureAnalysis(predictions)
+      } 
+
+      return () => clearTimeout(timer);
     }
-  }, [isOpen, isLoading])
+  }, [isOpen, isLoading, stockDetails]);
 
   const handleOpenChange = (open) => {
-    setIsOpen(open)
+    setIsOpen(open);
     if (open) {
-      setIsLoading(true)
-      setShowData(false)
+      setIsLoading(true);
+      setShowData(false);
     } else {
-      setIsLoading(false)
-      setShowData(false)
+      setIsLoading(false);
+      setShowData(false);
     }
-  }
+  };
 
   return (
     <Card className="w-[350px]">
       <CardHeader>
-        <CardTitle>{stockName} ({stockSymbol})</CardTitle>
+        <CardTitle>Stock Analysis</CardTitle>
       </CardHeader>
       <CardContent>
-        {currentPrice !== undefined ? (
-          <>
-            <p className="text-2xl font-bold">${currentPrice.toFixed(2)}</p>
-            <p className="text-sm text-muted-foreground">Current Price</p>
-          </>
-        ) : (
-          <p className="text-sm text-muted-foreground">Price not available</p>
-        )}
+        <p className="text-2xl font-bold">Current Stock Analysis</p>
       </CardContent>
       <CardFooter>
         <Dialog open={isOpen} onOpenChange={handleOpenChange}>
@@ -85,7 +104,7 @@ const currentPrice = 145.50;
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
-              <DialogTitle>Stock Analysis for {stockSymbol}</DialogTitle>
+              <DialogTitle>Stock Analysis for All Stocks</DialogTitle>
             </DialogHeader>
             {isLoading && (
               <div className="flex items-center justify-center p-8">
@@ -93,7 +112,7 @@ const currentPrice = 145.50;
                 <span className="ml-2">Loading analysis...</span>
               </div>
             )}
-            {showData && futureAnalysis && (
+            {showData && futureAnalysis.length > 0 && (
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -117,8 +136,3 @@ const currentPrice = 145.50;
     </Card>
   )
 }
-
-
-
-
-
