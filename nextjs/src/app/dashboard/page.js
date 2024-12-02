@@ -322,7 +322,7 @@ const DashboardJs = () => {
 
 
 
-                                <StockAnalysisCardComponent/>
+                                <StockAnalysisCardComponent stockDetails={stockDetails} transactions={transactions}/>
 
                             </div>
 
