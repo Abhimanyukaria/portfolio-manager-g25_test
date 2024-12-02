@@ -22,6 +22,7 @@ export function StockAnalysisCardComponent({stockDetails,transactions}) {
   const [isLoading, setIsLoading] = useState(false)
   const [showData, setShowData] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const [futureAnalysis, setFutureAnalysis] = useState(null);
 
 
   const stockName = "Apple Inc.";
@@ -34,6 +35,18 @@ const currentPrice = 145.50;
         setIsLoading(false)
         setShowData(true)
       }, 5000)
+
+      const fetchFutureAnalysis = async () => {
+        try {
+          const response = await fetch(`https://stock-preditor-api.onrender.com/prediction/${stockSymbol}`);
+          const data = await response.json();
+          setFutureAnalysis(data);
+        } catch (error) {
+          console.error("Error fetching future analysis:", error);
+        }
+      };
+
+      fetchFutureAnalysis();
 
       return () => clearTimeout(timer)
     }
@@ -80,7 +93,7 @@ const currentPrice = 145.50;
                 <span className="ml-2">Loading analysis...</span>
               </div>
             )}
-            {showData && (
+            {showData && futureAnalysis && (
               <Table>
                 <TableHeader>
                   <TableRow>
@@ -89,7 +102,7 @@ const currentPrice = 145.50;
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {stockAnalysisData.map((analysis) => (
+                  {futureAnalysis.map((analysis) => (
                     <TableRow key={analysis.stockId}>
                       <TableCell>{analysis.stockId}</TableCell>
                       <TableCell>${analysis.futurePrice.toFixed(2)}</TableCell>
