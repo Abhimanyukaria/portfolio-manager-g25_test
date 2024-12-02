@@ -1,0 +1,761 @@
+{
+  "id": "7778ac6e-24bc-49dc-aa1b-508134f843e7",
+  "version": "2.0",
+  "name": "Portfolio Manager - Admin",
+  "url": "https://portfolio-manager-g25.vercel.app/admin",
+  "tests": [{
+    "id": "ef7942f7-57dc-4f7f-8e03-5c99104e2a2b",
+    "name": "Button - Admin Login",
+    "commands": [{
+      "id": "c87c5d48-b098-49bf-86d0-31223971a1a5",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/admin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2ea12fb9-1a35-42ee-82ef-6cec85c9556f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "784x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e17947ef-da39-493a-949d-61d1f10dc2bf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inline-flex",
+      "targets": [
+        ["css=.inline-flex", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "789e42e9-0d64-4a44-a9e2-9f92d24f9d8f",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "790deaad-dee8-453b-83d0-f0d79fe65371",
+    "name": "Text Box - Password",
+    "commands": [{
+      "id": "b7882c45-0864-4604-9850-d48bf9e67f72",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/admin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aa54ecc1-bc3d-4e59-beb5-016ea61c43b4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "784x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "686b8a51-113e-4fe7-9ebb-967ff172224b",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ced68aeb-8177-4168-84a5-4a26e797bf61",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "123#abcd"
+    }, {
+      "id": "52945732-3d32-44f6-9d10-1b0e6ebd266c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inline-flex",
+      "targets": [
+        ["css=.inline-flex", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7514766-7da0-4e4d-8539-3dd47745c60b",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "1b81f511-1cea-42c1-9cab-281d6e008a3c",
+    "name": "Button - Stocks",
+    "commands": [{
+      "id": "339ffd93-8e4f-4693-956e-0b821f346c51",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/admin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "725df37d-f825-40be-9216-4f55c031dc0c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "783x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2f0cf968-a212-4913-8b87-d968bbf838a0",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "123#abcd"
+    }, {
+      "id": "1621226e-4ffe-4f72-8795-f75676dd12de",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inline-flex",
+      "targets": [
+        ["css=.inline-flex", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ef97140f-6382-4308-8e07-65eaba4f42e7",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.inline-flex",
+      "targets": [
+        ["css=.inline-flex", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fe586c31-137a-43bf-a69d-30d052c6b2e7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.group\\/menu-item:nth-child(2) > .peer\\/menu-button",
+      "targets": [
+        ["css=.group\\/menu-item:nth-child(2) > .peer\\/menu-button", "css:finder"],
+        ["xpath=//li[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Stocks')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5559e0c1-52ee-466e-83ce-c835510ac509",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "35abd3ac-867b-4e79-9591-efc9bed577a0",
+    "name": "Button - Users",
+    "commands": [{
+      "id": "d6f03d42-ada3-487d-9876-a28ff466bfa4",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/admin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b81e71f8-1985-408d-a1ce-a30b493bbf33",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "783x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "00aa49e3-1bbd-48e0-9b9b-5877b50a08d6",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "123#abcd"
+    }, {
+      "id": "0f26953f-9888-4965-a5db-56e953a9f415",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inline-flex",
+      "targets": [
+        ["css=.inline-flex", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "61adc683-d3e4-4373-950a-b60d564d3eb7",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.inline-flex",
+      "targets": [
+        ["css=.inline-flex", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "04d6e971-fd09-4dde-8998-9afe62d3b7ff",
+      "comment": "",
+      "command": "click",
+      "target": "css=.group\\/menu-item:nth-child(2) > .peer\\/menu-button",
+      "targets": [
+        ["css=.group\\/menu-item:nth-child(2) > .peer\\/menu-button", "css:finder"],
+        ["xpath=//li[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Stocks')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e118e1a3-26b3-454c-8357-a0fd7ea7fcc6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.group\\/menu-item:nth-child(1) > .peer\\/menu-button",
+      "targets": [
+        ["css=.group\\/menu-item:nth-child(1) > .peer\\/menu-button", "css:finder"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Users')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "46d5fc2b-0625-4bba-af90-1e8d5673426e",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "6ecf53de-1089-422b-b649-bfafb7f2c110",
+    "name": "Text Box - Enter UserName",
+    "commands": [{
+      "id": "5ff4dfd2-b4b3-4efc-817d-e4f7e8db5915",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/admin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cbbed3ae-ddb7-47f3-b916-04a0648e9d08",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "783x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "de0c25a4-d857-4659-96f7-e64dcc073a61",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fd95715a-eebb-4249-8aa3-7e756e6e412f",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "123#abcd"
+    }, {
+      "id": "357924a9-e6a2-42b5-83dd-00f69c66bf12",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inline-flex",
+      "targets": [
+        ["css=.inline-flex", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3d6b4a9-f4bd-4b32-b04d-480f2f58b5a5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.border",
+      "targets": [
+        ["css=.border", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ae2506b-9938-44a9-949c-8f8e1fe31fb2",
+      "comment": "",
+      "command": "type",
+      "target": "css=.border",
+      "targets": [
+        ["css=.border", "css:finder"],
+        ["xpath=//input[@value='abc']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "abc"
+    }, {
+      "id": "0f21aa1a-f13f-4521-82c3-3205ed88bc1e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-primary",
+      "targets": [
+        ["css=.bg-primary", "css:finder"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Clear')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cb00ece2-7df2-449b-8649-01fc4208cdbf",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "dd687022-6d39-4694-bc60-61e69e4c5d03",
+    "name": "Link - View Stock Performance",
+    "commands": [{
+      "id": "e37c0743-2547-4e31-963b-928ac60f8572",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/admin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1cea3577-a95d-432a-81c4-7b10e572f8b9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1051x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cebc3fa8-3e05-427e-be39-ee6d2a7d86b6",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "123#abcd"
+    }, {
+      "id": "f64da3ab-56b3-48f2-81e9-ec06718b3aec",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inline-flex",
+      "targets": [
+        ["css=.inline-flex", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dca13505-00b3-4dff-9f3d-f9b414cf2fa0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.group\\/menu-item:nth-child(2) span",
+      "targets": [
+        ["css=.group\\/menu-item:nth-child(2) span", "css:finder"],
+        ["xpath=//li[2]/button/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Stocks')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4dd4cb33-d01d-42be-87ec-ce2c69569d33",
+      "comment": "",
+      "command": "click",
+      "target": "css=.border-b:nth-child(3) .text-blue-600",
+      "targets": [
+        ["css=.border-b:nth-child(3) .text-blue-600", "css:finder"],
+        ["xpath=(//a[contains(text(),'View Performance')])[3]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/stock-info/ABBV')]", "xpath:href"],
+        ["xpath=//tr[3]/td[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6c34ff51-1c60-4306-9a21-5d97443c0363",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "3465455f-60b0-4d00-b73c-d69740742541",
+    "name": "Button - Delete User",
+    "commands": [{
+      "id": "bf34ba0d-6176-4bbb-bddf-6e051d3c4bc3",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/admin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "965a0fc3-0ea4-44f0-bcb8-b96d3a1d2ed3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "783x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "407221ad-de6a-4f80-ba3d-24b28413d89b",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "123#abcd"
+    }, {
+      "id": "a219e907-3edf-4e40-b27a-d53e4bbeba29",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "a4220247-44fd-446f-b23a-b0218bc60293",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.border-b:nth-child(4) .inline-flex",
+      "targets": [
+        ["css=.border-b:nth-child(4) .inline-flex", "css:finder"],
+        ["xpath=//tr[4]/td[4]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6bced230-6bad-457b-bc3c-604e881e98b2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.border-b:nth-child(10) .inline-flex",
+      "targets": [
+        ["css=.border-b:nth-child(10) .inline-flex", "css:finder"],
+        ["xpath=//tr[10]/td[4]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9bd5a977-15f9-41fc-b9c0-0dc6b3b2d853",
+      "comment": "",
+      "command": "click",
+      "target": "css=.border-b:nth-child(6) .inline-flex",
+      "targets": [
+        ["css=.border-b:nth-child(6) .inline-flex", "css:finder"],
+        ["xpath=//tr[6]/td[4]/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "1c3f6522-9853-4130-b3e5-51884d2adb79",
+    "name": "Button - Clear",
+    "commands": [{
+      "id": "12baf6fb-4806-477e-8640-5d5059b300d5",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/admin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "49b205b8-bcca-4bb1-b1f9-424c5a8c81f6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "783x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b8d2b53a-8500-446a-904c-7e869632e5d7",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "123#abcd"
+    }, {
+      "id": "e6c7317b-c782-420b-a82b-ac298df67e8b",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "d023878b-152b-457a-9794-43ecc06eb1c0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.border",
+      "targets": [
+        ["css=.border", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0b233fb9-782f-44e3-bab8-89224a54d6f1",
+      "comment": "",
+      "command": "type",
+      "target": "css=.border",
+      "targets": [
+        ["css=.border", "css:finder"],
+        ["xpath=//input[@value='abc']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "abc"
+    }, {
+      "id": "bb00d984-8f2c-4352-b019-c78a7bc3b2f2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-primary",
+      "targets": [
+        ["css=.bg-primary", "css:finder"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Clear')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7a84252-17e0-4295-9656-2bf172f73134",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "df612a3a-f48a-4d26-b5a6-9f80f3818642",
+    "name": "Button - Next and Previous Button",
+    "commands": [{
+      "id": "f9b4c273-af6c-467e-bd69-47732c9f97b4",
+      "comment": "",
+      "command": "open",
+      "target": "https://portfolio-manager-g25.vercel.app/admin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "52f83367-eed5-47bc-b180-2055a9ffa27d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1051x798",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5b6c7127-acdb-4ab3-831f-910b6cd8aba6",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "123#abcd"
+    }, {
+      "id": "0286b663-b544-4613-ae19-0cb8de8f72af",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inline-flex",
+      "targets": [
+        ["css=.inline-flex", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "22399b83-d402-4ee9-8186-583388104217",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.inline-flex",
+      "targets": [
+        ["css=.inline-flex", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='radix-:Rvfb:']/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "027cdb88-77d7-49e5-9ddd-dc9b5fbbff36",
+      "comment": "",
+      "command": "click",
+      "target": "css=.group\\/menu-item:nth-child(2) > .peer\\/menu-button",
+      "targets": [
+        ["css=.group\\/menu-item:nth-child(2) > .peer\\/menu-button", "css:finder"],
+        ["xpath=//li[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Stocks')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "070c9742-a732-4896-aba3-df880ccbdd34",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inline-flex:nth-child(3)",
+      "targets": [
+        ["css=.inline-flex:nth-child(3)", "css:finder"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Next')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c31e8a4-c744-4fca-94ca-f1837afe28f8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inline-flex:nth-child(3)",
+      "targets": [
+        ["css=.inline-flex:nth-child(3)", "css:finder"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Next')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "77179360-5de1-4307-9a1e-41ae8eccf541",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.inline-flex:nth-child(3)",
+      "targets": [
+        ["css=.inline-flex:nth-child(3)", "css:finder"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Next')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb6ef9e8-7082-41a6-806c-ec44de5c8c64",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inline-flex:nth-child(3)",
+      "targets": [
+        ["css=.inline-flex:nth-child(3)", "css:finder"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Next')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "edc7dbc6-7280-4368-848b-e8fe41de3952",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inline-flex:nth-child(1)",
+      "targets": [
+        ["css=.inline-flex:nth-child(1)", "css:finder"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Previous')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b9193b1-2df3-4020-9907-b01b4b5b1cd6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inline-flex:nth-child(1)",
+      "targets": [
+        ["css=.inline-flex:nth-child(1)", "css:finder"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Previous')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "12f967d4-6904-4971-8bb7-83ba83789283",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.inline-flex:nth-child(1)",
+      "targets": [
+        ["css=.inline-flex:nth-child(1)", "css:finder"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Previous')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba47ed13-3c56-43e6-9a33-7ecba26b3c0a",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "4d79f37a-1369-4593-bee0-6773f70bcdf5",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["ef7942f7-57dc-4f7f-8e03-5c99104e2a2b"]
+  }],
+  "urls": ["https://portfolio-manager-g25.vercel.app/admin"],
+  "plugins": []
+}
