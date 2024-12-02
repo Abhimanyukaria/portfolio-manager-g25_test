@@ -32,7 +32,7 @@ export default function Profile() {
         }
     },[user,error])
 
-    console.log(user, error);
+    // console.log(user, error);
 
     if (loading) return <MyLoader/>
 
@@ -42,7 +42,7 @@ export default function Profile() {
         <div>
             <HeaderJs/>
             <div >
-        <div className="flex flex-col justify-center items-center h-[100vh] text-black bg-slate-300">
+        <div className="container2 flex flex-col justify-center items-center h-[100vh] text-black bg-slate-300">
             <div className="relative flex flex-col items-center rounded-[20px] w-[400px] mx-auto p-4 bg-white bg-clip-border shadow-3xl shadow-shadow-500 drk:!bg-navy-800 drk:text-white drk:!shadow-none">
                 <div className="relative flex h-32 w-full justify-center rounded-xl bg-cover" >
                     <img src="/randomass.jpg" className="absolute flex h-32 w-full justify-center rounded-xl bg-cover"/> 
