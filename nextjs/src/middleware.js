@@ -27,5 +27,5 @@ export async function middleware(req) {
 
 // Only run this middleware on the root path (or add any custom path you need)
 export const config = {
-  matcher:[ '/','/stock-info'] // This will apply middleware to the root path
+  matcher:[ '/','/stock-info','/profile'] // This will apply middleware to the root path
 };
