@@ -4,7 +4,7 @@ import yahooFinance from 'yahoo-finance2';
 export async function POST(req, res) {
     // Parse the request body
     const body = await req.json();
-    console.log(body);
+    // console.log(body);
 
     const stockIds = body.stockIds;
 

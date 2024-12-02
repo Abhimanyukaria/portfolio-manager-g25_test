@@ -23,7 +23,7 @@ export async function POST(req, res) {
 
 
 // console.log('hi');
-console.log('user_email:', user_email);
+// console.log('user_email:', user_email);
 
 if (!user_email) {
   return NextResponse.json({ error: "User not authenticated" }, { status: 401 });
@@ -33,7 +33,7 @@ let existingUser = await User.findOne({ email: user_email }).select('_id');
 
 
 
-console.log('existingUser:', existingUser._id);
+// console.log('existingUser:', existingUser._id);
 
 
 
@@ -44,8 +44,8 @@ console.log('existingUser:', existingUser._id);
 
   const portfolioId = myportfolio._id;
 
-  console.log('portfolioId', myportfolio);
-  console.log('portfolioId meri:', portfolioId);
+  // console.log('portfolioId', myportfolio);
+  // console.log('portfolioId meri:', portfolioId);
 
   if (!portfolioId) {
     return NextResponse.json({ error: "Portfolio not found" });
@@ -61,7 +61,7 @@ console.log('existingUser:', existingUser._id);
 
   try {
     const transactions = body.transactions;
-    console.log('transactions se hello:', transactions);
+    // console.log('transactions se hello:', transactions);
   
     if (!transactions || transactions.length === 0) {
       return NextResponse.json({ error: "No transactions provided" });
@@ -84,7 +84,7 @@ console.log('existingUser:', existingUser._id);
           transactionDate,
         } = transaction;
   
-        console.log('Processing transaction:', transaction);
+        // console.log('Processing transaction:', transaction);
   
         // Validate the required fields
         if (
@@ -98,7 +98,7 @@ console.log('existingUser:', existingUser._id);
           throw new Error("Please provide all required fields");
         }
   
-        console.log('stockId:', stockId);
+        // console.log('stockId:', stockId);
   
         // Create a new transaction
         const newTransaction = new Transaction({
@@ -111,11 +111,11 @@ console.log('existingUser:', existingUser._id);
           transactionDate,
         });
   
-        console.log('newTransaction:', newTransaction);
+        // console.log('newTransaction:', newTransaction);
   
         // Save to database and return the saved transaction
         const savedTransaction = await newTransaction.save();
-        console.log("Transaction saved:", savedTransaction);
+        // console.log("Transaction saved:", savedTransaction);
         return savedTransaction;
       })
     );

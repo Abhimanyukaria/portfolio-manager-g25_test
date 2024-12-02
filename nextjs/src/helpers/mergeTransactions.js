@@ -518,7 +518,7 @@ const importData = async () => {
       useUnifiedTopology: true,
     });
 
-    console.log("Connected to MongoDB");
+    // console.log("Connected to MongoDB");
 
     // Read the data file
     const data = JSON.parse(fs.readFileSync(dataFilePath, "utf-8"));

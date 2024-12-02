@@ -4,7 +4,8 @@ import yahooFinance from 'yahoo-finance2';
 export async function GET(req, res) {
     try {
         // Fetch the daily gainers data
-        const result = await yahooFinance.dailyGainers({ count: 4 });
+        const queryOptions = { count: 5, region: 'US', lang: 'en-US' };
+        const result = await yahooFinance.dailyGainers(queryOptions);
 
         // Extract relevant data for each stock
         const gainers = result.quotes.map(stock => ({

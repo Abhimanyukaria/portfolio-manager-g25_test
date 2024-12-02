@@ -32,7 +32,7 @@ export function StockSearchJsx({ setStock }) {
 
     // setStock(value);
 
-    console.log(value);
+    // console.log(value);
 
     let filteredStocks = [];
 

@@ -22,9 +22,9 @@ export default function Profile() {
 
     
     useEffect(()=> {
-        console.log("ok");
+        // console.log("ok");
         if(user){
-            console.log("hi",user)
+            // console.log("hi",user)
             setLoading(false);
         }
         else{

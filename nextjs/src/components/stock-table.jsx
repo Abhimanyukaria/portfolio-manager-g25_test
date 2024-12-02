@@ -23,7 +23,7 @@ export function StockTableComponent() {
   const endIndex = startIndex + itemsPerPage
   const currentStocks = filteredStocks.slice(startIndex, endIndex)
 
-  console.log(currentStocks)
+  // console.log(currentStocks)
 
   return (
     <div className=" mx-auto p-4">

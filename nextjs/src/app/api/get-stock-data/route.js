@@ -9,11 +9,11 @@ import yahooFinance from 'yahoo-finance2';
 
 export async function POST(req, res) {
 
-    console.log('hi');
+    // console.log('hi');
 
     try{
     const body2 = await req.json();
-    console.log(body2);
+    // console.log(body2);
 
     const stockId = body2.stockId;
     const period1 = body2.period1;

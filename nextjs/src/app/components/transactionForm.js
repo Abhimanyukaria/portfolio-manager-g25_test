@@ -87,7 +87,7 @@ export function InvestmentFormJsx() {
       createdAt: new Date()
     }));
   
-    console.log('Submitted transactions:', submittedData);
+    // console.log('Submitted transactions:', submittedData);
   
     fetch('/api/addTransaction', {
       method: 'POST',

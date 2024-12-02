@@ -12,10 +12,10 @@ import Transaction from "@/helpers/models/transaction";
 export async function POST(req, res) {
   // Ensure the database is connected
 
-  console.log("this is an api route");
+  // console.log("this is an api route");
 
   const session = await getSession();
-  const { user } = await session;
+  const { user } = session;
 
   // const body  = await req.json();
 
@@ -36,7 +36,7 @@ export async function POST(req, res) {
 
     if (!existingUser) {
       // If the user does not exist, create a new user in MongoDB
-      console.log("Creating new user...");
+      // console.log("Creating new user...");
       existingUser = new User({
         email: user.email,
         name: user.nickname || "",
@@ -46,7 +46,7 @@ export async function POST(req, res) {
       
 
       await existingUser.save();
-      console.log("New user added to database:", existingUser);
+      // console.log("New user added to database:", existingUser);
 
 
       let initPortfolio = new Portfolio({
@@ -56,9 +56,9 @@ export async function POST(req, res) {
       });
 
 
-      console.log("Portfolio initialized:", initPortfolio);
+      // console.log("Portfolio initialized:", initPortfolio);
     } else {
-      console.log("User found in database:", existingUser);
+      // console.log("User found in database:", existingUser);
     }
 
     // Fetch all portfolios for the user
@@ -74,7 +74,7 @@ export async function POST(req, res) {
           createdAt: new Date(),
         });
         await initPortfolio.save();
-        console.log("Portfolio initialized:", initPortfolio);
+        // console.log("Portfolio initialized:", initPortfolio);
         portfolioIds.push(initPortfolio._id);
 
       }
@@ -82,13 +82,13 @@ export async function POST(req, res) {
       portfolioIds = portfolios.map(portfolio => portfolio._id);
       }
 
-      console.log("Portfolios found:", portfolios);
+      // console.log("Portfolios found:", portfolios);
 
       const myportfolio = portfolios[0];
 
       const transactions = await Transaction.find({portfolioId: myportfolio._id});
 
-      console.log(transactions);
+      // console.log(transactions);
 
 
       // Respond with user data and portfolio IDs

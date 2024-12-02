@@ -15,10 +15,13 @@ export function TopGainersAndLosers({ stockDetails, transactions }) {
     // Calculate gain/loss percentage
     const gainLoss = ((regularMarketPrice - transaction.purchasePrice) / transaction.purchasePrice) * 100;
 
+    const value = (regularMarketPrice - transaction.purchasePrice) * transaction.quantity;
+
     return {
       stockId: transaction.stockId,
       name: stockDetail.result.price.longName || stockDetail.result.price.shortName || transaction.stockId,
       gain: gainLoss,
+      value:value
     };
   }): [];
 
@@ -47,6 +50,8 @@ export function TopGainersAndLosers({ stockDetails, transactions }) {
               <div>
                 {item.gain >= 0 ? '+' : ''}
                 {item.gain.toFixed(2)}%
+
+                <span className='font-semibold'> (${item.value.toFixed(2)}) </span>
               </div>
             </div>
           ))}

@@ -23,14 +23,14 @@ export function StockAnalysisCardComponent({ stockDetails, transactions }) {
 
   useEffect(() => {
 
-    console.log(1111);
+    // console.log(1111);
     if (isOpen && isLoading) {
       const timer = setTimeout(() => {
         setIsLoading(false)
         setShowData(true)
       }, 5000)
 
-      console.log(2222)
+      // console.log(2222)
       const fetchFutureAnalysis = async () => {
         try {
           const allPredictions = await Promise.all(
@@ -46,7 +46,7 @@ export function StockAnalysisCardComponent({ stockDetails, transactions }) {
               // Because of `no-cors`, you won't be able to access the response directly if the API doesn't support CORS
               if (response.ok) {
                 const data = await response.json();  // You may not be able to access this data in `no-cors` mode
-                console.log(data);
+                // console.log(data);
                 return { stockId: stock.stockId, futurePrice: data.futurePrice };
               } else {
                 throw new Error(`Failed to fetch data for ${stock.stockId}`);
@@ -56,8 +56,8 @@ export function StockAnalysisCardComponent({ stockDetails, transactions }) {
               }
             })
           );
-          console.log(predictions);
-          console.log("bhai",allPredictions);
+          // console.log(predictions);
+          // console.log("bhai",allPredictions);
 
 
             setFutureAnalysis(allPredictions);
