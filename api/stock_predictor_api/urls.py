@@ -2,10 +2,12 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+# URL patterns for routing web requests
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", views.index, name='index'),
-    path('prediction/<slug:symbol>', views.prediction, name='prediction'),
-    path('clear_predictions/', views.clear_predictions, name='clear_predictions'),
-    path('get_weights/<str:tickers>', views.calculate_portfolio_weights, name='portfolio-weights'),
+    path("", views.index, name='index'),  # Homepage
+    path('update/', views.update, name='update'),  # Update predictions
+    path('prediction/<slug:symbol>', views.prediction, name='prediction'),  # Get prediction for specific stock
+    path('get_data/', views.get_data, name='get_data'),  # Fetch S&P 500 stock data
+    path('process_data/', views.process_data, name='process_data')  # Process downloaded data
 ]
